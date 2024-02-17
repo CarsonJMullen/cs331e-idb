@@ -164,6 +164,39 @@ activity_list = [
         "city": "New York"
     }
 ]
+city_list = [
+    {
+        'name': 'Berlin',
+        'id': '1',
+        'population': '3,769,495',
+        'location': 'Germany',
+        'pictures': [
+            'https://upload.wikimedia.org/wikipedia/commons/4/4b/Museumsinsel_Berlin_Juli_2021_1_%28cropped%29.jpg'
+        ],
+        'iataCode': 'BER'
+    },
+    {
+        'name': 'Paris',
+        'id': '2',
+        'population': '11,276,701',
+        'location': 'France',
+        'pictures': [
+            'https://upload.wikimedia.org/wikipedia/commons/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg'
+        ],
+        'iataCode': 'PAR'
+    },
+    {
+        'name': 'New York City',
+        'id': '3',
+        'population': '8,804,190',
+        'location': 'United States of America',
+        'pictures': [
+            'https://upload.wikimedia.org/wikipedia/commons/7/7a/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg'
+        ],
+        'iataCode': 'NYC'
+    }
+]
+
 
 @app.route('/')
 @app.route('/home/')
@@ -171,9 +204,16 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/cities/<int:city_id>')
+def city(city_id):
+    for i in city_list:
+        if i['id'] == str(city_id):
+            return render_template('city.html', city=i, activity_list=activity_list)
+    return render_template('cities.html', city_list=city_list)
+
 @app.route('/cities/')
 def cities():
-    return render_template('cities.html')
+    return render_template('cities.html', city_list=city_list)
 
 @app.route('/activities/<int:activity_id>')
 def activity(activity_id):

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <style>
+        #name{
+        	text-align: center
+        }
+        .info{
+            text-align: center
+        }
+        img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        table, th, td {
+            border:1px solid black;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+    </style>
+    <title>City</title>
+</head>
+<body>
+    {% extends 'navbar.html' %}
+    {% block content %}
+    <table>
+        <tr><td colspan="3"><h2 id="name">{{city.name}}</h2></td></tr>
+        <!-- Add slideshow/carousel later -->
+        <tr><td colspan="3"><img src="{{city.pictures[0]}}"></td></tr>
+        <tr>
+            <td><div class="attribute"><span>Population</span></div></td>
+            <td><div class="info"><span>{{city.population}}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Country</span></div></td>
+            <td><div class="info"><span>{{city.location}}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Activities</span></div></td>
+            <td><div class="info">
+                {% for i in activity_list %}
+                    {% if i.city == city.name %}
+                        <div><a href="{{url_for('activity', activity_id=i.id)}}">{{i.name}}</a><br></div>
+                    {% endif %}
+                {% endfor %}
+            </div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Hotels</span></div></td>
+            <td><div class="info">
+                {% for i in hotel_list %}
+                    {% if i.iataCode == city.iataCode %}
+                        <div><a href="{{url_for('hotel', hotel_id=i.id)}}">{{i.name}}</a><br></div>
+                    {% endif %}
+                {% endfor %}
+            </div></td>
+        </tr>
+    </table>
+    {% endblock %}
+
+</body>
+</html>
+

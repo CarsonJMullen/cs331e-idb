@@ -28,14 +28,29 @@
     {% extends 'navbar.html' %}
     {% block content %}
     <table>
-        <tr><td><h2 id="name">{{activity.name}}</h2></td></tr>
+        <tr><td colspan="3"><h2 id="name">{{activity.name}}</h2></td></tr>
         <!-- Add slideshow/carousel later -->
-        <tr><td><img src="{{activity.pictures[0]}}"></td></tr>
-        <tr><td><div class="info"><span>{{activity.description}}</span></div></td></tr>
-        <tr><td><div class="info"><span>{{activity.rating}}</span></div></td></tr>
-        <tr><td><div class="info"><span>{{activity.price.amount}}</span>&nbsp<span class="info">{{activity.price.currencyCode}}</span></div></td></tr>
-        <tr><td><div class="info"><a href="{{activity.bookingLink}}">Link</a></div></td></tr>
-        <tr><td><div class="info"><span>{{activity.city}}</span></div></td></tr>
+        <tr><td colspan="3"><img src="{{activity.pictures[0]}}"></td></tr>
+        <tr>
+            <td><div class="attribute"><span>Description</span></div></td>
+            <td><div class="info"><span>{{activity.description}}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Rating</span></div></td>
+            <td><div class="info"><span>{{activity.rating}}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Price</span></div></td>
+            <td><div class="info"><span>{{activity.price.amount}}</span>&nbsp<span class="info">{{activity.price.currencyCode}}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Booking Link</span></div></td>
+            <td><div class="info"><a href="{{activity.bookingLink}}">Link</a></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>City</span></div></td>
+            <td><div class="info"><span>{{activity.city}}</span></div></td>
+        </tr>
 
     </table>
     {% endblock %}
