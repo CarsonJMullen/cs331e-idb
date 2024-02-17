@@ -7,6 +7,11 @@
         .main{
             margin:2%
         }
+        table, th, td {
+            border:1px solid black;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
     </style>
     <title>Activities</title>
 </head>
@@ -15,11 +20,18 @@
     {% block content %}
     <div class="main">
     <h1>Activities</h1>
-        {% for i in activity_list %}
-        <div>
-            <a href="{{url_for('activity', activity_id=i.id)}}">{{i.name}}</a><br>
-        </div>
-        {% endfor %}
+        <table>
+            {% for i in activity_list %}
+            <tr>
+                <td><div>
+                    <a href="{{url_for('activity', activity_id=i.id)}}">{{i.name}}</a><br>
+                </div></td>
+                <td><div>
+                    <a href="{{url_for('city', iataCode=i.iataCode)}}">{{i.city}}</a><br>
+                </div></td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
     {% endblock %}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

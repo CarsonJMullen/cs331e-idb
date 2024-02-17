@@ -23,46 +23,49 @@ headers = {
 
 # Cities
 cities = [
-    {
-        'city': 'Bangalore',
-        'latitude': '12.9716',
-        'longitude': '77.5946'
-    },
-    {
-        'city': 'Barcelona',
-        'latitude': '41.3874',
-        'longitude': '2.1686'
-    },
+    # {
+    #     'city': 'Bangalore',
+    #     'latitude': '12.9716',
+    #     'longitude': '77.5946'
+    # },
+    # {
+    #     'city': 'Barcelona',
+    #     'latitude': '41.3874',
+    #     'longitude': '2.1686'
+    # },
     {
         'city': 'Berlin',
+        'iataCode': 'BER',
         'latitude': '52.5200',
         'longitude': '13.4050'
     },
-    {
-        'city': 'Dallas',
-        'latitude': '32.7767',
-        'longitude': '-96.7970'
-    },
-    {
-        'city': 'London',
-        'latitude': '51.5072',
-        'longitude': '-0.1276'
-    },
+    # {
+    #     'city': 'Dallas',
+    #     'latitude': '32.7767',
+    #     'longitude': '-96.7970'
+    # },
+    # {
+    #     'city': 'London',
+    #     'latitude': '51.5072',
+    #     'longitude': '-0.1276'
+    # },
     {
         'city': 'New York',
+        'iataCode': 'NYC',
         'latitude': '40.7306',
         'longitude': '-73.9352'
     },
     {
         'city': 'Paris',
+        'iataCode': 'PAR',
         'latitude': '48.8566',
         'longitude': '2.3522'
     },
-    {
-        'city': 'San Francisco',
-        'latitude': '37.7749',
-        'longitude': '-122.4194'
-    }
+    # {
+    #     'city': 'San Francisco',
+    #     'latitude': '37.7749',
+    #     'longitude': '-122.4194'
+    # }
 ]
 
 # Filter to remove activities with no price or review
@@ -92,6 +95,7 @@ for i in cities: #[0:1]:
 
     for j in data:
         j['city'] = i['city']
+        j['iataCode'] = i['iataCode']
         final['data'].append(j)
 
     print(i['city'], 'done')
