@@ -244,10 +244,6 @@ def hotels():
 
 @app.route('/about/')
 def about():
-    return render_template('about.html')
-
-@app.route('/about/')
-def about():
     repo_link = "https://gitlab.com/kkx2402GL/cs331e-idb"
 
     return render_template('about.html')
