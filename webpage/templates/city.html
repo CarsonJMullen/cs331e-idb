@@ -54,7 +54,7 @@
             <td><div class="info">
                 {% for i in hotel_list %}
                     {% if i.iataCode == city.iataCode %}
-                        <div><a href="{{url_for('hotel', hotel_id=i.id)}}">{{i.name}}</a><br></div>
+                        <div><a href="{{url_for('this_hotel', hotel_id=i.id)}}">{{i.name}}</a><br></div>
                     {% endif %}
                 {% endfor %}
             </div></td>

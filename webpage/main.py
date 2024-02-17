@@ -80,7 +80,6 @@ hotel_list = [
     "lastUpdate": "2023-06-15T09:55:00"
 }
 ]
-
 activity_list = [
 {
     "type": "activity",
@@ -208,7 +207,7 @@ def index():
 def city(city_id):
     for i in city_list:
         if i['id'] == str(city_id):
-            return render_template('city.html', city=i, activity_list=activity_list)
+            return render_template('city.html', city=i, activity_list=activity_list, hotel_list=hotel_list)
     return render_template('cities.html', city_list=city_list)
 
 @app.route('/cities/')
