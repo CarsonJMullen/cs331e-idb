@@ -77,7 +77,7 @@ def filterMissing(n):
         return False
 
 final = {'data': []}
-for i in cities:
+for i in cities: #[0:1]:
     # Parameters to be included in the request
     params = {
         'latitude': i['latitude'],  # Latitude for New York City
@@ -88,7 +88,7 @@ for i in cities:
     response = requests.get(url, headers=headers, params=params)
     data = response.json()['data']
 
-    # data = filter(filterMissing, data)
+    data = filter(filterMissing, data)
 
     for j in data:
         j['city'] = i['city']
@@ -97,7 +97,7 @@ for i in cities:
     print(i['city'], 'done')
 
 
-file_path = 'data/activities_multiple_cities.json'
+file_path = '/data/activities_multiple_cities.json'
 
 # Write the JSON data to the file
 with open(file_path, 'w') as file:
