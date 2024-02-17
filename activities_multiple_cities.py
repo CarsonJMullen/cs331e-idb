@@ -97,7 +97,7 @@ for i in cities: #[0:1]:
     print(i['city'], 'done')
 
 
-file_path = '/data/activities_multiple_cities.json'
+file_path = 'data/activities_multiple_cities.json'
 
 # Write the JSON data to the file
 with open(file_path, 'w') as file:
