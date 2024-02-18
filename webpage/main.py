@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 import json
 import os
 from datetime import datetime
+from user_info import get_gitlab_info, user_all_info, group_gitlab_info
 
 app = Flask(__name__)
 
@@ -296,7 +297,9 @@ def hotels():
 
 @app.route('/about/')
 def about():
-    repo_link = "https://gitlab.com/kkx2402GL/cs331e-idb"
+    all_stats = get_gitlab_info()
+    member_stats = user_all_info(all_stats)
+    group_stats = group_gitlab_info(all_stats)
 
     return render_template('about.html', group_stats=group_stats, member_stats=member_stats)
 
