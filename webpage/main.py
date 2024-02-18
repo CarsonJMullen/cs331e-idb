@@ -294,8 +294,22 @@ def hotels():
 @app.route('/about/')
 def about():
     repo_link = "https://gitlab.com/kkx2402GL/cs331e-idb"
-
-    return render_template('about.html')
+    group_stats = {
+        "commits": 18,
+        "issues": 0,
+        "unittests": 0
+    }
+    member_stats = {
+        "anjie": {
+            "name": "Anjie Liu",
+            "bio": "Statistics and Data Science student",
+            "major_responsibilities": "about page",
+            "commits": 5,
+            "issues": 1,
+            "unittests": 0
+        }
+    }
+    return render_template('about.html', group_stats=group_stats, member_stats=member_stats)
 
 
 if __name__ == '__main__':
