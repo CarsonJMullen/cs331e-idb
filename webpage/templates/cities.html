@@ -17,7 +17,7 @@
     <h1>Cities</h1>
         {% for i in city_list %}
         <div>
-            <a href="{{url_for('city', city_id=i.id)}}">{{i.name}}</a><br>
+            <a href="{{url_for('city', city_id=i.iataCode)}}">{{i.name}}</a><br>
         </div>
         {% endfor %}
     </div>

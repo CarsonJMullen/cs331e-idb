@@ -108,7 +108,8 @@ activity_list = [
     ],
     "bookingLink": "http://www.partner.viator.com/en/13257/tours/Berlin/Potsdam-Day-Bike-Tour/d488-3933BIKEPOTS?eap=prod-qahHG7va6hJGURBQV5vH-13257&aid=vba13257en",
     "minimumDuration": "6 hours",
-    "city": "Berlin"
+    "city": "Berlin",
+    "iataCode": "BER"
 },
     {
         "type": "activity",
@@ -135,7 +136,8 @@ activity_list = [
         ],
         "bookingLink": "http://www.partner.viator.com/en/13257/tours/Paris/Bastille-day-dinner-cruise/d479-23561P13?eap=prod-sRa7AtLuF4UkLYO6mKPY-13257&aid=vba13257en",
         "minimumDuration": "2 hours",
-        "city": "Paris"
+        "city": "Paris",
+        "iataCode": "PAR"
     },
     {
         "type": "activity",
@@ -162,7 +164,8 @@ activity_list = [
         ],
         "bookingLink": "http://www.partner.viator.com/en/13257/tours/New-York-City/Rockstarcrawls-NYC-Bar-Crawl/d687-5511P8?eap=prod-W8SNN6s2Yp6jQIueqwfW-13257&aid=vba13257en",
         "minimumDuration": "5 hours",
-        "city": "New York"
+        "city": "New York",
+        "iataCode": "NYC"
     }
 ]
 city_list = [
@@ -238,10 +241,10 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/cities/<int:city_id>')
-def city(city_id):
+@app.route('/cities/<string:iataCode>')
+def city(iataCode):
     for i in city_list:
-        if i['id'] == str(city_id):
+        if i['iataCode'] == str(iataCode):
             return render_template('city.html', city=i, activity_list=activity_list, hotel_list=hotel_list)
     return render_template('cities.html', city_list=city_list)
 
@@ -294,21 +297,7 @@ def hotels():
 @app.route('/about/')
 def about():
     repo_link = "https://gitlab.com/kkx2402GL/cs331e-idb"
-    group_stats = {
-        "commits": 18,
-        "issues": 0,
-        "unittests": 0
-    }
-    member_stats = {
-        "anjie": {
-            "name": "Anjie Liu",
-            "bio": "Statistics and Data Science student",
-            "major_responsibilities": "about page",
-            "commits": 5,
-            "issues": 1,
-            "unittests": 0
-        }
-    }
+
     return render_template('about.html', group_stats=group_stats, member_stats=member_stats)
 
 
