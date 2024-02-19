@@ -7,6 +7,9 @@
         .main{
             margin:2%
         }
+        .card-img-top{
+            height:250px
+        }
     </style>
     <title>Cities</title>
 </head>
@@ -15,11 +18,22 @@
     {% block content %}
     <div class="main">
     <h1>Cities</h1>
+        <div class="row">
         {% for i in city_list %}
-        <div>
-            <a href="{{url_for('city', city_id=i.iataCode)}}">{{i.name}}</a><br>
+        <div class="col-sm-4">
+        <div class="card">
+          <img class="card-img-top" src="{{i.pictures[0]}}" alt="Picture of {{i.name}}" style="object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title"><a href="{{url_for('city', iataCode=i.iataCode)}}">{{i.name}}</a></h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{i.population}}</li>
+            <li class="list-group-item">{{i.location}}</li>
+          </ul>
+        </div>
         </div>
         {% endfor %}
+        </div>
     </div>
     {% endblock %}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
