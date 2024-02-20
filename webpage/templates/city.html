@@ -28,7 +28,7 @@
     <div class="col-sm-10 col-md-6">
     <table class="table table-bordered table-sm">
         <tr><td colspan="3"><h2 id="name">{{city.name}}</h2></td></tr>
-        <!-- Add slideshow/carousel later -->
+        <!-- TODO: Add slideshow/carousel later -->
         <tr><td colspan="3"><img src="{{city.pictures[0]}}"></td></tr>
         <tr>
             <td><div class="attribute"><span>Population</span></div></td>
@@ -53,7 +53,7 @@
             <td><div class="info">
                 {% for i in hotel_list %}
                     {% if i.iataCode == city.iataCode %}
-                        <div><a href="{{url_for('this_hotel', hotel_id=i.id)}}">{{i.name}}</a><br></div>
+                        <div><a href="{{url_for('this_hotel', hotel_id=i.hotelId)}}">{{i.name}}</a><br></div>
                     {% endif %}
                 {% endfor %}
             </div></td>

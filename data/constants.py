@@ -24,8 +24,8 @@ member_info = {
         'unittests': 0
     },
     'Kenny Tian': {
-        'image': "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg",
-        'bio': 'short bio to be added',
+        'image': "../static/images/KennyImage.jpg",
+        'bio': 'I am a senior biomedical engineering student at The University of Texas at Austin focusing on computiational biomedical engineering.',
         'responsibilities': 'tbd',
         'unittests': 0
     },
