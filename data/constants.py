@@ -13,7 +13,7 @@ names = {
 member_info = {
     'Anjie Liu': {
         'image': "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg",
-        'bio': 'I am a sophomore studying Statistics and Data Science at the University of Texas at Austin. I enjoy reading and exploring different things.',
+        'bio': 'I am a sophomore Statistics and Data Science student at the University of Texas at Austin. I enjoy reading and exploring different things.',
         'responsibilities': 'tbd',
         'unittests': 0 # unittets will be updated manually
     },

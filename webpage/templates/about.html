@@ -12,10 +12,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-5"> <!-- col-lg-*: spanning width -->
                 <div class="card border-0"> <!-- border-0: remove the border -->
-                    <div class="card-body text-center"> <!-- text-center: center align the content -->
+                    <div class="card-body text-center">
                         <h2 class="card-title">GROUP NAME</h2>
-                    </div>
-                    <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item">Total Commits: {{ group_stats.commits }}</li>
                             <li class="list-group-item">Total Issues: {{ group_stats.issues }}</li>
@@ -51,6 +49,44 @@
                 </div>
             </div>
             {% endfor %}
+        </div>
+    </div>
+    <!-- DATA SOURCES -->
+    <div class="container">
+        <div class="card-body text-center"> <!-- text-center: center align the content -->
+                <h2 class="card-title">Data Sources</h2>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center">
+            {% for name in member_stats %}
+            <div class="col"> <!-- Each card takes half of the row width on medium screens and above -->
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">data source name</h5>
+                        <p class="card-text">description of how each was scraped</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="https://gitlab.com/kkx2402GL/cs331e-idb/-/wikis/technical_report" class="card-link">links to the data sources</a></li>
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- TOOLS -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5"> <!-- col-lg-*: spanning width -->
+                <div class="card border-0"> <!-- border-0: remove the border -->
+                    <div class="card-body text-center">
+                        <h2 class="card-title">Tools</h2>
+                        <ul class="list-group">
+                            <li class="list-group-item">Total Commits: {{ group_stats.commits }}</li>
+                            <li class="list-group-item">Total Issues: {{ group_stats.issues }}</li>
+                            <li class="list-group-item">Total Unittests: 0</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     {% endblock %}
