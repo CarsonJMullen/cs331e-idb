@@ -56,16 +56,15 @@
                 <h2 class="card-title">Data Sources</h2>
         </div>
         <div class="row justify-content-center">
-            {% for name in member_stats %}
+            {% for name in data_source %}
             <div class="col-md-6 col-lg-3 mb-4"> <!-- Each card takes half of the row width on medium screens and above -->
-                <div class="card">
+                <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">data source name</h5>
-                        <p class="card-text">description of how each was scraped</p>
+                        <h5 class="card-title"><a href={{data_source[name].link}} class="card-link">{{name}}</a></h5>
+                        {% if data_source[name].description %}
+                            <p class="card-text">{{data_source[name].description}}</p>
+                        {% endif %}
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="https://gitlab.com/kkx2402GL/cs331e-idb/-/wikis/technical_report" class="card-link">links to the data sources</a></li>
-                    </ul>
                 </div>
             </div>
             {% endfor %}
