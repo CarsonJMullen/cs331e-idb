@@ -19,12 +19,12 @@
                             <li class="list-group-item">Total Commits: {{ group_stats.commits }}</li>
                             <li class="list-group-item">Total Issues: {{ group_stats.issues }}</li>
                             <li class="list-group-item">Total Unittests: 0</li>
+                            <li class="list-group-item"><a href="https://www.postman.com" class="card-link">POSTMAN API LINK (Phase II)</a></li>
+                            <li class="list-group-item"><a href="https://gitlab.com/kkx2402GL/cs331e-idb/-/issues" class="card-link">GitLab Issue Tracker</a></li>
+                            <li class="list-group-item"><a href="https://gitlab.com/kkx2402GL/cs331e-idb" class="card-link">GitLab Repository</a></li>
+                            <li class="list-group-item"><a href="https://gitlab.com/kkx2402GL/cs331e-idb/-/wikis/technical_report" class="card-link">Gitlab Wiki</a></li>
                         </ul>
-                        <a href="https://www.postman.com" class="card-link">POSTMAN API LINK (do we need one?)</a>
-                        <a href="https://gitlab.com/kkx2402GL/cs331e-idb/-/issues" class="card-link">GitLab Issue Tracker</a>
-                        <a href="https://gitlab.com/kkx2402GL/cs331e-idb" class="card-link">GitLab Repository</a>
-                        <a href="https://gitlab.com/kkx2402GL/cs331e-idb/-/wikis/technical_report" class="card-link">Gitlab Wiki</a>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
             {% for name in member_stats %}
             <div class="col-md-6 col-lg-3 mb-4">
                 <div class="card h-100">
-                    <img class="card-img-top" src="{{ member_stats[name].image }}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ member_stats[name].image }}" alt="Card image cap" style="height: 400px; object-fit: cover;">
                     <div class="card-body">
                         <h5 class="card-title">{{ name }}</h5>
                         <p class="card-text">{{ member_stats[name].bio }}</p>
@@ -55,9 +55,9 @@
         <div class="card-body text-center"> <!-- text-center: center align the content -->
                 <h2 class="card-title">Data Sources</h2>
         </div>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center">
+        <div class="row justify-content-center">
             {% for name in member_stats %}
-            <div class="col"> <!-- Each card takes half of the row width on medium screens and above -->
+            <div class="col-md-6 col-lg-3 mb-4"> <!-- Each card takes half of the row width on medium screens and above -->
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">data source name</h5>
@@ -71,17 +71,22 @@
             {% endfor %}
         </div>
         <!-- TOOLS -->
+        <div class="card-body text-center"> <!-- text-center: center align the content -->
+                <h2 class="card-title">Tools</h2>
+        </div>
         <div class="row justify-content-center">
-            <div class="col-lg-5"> <!-- col-lg-*: spanning width -->
-                <div class="card border-0"> <!-- border-0: remove the border -->
+            {% for tool in tools %}
+            <div class="col">
+                <div class="card border-0" style="background-color: transparent;">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img class="card-img-top" src="{{ tools[tool].image }}" alt="Card image cap" style="object-fit: cover; width: 20%;">
+                    </div>
                     <div class="card-body text-center">
-                        <h2 class="card-title">Tools</h2>
-                        <ul class="list-group">
-                            <li class="list-group-item"><a href="https://getbootstrap.com" class="card-link">Bootstrap</a></li>
-                        </ul>
+                        <h5 class="card-title"><a href={{tools[tool].link}} class="card-link">{{tool}}</a></h5>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
     {% endblock %}
