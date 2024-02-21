@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <style>
+        #name{
+        	text-align: center
+        }
+        .info{
+            text-align: center
+        }
+        img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>Single Flight</title>
+</head>
+<body>
+    {% extends 'navbar.html' %}
+    {% block content %}
+    <br>
+    <div class="row">
+    <div class="col-sm-1 col-md-3"></div>
+    <div class="col-sm-10 col-md-6">
+    <table class="table table-bordered table-sm">
+
+        <tr><td colspan="3"><h2 id="name">Flight Information</h2></td></tr>
+        <tr>
+            <td><div class="attribute"><span>Departure Airport: </span></div></td>
+
+            <td><div class="info"><span>{{ flight['itineraries'][0]['segments'][0]['departure']['iataCode'] }}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Arrival Airport: </span></div></td>
+            <td><div class="info"><span>{{ flight['itineraries'][0]['segments'][-1]['arrival']['iataCode'] }}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Arrival City: </span></div></td>
+            <td><div class="info"><a href="{{ url_for('city', iataCode=airport_to_city(flight['itineraries'][0]['segments'][-1]['arrival']['iataCode'])['cityCode']) }}">{{ airport_to_city(flight['itineraries'][0]['segments'][-1]['arrival']['iataCode'])['cityCode'] }}</a></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Price: </span></div></td>
+            <td><div class="info"><span>${{flight.price.total}}</span></div></td>
+        </tr>
+        
+        <tr>
+            <td><div class="attribute"><span>Amenities:</span></div></td>
+            <td><div class="info">
+                <ol>
+                {% for i in flight['travelerPricings'][0]['fareDetailsBySegment'][0]['amenities'] %}
+                    <li>{{i.description}}</li>
+                {% endfor %}
+
+                {% if flight['travelerPricings'][0]['fareDetailsBySegment'][0]['amenities'] == [] %}
+                    <li>No Amenities</li>
+                {% endif %}
+                </ol> 
+            </div></td>
+        </tr>
+        
+        <tr>
+            <td><div class="attribute"><span>Find Things to do / Activities:</span></div></td>
+            <td>
+                {% for i in activity_list %}
+                    {% if i.iataCode == airport_to_city(flight['itineraries'][0]['segments'][-1]['arrival']['iataCode'])['cityCode'] %}
+                        <div class="info"><a href="{{url_for('activities')}}">{{i.city}}</a></div>
+                    {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+
+    </table>
+    </div>
+    </div>
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
