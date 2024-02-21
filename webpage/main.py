@@ -3,6 +3,7 @@ import json
 import os
 from datetime import datetime
 from user_info import get_gitlab_info, user_all_info, group_gitlab_info
+from static.constants import data_source, tools
 
 app = Flask(__name__)
 
@@ -301,7 +302,7 @@ def about():
     member_stats = user_all_info(all_stats)
     group_stats = group_gitlab_info(all_stats)
 
-    return render_template('about.html', group_stats=group_stats, member_stats=member_stats)
+    return render_template('about.html', group_stats=group_stats, member_stats=member_stats, data_source=data_source, tools=tools)
 
 
 if __name__ == '__main__':
