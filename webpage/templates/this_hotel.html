@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Hotels</title>
+    <style>
+        #name{
+        	text-align: center
+        }
+        .info{
+            text-align: center
+        }
+    </style>
+    <title>This_Hotel</title>
 </head>
 <body>
     {% extends 'navbar.html' %}
@@ -14,22 +21,45 @@
     <div class="col-sm-1 col-md-3"></div>
     <div class="col-sm-10 col-md-6">
     <table class="table table-bordered table-sm">
+
         <tr><td colspan="3"><h2 id="name">{{hotel.name}}</h2></td></tr>
         <tr>
-            <td><div class="attribute"><span>Location</span></div></td>
-            <td><div class="info"><span>{{hotel.geoCode}}</span></div></td>
+            <td><div class="attribute"><span>Latitude: </span></div></td>
+
+            <td><div class="info"><span>{{hotel.geoCode['latitude']}}</span></div></td>
         </tr>
         <tr>
-            <td><div class="attribute"><span>Rating</span></div></td>
-            <td><div class="info"><span>{{hotel.rating}}</span></div></td>
+            <td><div class="attribute"><span>Longitude: </span></div></td>
+            <td><div class="info"><span>{{hotel.geoCode['longitude']}}</span></div></td>
         </tr>
         <tr>
-            <td><div class="attribute"><span>Amenities</span></div></td>
-            <td><div class="info"><span>{{hotel.amenities}}</span></div></td>
+            <td><div class="attribute"><span>Hotel Rating: </span></div></td>
+            <td><div class="info"><span>{{hotel.rating}} / 5</span></div></td>
         </tr>
         <tr>
-            <td><div class="attribute"><span>City</span></div></td>
+            <td><div class="attribute"><span>Hotel Available Amenities:</span></div></td>
+            <td><div class="info">
+                <ol>
+                {% for i in hotel.amenities %}
+                    <li>{{i}}</li>
+                {% endfor %}
+                </ol> 
+            </div></td>
+        </tr>
+        
+        <tr>
+            <td><div class="attribute"><span>City: </span></div></td>
             <td><div class="info"><a href="{{url_for('city', iataCode=hotel.iataCode)}}">{{hotel.iataCode}}</a></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Find Things to do / Activities:</span></div></td>
+            <td>
+                {% for i in activity_list %}
+                    {% if i.iataCode == hotel.iataCode %}
+                        <div class="info"><a href="{{url_for('activities')}}">{{i.city}}</a></div>
+                    {% endif %}
+                {% endfor %}
+            </td>
         </tr>
 
     </table>
