@@ -30,8 +30,8 @@ member_info = {
         'unittests': 0
     },
     'Kibam Kang': {
-        'image': "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg",
-        'bio': 'short bio to be added',
+        'image': "../static/images/KibamImage.jpeg",
+        'bio': 'I am senior student at The University of Texas at Austin. I am a Mathmatician.',
         'responsibilities': 'tbd',
         'unittests': 0
     }
