@@ -282,8 +282,7 @@ def flights():
     # Zipping all the lists together
     table_data = zip(departure_iata, arrival_iata, prices, seats, durations, segments_count, departure_time,  arrival_time, airlines)
 
-    return render_template('flights.html', table_data = table_data)
-
+    return render_template('flights.html', flights = ny_flights['data'], convert_duration = convert_duration, convert_airline = convert_airline)
 
 @app.route('/hotels/<string:hotel_id>')
 def this_hotel(hotel_id):
