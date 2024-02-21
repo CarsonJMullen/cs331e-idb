@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>About</title>
 </head>
 <body>
     {% extends 'navbar.html' %}
     {% block content %}
     <div class="container">
+        <!-- GROUP INFO -->
         <div class="row justify-content-center">
             <div class="col-lg-5"> <!-- col-lg-*: spanning width -->
                 <div class="card border-0"> <!-- border-0: remove the border -->
@@ -28,13 +29,13 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- TODO: make the card centered on the screen when the screen is small -->
-    <div class="container">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center">
+
+        <!-- TODO: make the card centered on the screen when the screen is small -->
+        <!-- MEMBER INFO -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-10 justify-content-center">
             {% for name in member_stats %}
             <div class="col"> <!-- Each card takes half of the row width on medium screens and above -->
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <img class="card-img-top" src="{{ member_stats[name].image }}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{ name }}</h5>
@@ -50,16 +51,15 @@
             </div>
             {% endfor %}
         </div>
-    </div>
-    <!-- DATA SOURCES -->
-    <div class="container">
+
+        <!-- DATA SOURCES -->
         <div class="card-body text-center"> <!-- text-center: center align the content -->
                 <h2 class="card-title">Data Sources</h2>
         </div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center">
             {% for name in member_stats %}
             <div class="col"> <!-- Each card takes half of the row width on medium screens and above -->
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">data source name</h5>
                         <p class="card-text">description of how each was scraped</p>
@@ -71,9 +71,7 @@
             </div>
             {% endfor %}
         </div>
-    </div>
-    <!-- TOOLS -->
-    <div class="container">
+        <!-- TOOLS -->
         <div class="row justify-content-center">
             <div class="col-lg-5"> <!-- col-lg-*: spanning width -->
                 <div class="card border-0"> <!-- border-0: remove the border -->
