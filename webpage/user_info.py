@@ -1,8 +1,7 @@
 import gitlab
 import sys
 sys.path.insert(0, '..')
-from data.constants import names, url, private_token, project_name, member_info
-
+from webpage.static.constants import names, url, private_token, project_name, member_info
 
 def get_gitlab_info():
     if not url or not private_token or not project_name:

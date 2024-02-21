@@ -20,7 +20,6 @@
                             <li class="list-group-item">Total Issues: {{ group_stats.issues }}</li>
                             <li class="list-group-item">Total Unittests: 0</li>
                         </ul>
-
                         <a href="https://www.postman.com" class="card-link">POSTMAN API LINK (do we need one?)</a>
                         <a href="https://gitlab.com/kkx2402GL/cs331e-idb/-/issues" class="card-link">GitLab Issue Tracker</a>
                         <a href="https://gitlab.com/kkx2402GL/cs331e-idb" class="card-link">GitLab Repository</a>
@@ -32,10 +31,10 @@
 
         <!-- TODO: make the card centered on the screen when the screen is small -->
         <!-- MEMBER INFO -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-10 justify-content-center">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center">
             {% for name in member_stats %}
             <div class="col"> <!-- Each card takes half of the row width on medium screens and above -->
-                <div class="card">
+                <div class="card h-100">
                     <img class="card-img-top" src="{{ member_stats[name].image }}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{ name }}</h5>
