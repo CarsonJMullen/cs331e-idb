@@ -18,8 +18,8 @@ member_info = {
         'unittests': 0 # unittets will be updated manually
     },
     'Carson Mullen': {
-        'image': "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg",
-        'bio': 'short bio to be added',
+        'image': "../static/images/CarsonImage.jpg",
+        'bio': 'I am a third-year Business Analytics student at UT and am pursuing a career in Data Science.',
         'responsibilities': 'tbd',
         'unittests': 0
     },
