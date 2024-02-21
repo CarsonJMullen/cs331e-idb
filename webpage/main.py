@@ -269,19 +269,6 @@ def activities():
 
 @app.route('/flights/')
 def flights():
-    prices = [flight['price']['total'] for flight in ny_flights['data']]
-    seats = [flight['numberOfBookableSeats'] for flight in ny_flights['data']]
-    durations = [convert_duration(flight['itineraries'][0]['duration']) for flight in ny_flights['data']]
-    segments_count = [len(flight['itineraries'][0]['segments']) for flight in ny_flights['data']]
-    departure_iata = [flight['itineraries'][0]['segments'][0]['departure']['iataCode'] for flight in ny_flights['data']]
-    departure_time = [datetime.fromisoformat(flight['itineraries'][0]['segments'][0]['arrival']['at']).strftime("%I:%M %p") for flight in ny_flights['data']]
-    arrival_iata = [flight['itineraries'][0]['segments'][-1]['arrival']['iataCode'] for flight in ny_flights['data']]
-    arrival_time = [datetime.fromisoformat(flight['itineraries'][0]['segments'][-1]['arrival']['at']).strftime("%I:%M %p %m-%d-%Y") for flight in ny_flights['data']]
-    airlines = [convert_airline(flight['itineraries'][0]['segments'][0]['carrierCode']) for flight in ny_flights['data']]
-
-    # Zipping all the lists together
-    table_data = zip(departure_iata, arrival_iata, prices, seats, durations, segments_count, departure_time,  arrival_time, airlines)
-
     return render_template('flights.html', flights = ny_flights['data'], convert_duration = convert_duration, convert_airline = convert_airline)
 
 @app.route('/hotels/<string:hotel_id>')
