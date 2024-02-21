@@ -288,7 +288,7 @@ def flights():
 def this_hotel(hotel_id):
     for i in hotel_list:
         if i['hotelId'] == hotel_id:
-            return render_template('this_hotel.html', hotel=i)
+            return render_template('this_hotel.html', hotel=i, activity_list=activity_list)
     return render_template('hotels.html', hotel_list=hotel_list)
 
 @app.route('/hotels/')
