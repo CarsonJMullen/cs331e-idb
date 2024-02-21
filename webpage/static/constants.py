@@ -39,7 +39,14 @@ member_info = {
 
 # TODO: update data sources
 data_source = {
-
+    "Amadeus": {
+        'link': 'https://developers.amadeus.com',
+        'description': 'description of how each was scraped'
+    },
+    "Postman Collection (Phase II)":{
+        'link': 'https://developers.amadeus.com',
+        'description': None
+    }
 }
 
 tools = {
