@@ -9,7 +9,32 @@
 <body>
     {% extends 'navbar.html' %}
     {% block content %}
-        <h1 id="name">{{hotel.name}}</h1>
+    <br>
+    <div class="row">
+    <div class="col-sm-1 col-md-3"></div>
+    <div class="col-sm-10 col-md-6">
+    <table class="table table-bordered table-sm">
+        <tr><td colspan="3"><h2 id="name">{{hotel.name}}</h2></td></tr>
+        <tr>
+            <td><div class="attribute"><span>Location</span></div></td>
+            <td><div class="info"><span>{{hotel.geoCode}}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Rating</span></div></td>
+            <td><div class="info"><span>{{hotel.rating}}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Amenities</span></div></td>
+            <td><div class="info"><span>{{hotel.amenities}}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>City</span></div></td>
+            <td><div class="info"><a href="{{url_for('city', iataCode=hotel.iataCode)}}">{{hotel.iataCode}}</a></div></td>
+        </tr>
+
+    </table>
+    </div>
+    </div>
     {% endblock %}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
