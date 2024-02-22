@@ -203,12 +203,17 @@ city_list = [
     }
 ]
 
-
-json_file_path = os.path.join(app.static_folder, 'data', 'flights', 'AUS-NYC-24-02-17.json')
-with open(json_file_path) as f:
+with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-NYC-24-02-17.json')) as f:
     ny_flights = json.load(f)
 
-flights_list = ny_flights 
+with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-BER-24-02-17.json')) as f:
+    ber_flights = json.load(f)
+
+with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-PAR-24-02-17.json')) as f:
+    par_flights = json.load(f)
+
+locations_list = [ny_flights, ber_flights, par_flights]
+flights_list = locations_list[0]
 
 def convert_airline(s):
     d = flights_list['dictionaries']['carriers']
@@ -279,7 +284,7 @@ def activities():
 def single_flight(flight_id):
     for f in flights_list['data']:
         if f['id'] == str(flight_id):
-            return render_template('single_flight.html', flight=f, convert_duration = convert_duration, convert_airline = convert_airline, airport_to_city=airport_to_city)
+            return render_template('single_flight.html', flight=f, convert_duration = convert_duration, convert_airline = convert_airline, airport_to_city=airport_to_city, activity_list = activity_list, hotel_list = hotel_list)
     return render_template('flights.html', flights = flights_list['data'], convert_duration = convert_duration, convert_airline = convert_airline, airport_to_city=airport_to_city)
 
 @app.route('/flights/')

@@ -52,13 +52,14 @@
             <td><div class="attribute"><span>Amenities:</span></div></td>
             <td><div class="info">
                 <ol>
-                {% for i in flight['travelerPricings'][0]['fareDetailsBySegment'][0]['amenities'] %}
-                    <li>{{i.description}}</li>
-                {% endfor %}
-
-                {% if flight['travelerPricings'][0]['fareDetailsBySegment'][0]['amenities'] == [] %}
-                    <li>No Amenities</li>
-                {% endif %}
+                    {% if 'amenities' in flight['travelerPricings'][0]['fareDetailsBySegment'][0] %}
+                        {% for i in flight['travelerPricings'][0]['fareDetailsBySegment'][0]['amenities'] %}
+                            <li>{{i.description}}</li>
+                        {% endfor %}
+                    {% else %}
+                        <span>No Amenities</span>
+                    {% endif %}
+                
                 </ol> 
             </div></td>
         </tr>
@@ -68,7 +69,18 @@
             <td>
                 {% for i in activity_list %}
                     {% if i.iataCode == airport_to_city(flight['itineraries'][0]['segments'][-1]['arrival']['iataCode'])['cityCode'] %}
-                        <div class="info"><a href="{{url_for('activities')}}">{{i.city}}</a></div>
+                        <div class="info"><a href="{{url_for('activities')}}">Activities</a></div>
+                    {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+
+        <tr>
+            <td><div class="attribute"><span>Find Somewhere to Stay:</span></div></td>
+            <td>
+                {% for i in hotel_list %}
+                    {% if i.iataCode == airport_to_city(flight['itineraries'][0]['segments'][-1]['arrival']['iataCode'])['cityCode'] %}
+                        <div class="info"><a href="{{url_for('hotels')}}">Hotels</a></div>
                     {% endif %}
                 {% endfor %}
             </td>

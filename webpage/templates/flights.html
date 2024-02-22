@@ -44,8 +44,6 @@
                         <a href="{{ url_for('city', iataCode=airport_to_city(f['itineraries'][0]['segments'][-1]['arrival']['iataCode'])['cityCode']) }}">
                             {{ airport_to_city(f['itineraries'][0]['segments'][-1]['arrival']['iataCode'])['cityCode'] }}
                         </a><br>
-                        
-                    </div></td>
                     <td><div>
                         <span>${{f.price.total}}</span>
                     </div></td>
