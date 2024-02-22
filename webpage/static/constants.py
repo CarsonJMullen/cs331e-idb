@@ -39,9 +39,9 @@ member_info = {
 
 # TODO: update data sources
 data_source = {
-    "Amadeus Flight Offers Search": {
-        'link': 'https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search',
-        'description': 'We utilized the Amadeus Flight Offers Search API to gather flight data from AUS to 3 popular tourist sites (Berlin, Paris, and NYC) on 2/17. As we add interactiveness to the project, we will show all flights between AUS and the selected cities for the current day.'
+    "Amadeus": {
+        'link': 'https://developers.amadeus.com',
+        'description': 'description of how each was scraped'
     },
     "Postman Collection (Phase II)":{
         'link': 'https://developers.amadeus.com',
