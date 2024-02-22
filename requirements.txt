@@ -1,2 +1,2 @@
-python-gitlab=4.4.0
-flask=3.0.2
+python-gitlab==4.4.0
+flask==3.0.2
