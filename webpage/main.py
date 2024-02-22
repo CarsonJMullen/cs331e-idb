@@ -282,9 +282,11 @@ def activities():
 
 @app.route('/flights/<string:flight_id>')
 def single_flight(flight_id):
+
     for f in flights_list['data']:
         if f['id'] == str(flight_id):
-            return render_template('single_flight.html', flight=f, convert_duration = convert_duration, convert_airline = convert_airline, airport_to_city=airport_to_city, activity_list = activity_list, hotel_list = hotel_list)
+            itineraries = f['itineraries']
+            return render_template('single_flight.html', flight=f, convert_duration = convert_duration, convert_airline = convert_airline, airport_to_city=airport_to_city, activity_list = activity_list, hotel_list = hotel_list, itineraries=itineraries)
     return render_template('flights.html', flights = flights_list['data'], convert_duration = convert_duration, convert_airline = convert_airline, airport_to_city=airport_to_city)
 
 @app.route('/flights/')

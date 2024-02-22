@@ -87,6 +87,69 @@
         </tr>
 
     </table>
+
+    <br>
+
+    <h3>Schedule</h3>
+    <br>
+
+    <table id="flights" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+              <th scope="col">Flight Number</th>
+              <th scope="col">Departure Airport</th>
+              <th scope="col">Departure Time</th>
+              <th scope="col">Arrival Airport</th>
+              <th scope="col">Arrival Time</th>
+              <th scope="col">Arrival Terminal</th>
+              <th scope="col">Flight Duration</th>
+              <th scope="col">Airline</th>
+            
+            </tr>
+        </thead>
+        {% for i in itineraries %}
+
+            {% for leg in i.segments %}
+            <tr>
+
+                <td><div>
+                    <span>{{leg.number}}</span>
+                </div></td>
+
+                <td><div>
+                    <span>{{leg.departure.iataCode}}</span>
+                </div></td>
+
+                <td><div>
+                    <span>{{leg.departure.at}}</span>
+                </div></td>
+
+                <td><div>
+                    <span>{{leg.arrival.iataCode}}</span>
+                </div></td>
+
+                <td><div>
+                    <span>{{leg.arrival.at}}</span>
+                </div></td>
+
+                <td><div>
+                    <span>{{leg.arrival.terminal}}</span>
+                </div></td>
+
+                <td><div>
+                    <span>{{convert_duration(leg.duration)}}</span>
+                </div></td>
+
+                <td><div>
+                    <span>{{convert_airline(leg.carrierCode)}}</span>
+                </div></td>
+                
+            </tr>
+            {% endfor %}
+        {% endfor %}
+        </table>
+
+
     </div>
     </div>
     {% endblock %}
