@@ -42,15 +42,12 @@ data_source = {
     "Amadeus Hotel List API": {
         'link': 'https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-list',
         'description': 'We utilized the Amadeus Hotel List API to gather all hotel data from Berlin, Paris, and NYC.'
-    }, "Amadeus Tours and Activities API": {
+    },
+    "Amadeus Tours and Activities API": {
         'link': 'https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities',
         'description': 'We utilized the Amadeus Tours-and-Activities API to gather all activity data from Berlin, Paris, and NYC.'
     },
-    "API 2": {
-        'link': 'https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search',
-        'description': 'We utilized the Amadeus Flight Offers Search API to gather flight data from AUS to 3 popular tourist sites (Berlin, Paris, and NYC) on 2/17. As we add interactiveness to the project, we will show all flights between AUS and the selected cities for the current day.'
-    },
-    "API 3": {
+    "Amadeus Flight Offers Search": {
         'link': 'https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search',
         'description': 'We utilized the Amadeus Flight Offers Search API to gather flight data from AUS to 3 popular tourist sites (Berlin, Paris, and NYC) on 2/17. As we add interactiveness to the project, we will show all flights between AUS and the selected cities for the current day.'
     },
