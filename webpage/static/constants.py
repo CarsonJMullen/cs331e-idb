@@ -39,9 +39,12 @@ member_info = {
 
 # TODO: update data sources
 data_source = {
-    "Amadeus": {
-        'link': 'https://developers.amadeus.com',
-        'description': 'description of how each was scraped'
+    "Amadeus Hotel List API": {
+        'link': 'https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-list',
+        'description': 'We utilized the Amadeus Hotel List API to gather all hotel data from Berlin, Paris, and NYC.'
+    }, "Amadeus Tours and Activities API": {
+        'link': 'https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities',
+        'description': 'We utilized the Amadeus Tours-and-Activities API to gather all activity data from Berlin, Paris, and NYC.'
     },
     "API 2": {
         'link': 'https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search',
