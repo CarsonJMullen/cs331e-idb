@@ -115,7 +115,89 @@ city_list = [
             'https://upload.wikimedia.org/wikipedia/commons/7/7a/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg'
         ],
         'iataCode': 'NYC'
-    }
+    },
+    {
+        'name': 'Rome',
+        'id': '4',
+        'population': '4,355,725',
+        'location': 'Italy',
+        'pictures': [
+            'https://upload.wikimedia.org/wikipedia/commons/0/0b/Rome_skyline_panorama.jpg'
+        ],
+        'iataCode': 'FCO'
+    },
+    {
+        'name': 'Cape Town',
+        'population': '4,977,833',
+        'location': 'South Africa',
+        'pictures': [
+            'https://upload.wikimedia.org/wikipedia/commons/f/fb/Cape_Town_Mountain.jpg'
+        ],
+        'iataCode': 'CPT'
+    },
+    {
+        'name': 'Sydney',
+        'population': '5,297,089',
+        'location': 'Australia',
+        'pictures': [
+            'https://upload.wikimedia.org/wikipedia/commons/5/53/Sydney_Opera_House_and_Harbour_Bridge_Dusk_%282%29_2019-06-21.jpg'
+        ],
+        'iataCode': 'SYD'
+    },
+    {
+        'name': 'Amsterdam',
+        'population': '821,752',
+        'location': 'Netherlands',
+        'pictures': [
+            'https://upload.wikimedia.org/wikipedia/commons/5/57/Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png'
+        ],
+        'iataCode': 'AMS'
+    },
+    {
+        'name': 'London',
+        'population': '9,748,033',
+        'location': 'England',
+        'pictures': [
+            'https://upload.wikimedia.org/wikipedia/commons/6/67/London_Skyline_%28125508655%29.jpeg'
+        ],
+        'iataCode': 'LON'
+    },
+    {
+        'name': 'Barcelona',
+        'population': '5,711,917',
+        'location': 'Spain',
+        'pictures': [
+            'https://upload.wikimedia.org/wikipedia/commons/5/56/Aerial_view_of_Barcelona%2C_Spain_%2851227309370%29_%28cropped%29.jpg'
+        ],
+        'iataCode': 'BCN'
+    },
+    {
+        'name': 'Mexico City',
+        'population': '9,209,944',
+        'location': 'Mexico',
+        'pictures': [
+            'https://upload.wikimedia.org/wikipedia/commons/4/4f/Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg'
+        ],
+        'iataCode': 'EZE'
+    },
+    {
+        'name': 'Athens',
+        'population': '3,154,591',
+        'location': 'Greece',
+        'pictures': [
+            'https://upload.wikimedia.org/wikipedia/commons/e/e4/The_Acropolis_from_Mount_Lycabettus_on_October_5%2C_2019_%28cropped%29.jpg'
+        ],
+        'iataCode': 'ATH'
+    },
+    {
+        'name': 'Madrid',
+        'population': '6,825,005',
+        'location': 'Spain',
+        'pictures': [
+            'https://upload.wikimedia.org/wikipedia/commons/1/14/Madrid_-_Sky_Bar_360%C2%BA_%28Hotel_Riu_Plaza_Espa%C3%B1a%29%2C_vistas_19.jpg'
+        ],
+        'iataCode': 'MAD'
+    },
 ]
 
 with open(os.path.join(app.static_folder, 'data', 'activities', 'activities_multiple_cities.json')) as f:

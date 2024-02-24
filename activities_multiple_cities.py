@@ -42,7 +42,7 @@ def filterMissing(n):
     try:
         if n['price']['amount'] == "0.0":
             return False
-        else:
+        elif n['name']:
             return True
     except:
         return False
