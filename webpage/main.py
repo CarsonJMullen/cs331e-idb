@@ -84,6 +84,7 @@ hotel_list = [
     "lastUpdate": "2023-06-15T09:55:00"
 }
 ]
+
 activity_list = [
 {
     "type": "activity",
@@ -170,6 +171,7 @@ activity_list = [
         "iataCode": "NYC"
     }
 ]
+
 city_list = [
     {
         'name': 'Berlin',
