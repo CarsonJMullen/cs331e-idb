@@ -85,93 +85,6 @@ hotel_list = [
 }
 ]
 
-activity_list = [
-{
-    "type": "activity",
-    "id": "7145",
-    "self": {
-        "href": "https://test.api.amadeus.com/v1/shopping/activities/7145",
-        "methods": [
-            "GET"
-        ]
-    },
-    "name": "Potsdam Bike Tour with Rail Transport from Berlin",
-    "description": "Take a day-trip from Berlin and discover UNESCO World Heritage listed Potsdam, all by the seat of your bike! From park lands to alleyways, you're English-speaking guide will recount historical anecdotes as you explore an array of Prussian and Cold War sites.",
-    "geoCode": {
-        "latitude": 52.5209951,
-        "longitude": 13.4091129
-    },
-    "rating": "4.8",
-    "price": {
-        "amount": "70.0",
-        "currencyCode": "EUR"
-    },
-    "pictures": [
-        "https://media.tacdn.com/media/attractions-splice-spp-674x446/07/6f/f1/21.jpg"
-    ],
-    "bookingLink": "http://www.partner.viator.com/en/13257/tours/Berlin/Potsdam-Day-Bike-Tour/d488-3933BIKEPOTS?eap=prod-qahHG7va6hJGURBQV5vH-13257&aid=vba13257en",
-    "minimumDuration": "6 hours",
-    "city": "Berlin",
-    "iataCode": "BER"
-},
-    {
-        "type": "activity",
-        "id": "1747814",
-        "self": {
-            "href": "https://test.api.amadeus.com/v1/shopping/activities/1747814",
-            "methods": [
-                "GET"
-            ]
-        },
-        "name": "Compagnie des Bateaux Mouches Bastille Day Seine River Dinner Cruise",
-        "description": "Have a Champagne dinner cruise, taste a French traditional cooking, prepared on board by our own chef. Enjoy a 2h15 magic cruise with live music! At the end of the dinner, make yourself comfortable and watch the firework display from the upper-deck.",
-        "geoCode": {
-            "latitude": 48.86401059999999,
-            "longitude": 2.3059374
-        },
-        "rating": "4.3",
-        "price": {
-            "amount": "195.0",
-            "currencyCode": "EUR"
-        },
-        "pictures": [
-            "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/70/07/58.jpg"
-        ],
-        "bookingLink": "http://www.partner.viator.com/en/13257/tours/Paris/Bastille-day-dinner-cruise/d479-23561P13?eap=prod-sRa7AtLuF4UkLYO6mKPY-13257&aid=vba13257en",
-        "minimumDuration": "2 hours",
-        "city": "Paris",
-        "iataCode": "PAR"
-    },
-    {
-        "type": "activity",
-        "id": "53568",
-        "self": {
-            "href": "https://test.api.amadeus.com/v1/shopping/activities/53568",
-            "methods": [
-                "GET"
-            ]
-        },
-        "name": "New York City Rockstar Bar and Nightclub Crawl",
-        "description": "Enjoy a fabulous night out in New York City on this all-inclusive bar crawl. Join your party host and take advantage of NYC's electrifying nightlife as you visit several bars and clubs for drinks and dancing.",
-        "geoCode": {
-            "latitude": 40.73527429999999,
-            "longitude": -74.0056814
-        },
-        "rating": "4.6",
-        "price": {
-            "amount": "81.0",
-            "currencyCode": "USD"
-        },
-        "pictures": [
-            "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6f/03/5d.jpg"
-        ],
-        "bookingLink": "http://www.partner.viator.com/en/13257/tours/New-York-City/Rockstarcrawls-NYC-Bar-Crawl/d687-5511P8?eap=prod-W8SNN6s2Yp6jQIueqwfW-13257&aid=vba13257en",
-        "minimumDuration": "5 hours",
-        "city": "New York",
-        "iataCode": "NYC"
-    }
-]
-
 city_list = [
     {
         'name': 'Berlin',
@@ -204,6 +117,9 @@ city_list = [
         'iataCode': 'NYC'
     }
 ]
+
+with open(os.path.join(app.static_folder, 'data', 'activities', 'activities_multiple_cities.json')) as f:
+    activity_list = json.load(f)['data']
 
 with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-NYC-24-02-17.json')) as f:
     ny_flights = json.load(f)
