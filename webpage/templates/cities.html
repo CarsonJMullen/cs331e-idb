@@ -20,17 +20,17 @@
     <h1>Cities</h1>
         <div class="row">
         {% for i in city_list %}
-        <div class="col-sm-4">
-        <div class="card">
-          <img class="card-img-top" src="{{i.pictures[0]}}" alt="Picture of {{i.name}}" style="object-fit: cover;">
-          <div class="card-body">
-            <h5 class="card-title"><a href="{{url_for('city', iataCode=i.iataCode)}}">{{i.name}}</a></h5>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{i.population}}</li>
-            <li class="list-group-item">{{i.location}}</li>
-          </ul>
-        </div>
+        <div class="col-sm-4 mb-4">
+            <div class="card">
+              <img class="card-img-top" src="{{i.pictures[0]}}" alt="Picture of {{i.name}}" style="object-fit: cover;">
+              <div class="card-body">
+                <h5 class="card-title"><a href="{{url_for('city', iataCode=i.iataCode)}}">{{i.name}}</a></h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{i.population}}</li>
+                <li class="list-group-item">{{i.location}}</li>
+              </ul>
+            </div>
         </div>
         {% endfor %}
         </div>

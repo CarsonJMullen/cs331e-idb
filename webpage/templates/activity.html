@@ -10,12 +10,36 @@
         .info{
             text-align: center
         }
-        img{
+        .picture{
             display: block;
             margin-left: auto;
             margin-right: auto;
             width: 100%;
         }
+        .rating_num{
+            margin-left: 35%;
+            float: left;
+        }
+        .rating_background{
+            float: left;
+            margin-left: 8px;
+            white-space: pre
+        }
+        .rating_fill{
+            position: relative;
+            float: left;
+            left: -124px;
+            height: 24px;
+            width: {{activity.rating | float / 5 * 124}}px;
+            white-space: pre
+        }
+        .rating_cover{
+            position: relative;
+            float: left;
+            left: {{activity.rating | float / 5 * -124 - 124}}px;
+            white-space: nowrap;
+        }
+
     </style>
     <title>Activity</title>
 </head>
@@ -29,18 +53,28 @@
     <table class="table table-bordered table-sm">
         <tr><td colspan="3"><h2 id="name">{{activity.name}}</h2></td></tr>
         <!-- TODO: Add slideshow/carousel later -->
-        <tr><td colspan="3"><img src="{{activity.pictures[0]}}"></td></tr>
+        <tr><td colspan="3"><img src="{{activity.pictures[0]}}" class="picture"></td></tr>
         <tr>
             <td><div class="attribute"><span>Description</span></div></td>
             <td><div class="info"><span>{{activity.description}}</span></div></td>
         </tr>
         <tr>
             <td><div class="attribute"><span>Rating</span></div></td>
-            <td><div class="info"><span>{{activity.rating}}</span></div></td>
+            <td>
+            {% if activity.rating is defined %}
+                <div class="rating_num"><span>{{activity.rating}}</span></div>
+                <img src="../static/images/star_background.png" class="rating_background">
+                <img src="../static/images/star_yel.png" class="rating_fill">
+                <img src="../static/images/star_cutout.png" class="rating_cover">
+            {% else %}
+                <div class="rating_num"><span>0.0</span></div>
+            {% endif %}
+            </td>
         </tr>
         <tr>
             <td><div class="attribute"><span>Price</span></div></td>
-            <td><div class="info"><span>{{activity.price.amount}}</span>&nbsp<span class="info">{{activity.price.currencyCode}}</span></div></td>
+            <td><div class="info"><span>{{activity.price.amount}}</span>&nbsp
+                <span class="info">{{activity.price.currencyCode}}</span></div></td>
         </tr>
         <tr>
             <td><div class="attribute"><span>Booking</span></div></td>
