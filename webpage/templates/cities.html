@@ -10,6 +10,9 @@
         .card-img-top{
             height:250px
         }
+        body { background: white !important; } /* #f8f9fa */
+
+
     </style>
     <title>Cities</title>
 </head>
@@ -17,22 +20,22 @@
     {% extends 'navbar.html' %}
     {% block content %}
     <div class="main">
-    <h1>Cities</h1>
+        <h1>Cities</h1>
         <div class="row">
-        {% for i in city_list %}
-        <div class="col-sm-4">
-        <div class="card">
-          <img class="card-img-top" src="{{i.pictures[0]}}" alt="Picture of {{i.name}}" style="object-fit: cover;">
-          <div class="card-body">
-            <h5 class="card-title"><a href="{{url_for('city', iataCode=i.iataCode)}}">{{i.name}}</a></h5>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{i.population}}</li>
-            <li class="list-group-item">{{i.location}}</li>
-          </ul>
-        </div>
-        </div>
-        {% endfor %}
+            {% for i in city_list %}
+                <div class="col-sm-4 mb-4">
+                    <div class="card border-0 shadow rounded">
+                      <img class="card-img-top" src="{{i.pictures[0]}}" alt="Picture of {{i.name}}" style="object-fit: cover;">
+                      <div class="card-body">
+                        <h5 class="card-title"><a href="{{url_for('city', iataCode=i.iataCode)}}">{{i.name}}</a></h5>
+                      </div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{"Population: " + i.population}}</li>
+                        <li class="list-group-item">{{"Country: " + i.location}}</li>
+                      </ul>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
     {% endblock %}
