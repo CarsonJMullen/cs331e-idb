@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 import json
 import os
-from datetime import datetime
 from user_info import get_gitlab_info, user_all_info, group_gitlab_info
 from static.constants import data_source, tools
 
