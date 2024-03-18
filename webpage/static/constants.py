@@ -9,28 +9,28 @@ names = {
     'Kibam Kang': ['Kibam Kang', 'kibam kang', 'kkx2402GL']
 }
 
-# TODO: update your bio please
+# TODO: update your bio
 member_info = {
     'Anjie Liu': {
-        'image': "../static/images/Anjie.jpeg",
+        'image': "../static/images/people/AnjieImage.jpeg",
         'bio': 'I am a sophomore Statistics and Data Science student at the University of Texas at Austin. I enjoy reading and exploring different things.',
         'responsibilities': 'front-end, GitLab API',
         'unittests': 0 # unittets will be updated manually
     },
     'Carson Mullen': {
-        'image': "../static/images/CarsonImage.jpg",
+        'image': "../static/images/people/CarsonImage.jpg",
         'bio': 'I am a third-year Business Analytics student at UT and am pursuing a career in Data Science.',
         'responsibilities': 'front-end, Amadeus API',
         'unittests': 0
     },
     'Kenny Tian': {
-        'image': "../static/images/KennyImage.jpg",
+        'image': "../static/images/people/KennyImage.jpg",
         'bio': 'I am a senior biomedical engineering student at The University of Texas at Austin focusing on computiational biomedical engineering.',
         'responsibilities': 'front-end, Amadeus API',
         'unittests': 0
     },
     'Kibam Kang': {
-        'image': "../static/images/KibamImage.jpeg",
+        'image': "../static/images/people/KibamImage.jpeg",
         'bio': 'I am senior student at The University of Texas at Austin. I am a Mathmatician.',
         'responsibilities': 'front-end, Amadeus API',
         'unittests': 0
