@@ -45,8 +45,8 @@
         <ul class="pagination">
             <li class="page-item"><a class="page-link" href="{{url_for('activities', page=1)}}">&laquo</a></li>
             <li class="page-item"><a class="page-link" href="{{url_for('activities', page=page-1)}}">&lt</a></li>
-            {% for i in range([page-5, 1]|max, [page+5, activity_list|length//10+2]|min) %}
-            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=i)}}">{{i}}</a></li>
+            {% for i in range([page-5, 1]|max, [page+6, activity_list|length//10+2]|min) %}
+            <li class="page-item {% if i==page %}active{% endif %}"><a class="page-link" href="{{url_for('activities', page=i)}}">{{i}}</a></li>
             {% endfor %}
             <li class="page-item"><a class="page-link" href="{{url_for('activities', page=page+1)}}">&gt</a></li>
             <li class="page-item"><a class="page-link" href="{{url_for('activities', page=activity_list|length//10+1)}}">&raquo</a></li>
