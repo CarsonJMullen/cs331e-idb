@@ -24,7 +24,7 @@
                   <th scope="col">Price</th>
                 </tr>
             </thead>
-            {% for i in activity_list[page*10:page*10+10] %}
+            {% for i in activity_list[(page-1)*10:page*10] %}
                 <tr>
                     <td><div>
                         <a href="{{url_for('activity', activity_id=i.id)}}">{{i.name}}</a><br>
@@ -43,13 +43,13 @@
         </table>
     <nav aria-label="Page navigation example">
         <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=0)}}">&laquo</a></li>
+            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=1)}}">&laquo</a></li>
             <li class="page-item"><a class="page-link" href="{{url_for('activities', page=page-1)}}">&lt</a></li>
-            {% for i in range([page-5, 0]|max, [page+5, activity_list|length//10+1]|min) %}
+            {% for i in range([page-5, 1]|max, [page+5, activity_list|length//10+2]|min) %}
             <li class="page-item"><a class="page-link" href="{{url_for('activities', page=i)}}">{{i}}</a></li>
             {% endfor %}
             <li class="page-item"><a class="page-link" href="{{url_for('activities', page=page+1)}}">&gt</a></li>
-            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=activity_list|length//10)}}">&raquo</a></li>
+            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=activity_list|length//10+1)}}">&raquo</a></li>
         </ul>
     </nav>
     </div>

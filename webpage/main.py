@@ -180,11 +180,11 @@ def activity(activity_id):
     for i in activity_list:
         if i['id'] == str(activity_id):
             return render_template('activity.html', activity=i)
-    return render_template('activities.html', activity_list=activity_list, page=0)
+    return render_template('activities.html', activity_list=activity_list, page=1)
 
 
 @app.route('/activities/page=<int:page>')
-def activities(page=0):
+def activities(page=1):
     return render_template('activities.html', activity_list=activity_list, page=page)
 
 
