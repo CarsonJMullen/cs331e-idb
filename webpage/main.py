@@ -175,17 +175,18 @@ def cities():
     return render_template('cities.html', city_list=city_list)
 
 
-@app.route('/activities/<int:activity_id>')
+@app.route('/activities/id=<int:activity_id>')
 def activity(activity_id):
     for i in activity_list:
         if i['id'] == str(activity_id):
             return render_template('activity.html', activity=i)
-    return render_template('activities.html', activity_list=activity_list)
+    return render_template('activities.html', activity_list=activity_list, page=0)
 
 
-@app.route('/activities/')
-def activities():
-    return render_template('activities.html', activity_list=activity_list)
+@app.route('/activities/page=<int:page>')
+def activities(page=3):
+    activities_page = page
+    return render_template('activities.html', activity_list=activity_list, page=activities_page)
 
 
 @app.route('/flights/<string:flight_id>')
