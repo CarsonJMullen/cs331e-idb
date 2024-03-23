@@ -34,10 +34,12 @@
             <td><div class="attribute"><span>Description</span></div></td>
             <td><div class="info"><span>{{activity.description}}</span></div></td>
         </tr>
+        {% if activity.rating %}
         <tr>
             <td><div class="attribute"><span>Rating</span></div></td>
             <td><div class="info"><span>{{activity.rating}}</span></div></td>
         </tr>
+        {% endif %}
         <tr>
             <td><div class="attribute"><span>Price</span></div></td>
             <td><div class="info"><span>{{activity.price.amount}}</span>&nbsp<span class="info">{{activity.price.currencyCode}}</span></div></td>

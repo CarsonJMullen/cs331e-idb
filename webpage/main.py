@@ -184,9 +184,8 @@ def activity(activity_id):
 
 
 @app.route('/activities/page=<int:page>')
-def activities(page=3):
-    activities_page = page
-    return render_template('activities.html', activity_list=activity_list, page=activities_page)
+def activities(page=0):
+    return render_template('activities.html', activity_list=activity_list, page=page)
 
 
 @app.route('/flights/<string:flight_id>')
