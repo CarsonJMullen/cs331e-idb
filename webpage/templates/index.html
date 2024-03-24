@@ -65,9 +65,9 @@
         <h1 class="text-white mb-4"><strong>TOP TRAVEL</strong></h1>
 
         <div class="row">
-            {% for i in ["cities", "activities", "flights", "hotels"] %}
+            {% for i, j in [("Cities", "cities"), ("Activities", "activities/page=1"), ("Flights", "flights"), ("Hotels", "hotels/page=1")] %}
             <div class="col">
-              <button type="button" class="btn btn-light btn-lg"><a href={{i}} style="color:inherit; text-decoration:none" > <span class="capitalized">{{i}}</a></button>
+                <button type="button" class="btn btn-light btn-lg"><a href={{j}} style="color:inherit;"> {{ i }}</a></button>
             </div>
             {% endfor %}
         </div>
