@@ -32,8 +32,8 @@ cities = {
     'AMS': {'latitude': '52.3676', 'longitude': '4.9041', 'city': 'Amsterdam'},
     "LON": {'latitude': '51.5072', 'longitude': '-0.1276', 'city': 'London'},
     "BCN": {'latitude': '41.3874', 'longitude': '2.1686', 'city': 'Barcelona'},
-    'EZE': {'latitude': '19.4326', 'longitude': '-99.1332', 'city': 'Mexico City'},
-    'ATH': {'latitude': '37.9838', 'longitude': '23.7275', 'city': 'Athens'},
+    'MEX': {'latitude': '19.4326', 'longitude': '-99.1332', 'city': 'Mexico City'},
+    'MRS': {'latitude': '43.2965', 'longitude': '5.3698', 'city': 'Marseille'},
     'MAD': {'latitude': '40.4168', 'longitude': '-3.7038', 'city': 'Madrid'},
 }
 

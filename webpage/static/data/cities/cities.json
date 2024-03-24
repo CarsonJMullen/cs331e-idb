@@ -21,7 +21,7 @@
       "iataCode": "PAR"
     },
     {
-      "name": "New York City"
+      "name": "New York City",
       "population": "8,804,190",
       "location": "United States of America",
       "pictures": [
@@ -98,17 +98,17 @@
         "../static/images/cities/mexico_city.jpeg",
         "https://upload.wikimedia.org/wikipedia/commons/4/4f/Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg"
       ],
-      "iataCode": "EZE"
+      "iataCode": "MEX"
     },
     {
-      "name": "Athens",
-      "population": "3,154,591",
-      "location": "Greece",
+      "name": "Marseille",
+      "population": "870,321",
+      "location": "France",
       "pictures": [
-        "../static/images/cities/athens.jpeg",
-        "https://upload.wikimedia.org/wikipedia/commons/e/e4/The_Acropolis_from_Mount_Lycabettus_on_October_5%2C_2019_%28cropped%29.jpg"
+        "../static/images/cities/marseille.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/a/aa/Marseille_-_Vieux_port_4.jpg"
       ],
-      "iataCode": "ATH"
+      "iataCode": "MRS"
     },
     {
       "name": "Madrid",
