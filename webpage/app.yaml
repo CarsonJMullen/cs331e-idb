@@ -1,9 +1,27 @@
+# This file specifies your Python application's runtime configuration.
+# See https://cloud.google.com/appengine/docs/managed-vms/config for details.
+
 runtime: python
 env: flex
 entrypoint: gunicorn -b :$PORT main:app
 
 runtime_config:
   python_version: 3
+
+#[START env]
+env_variables:
+    # postgresql+psycopg2://USER:PASSWORD@/DATABASE?host=/cloudsql/INSTANCE_CONNECTION_NAME
+    # Replace user, password, database, and instance connection name with the values obtained
+    # when configuring your Cloud SQL instance.
+    DB_STRING: >-
+      postgresql+psycopg2://postgres:toptravel@/postgres?host=/cloudsql/cs331e-idb-413615:us-central1:postgres
+#[END env]
+
+#[START cloudsql_settings]
+# Replace project and instance with the values obtained  when configuring your
+# Cloud SQL instance.
+beta_settings:
+    cloud_sql_instances: cs331e-idb-381803:us-central1:bookdb
 
 # This sample incurs costs to run on the App Engine flexible environment.
 # The settings below are to reduce costs during testing and are not appropriate
@@ -15,3 +33,4 @@ resources:
   cpu: 1
   memory_gb: 0.5
   disk_size_gb: 10
+#[END cloudsql_settings]
