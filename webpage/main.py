@@ -6,83 +6,83 @@ from static.constants import data_source, tools
 
 app = Flask(__name__)
 
-hotel_list = [
-    { # this hotel is not in hotel_list.json
-        "chainCode": "DS",
-        "iataCode": "BER",
-        "dupeId": 700140863,
-        "name": "COSMO HOTEL",
-        "hotelId": "DSBERCHB",
-        "geoCode": {
-            "latitude": 52.51167,
-            "longitude": 13.4014
-        },
-        "address": {
-            "countryCode": "DE"
-        },
-        "distance": {
-            "value": 17.97,
-            "unit": "KM"
-        },
-        "amenities": [
-            "AIR_CONDITIONING",
-            "WIFI",
-            "ROOM_SERVICE"
-        ],
-        "rating": 5,
-        "lastUpdate": "2023-06-15T10:15:56"
-    },
-    {
-        "chainCode": "LW",
-        "iataCode": "NYC",
-        "dupeId": 700113468,
-        "name": "THE GREENWICH HOTEL",
-        "hotelId": "LWNYC730",
-        "geoCode": {
-            "latitude": 40.71985,
-            "longitude": -74.01022
-        },
-        "address": {
-            "countryCode": "US"
-        },
-        "distance": {
-            "value": 0.73,
-            "unit": "KM"
-        },
-        "amenities": [
-            "AIR_CONDITIONING",
-            "WIFI",
-            "ROOM_SERVICE"
-        ],
-        "rating": 5,
-        "lastUpdate": "2023-06-15T10:12:33"
-    },
-    {
-        "chainCode": "DC",
-        "iataCode": "PAR",
-        "dupeId": 700010162,
-        "name": "LE MEURICE",
-        "hotelId": "DCPAR625",
-        "geoCode": {
-            "latitude": 48.86512,
-            "longitude": 2.32777
-        },
-        "address": {
-            "countryCode": "FR"
-        },
-        "distance": {
-            "value": 2.02,
-            "unit": "KM"
-        },
-        "amenities": [
-            "AIR_CONDITIONING",
-            "WIFI",
-            "ROOM_SERVICE"
-        ],
-        "rating": 5,
-        "lastUpdate": "2023-06-15T09:55:00"
-    }
-]
+# hotel_list = [
+#     { # this hotel is not in hotel_list.json
+#         "chainCode": "DS",
+#         "iataCode": "BER",
+#         "dupeId": 700140863,
+#         "name": "COSMO HOTEL",
+#         "hotelId": "DSBERCHB",
+#         "geoCode": {
+#             "latitude": 52.51167,
+#             "longitude": 13.4014
+#         },
+#         "address": {
+#             "countryCode": "DE"
+#         },
+#         "distance": {
+#             "value": 17.97,
+#             "unit": "KM"
+#         },
+#         "amenities": [
+#             "AIR_CONDITIONING",
+#             "WIFI",
+#             "ROOM_SERVICE"
+#         ],
+#         "rating": 5,
+#         "lastUpdate": "2023-06-15T10:15:56"
+#     },
+#     {
+#         "chainCode": "LW",
+#         "iataCode": "NYC",
+#         "dupeId": 700113468,
+#         "name": "THE GREENWICH HOTEL",
+#         "hotelId": "LWNYC730",
+#         "geoCode": {
+#             "latitude": 40.71985,
+#             "longitude": -74.01022
+#         },
+#         "address": {
+#             "countryCode": "US"
+#         },
+#         "distance": {
+#             "value": 0.73,
+#             "unit": "KM"
+#         },
+#         "amenities": [
+#             "AIR_CONDITIONING",
+#             "WIFI",
+#             "ROOM_SERVICE"
+#         ],
+#         "rating": 5,
+#         "lastUpdate": "2023-06-15T10:12:33"
+#     },
+#     {
+#         "chainCode": "DC",
+#         "iataCode": "PAR",
+#         "dupeId": 700010162,
+#         "name": "LE MEURICE",
+#         "hotelId": "DCPAR625",
+#         "geoCode": {
+#             "latitude": 48.86512,
+#             "longitude": 2.32777
+#         },
+#         "address": {
+#             "countryCode": "FR"
+#         },
+#         "distance": {
+#             "value": 2.02,
+#             "unit": "KM"
+#         },
+#         "amenities": [
+#             "AIR_CONDITIONING",
+#             "WIFI",
+#             "ROOM_SERVICE"
+#         ],
+#         "rating": 5,
+#         "lastUpdate": "2023-06-15T09:55:00"
+#     }
+# ]
 
 ########################################################################################################################
 #                                           load data                                                                  #
@@ -108,6 +108,11 @@ f.close()
 
 with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-PAR-24-02-17.json')) as f:
     par_flights = json.load(f)
+f.close()
+
+# hotels 
+with open(os.path.join(app.static_folder, 'data', 'hotels', 'hotel_list.json')) as f:
+    hotel_list = json.load(f)['data']
 f.close()
 
 locations_list = [ny_flights, ber_flights, par_flights]
@@ -206,17 +211,17 @@ def flights():
                            convert_airline=convert_airline, airport_to_city=airport_to_city)
 
 
-@app.route('/hotels/<string:hotel_id>')
+@app.route('/hotels/id=<string:hotel_id>')
 def this_hotel(hotel_id):
     for i in hotel_list:
         if i['hotelId'] == hotel_id:
             return render_template('this_hotel.html', hotel=i, activity_list=activity_list)
-    return render_template('hotels.html', hotel_list=hotel_list)
+    return render_template('hotels.html', hotel_list=hotel_list, page=1)
 
 
-@app.route('/hotels/')
-def hotels():
-    return render_template('hotels.html', hotel_list=hotel_list)
+@app.route('/hotels/page=<int:page>')
+def hotels(page=1):
+    return render_template('hotels.html', hotel_list=hotel_list, page=page)
 
 
 @app.route('/about/')
