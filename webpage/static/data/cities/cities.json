@@ -2,7 +2,6 @@
   "data": [
     {
       "name": "Berlin",
-      "id": "1",
       "population": "3,769,495",
       "location": "Germany",
       "pictures": [
@@ -13,7 +12,6 @@
     },
     {
       "name": "Paris",
-      "id": "2",
       "population": "11,276,701",
       "location": "France",
       "pictures": [
@@ -23,8 +21,7 @@
       "iataCode": "PAR"
     },
     {
-      "name": "New York City",
-      "id": "3",
+      "name": "New York City"
       "population": "8,804,190",
       "location": "United States of America",
       "pictures": [
@@ -35,7 +32,6 @@
     },
     {
       "name": "Rome",
-      "id": "4",
       "population": "4,355,725",
       "location": "Italy",
       "pictures": [
