@@ -6,8 +6,9 @@ import os
 # Google Cloud SQL (change this accordingly) 
 USER ="postgres"
 PASSWORD ="toptravel"
-PUBLIC_IP_ADDRESS ="localhost:5432"
-DBNAME ="bookdb"
+# PUBLIC_IP_ADDRESS ="34.68.182.175"
+PUBLIC_IP_ADDRESS ="localhost"
+DBNAME ="toptraveldb"
 
 
 # Configuration
@@ -25,11 +26,11 @@ db = SQLAlchemy(app)
 class City(db.Model):
     __tablename__ = 'city'
 
-    name = db.Column(db.String(20), nullable = False)
+    name = db.Column(db.String(30), nullable = False)
     iataCode = db.Column(db.String(3), primary_key = True)
     population = db.Column(db.String(12))
-    location = db.Column(db.String(20))
-    pictures = db.Column(db.Array(db.String(200)))
+    location = db.Column(db.String(30))
+    pictures = db.Column(db.ARRAY(db.String(200)))
 
     activities = db.relationship('Activity', backref = 'city')
     flights = db.relationship('Flight', backref = 'city')
@@ -39,13 +40,13 @@ class Activity(db.Model):
     __tablename__ = 'activity'
 
     id = db.Column(db.String(10), primary_key = True)
-    name = db.Column(db.String(80), nullable = False)
-    description = db.Column(db.String(250))
+    name = db.Column(db.String(800), nullable = False)
+    description = db.Column(db.String(3000))
     rating = db.Column(db.String(3))
     price_amount = db.Column(db.String(8))
     price_currencyCode = db.Column(db.String(3))
-    pictures = db.Column(db.Array(db.String(200)))
-    bookingLink = db.Column(db.String(200))
+    pictures = db.Column(db.ARRAY(db.String(500)))
+    bookingLink = db.Column(db.String(500))
     iataCode = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
 
 
@@ -53,7 +54,7 @@ class Activity(db.Model):
 class Flight(db.Model):
     __tablename__ = 'flight'
 
-    id = db.Column(db.String(80), nullable=False)
+    id = db.Column(db.String(80), primary_key = True)
     iataCode = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
 
 
@@ -64,7 +65,7 @@ class Hotel(db.Model):
     name = db.Column(db.String(80), nullable=False)
     latitude = db.Column(db.Float)
     longitude = db.Column(db.Float)
-    amenities = db.Column(db.Array(db.String(20)))
+    amenities = db.Column(db.ARRAY(db.String(20)))
     rating = db.Column(db.Integer)
     iataCode = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
 
