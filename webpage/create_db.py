@@ -35,14 +35,14 @@ def create():
     # Populating
     # ----------
     for i in city_list:
-        newCity = City(name=i['name'], iataCode=i['iataCode'], population=i['population'], location=i['location'], pictures=i['pictures'])
+        newCity = City(name=i['name'], iataCode=i['iataCode'], population=int(i['population'].replace(',', '')), location=i['location'], pictures=i['pictures'])
         db.session.add(newCity)
     # commit the session to my DB.
     db.session.commit()
 
     for i in activity_list:
         try:
-            newActivity = Activity(id=i['id'], name=i['name'], description=i['description'], rating=i['rating'],
+            newActivity = Activity(id=int['id'], name=i['name'], description=i['description'], rating=float(i['rating']),
                                price_amount=i['price']['amount'], price_currencyCode=i['price']['currencyCode'],
                                pictures=i['pictures'], bookingLink=i['bookingLink'], iataCode=i['iataCode'])
         except:
@@ -51,7 +51,7 @@ def create():
     db.session.commit()
 
     for i in hotel_list:
-        newHotel = Hotel(id=i['hotelId'], name=i['name'], latitude=i['geoCode']['latitude'], longitude=i['geoCode']['longitude'],
+        newHotel = Hotel(id=i['hotelId'], name=i['name'].title(), latitude=i['geoCode']['latitude'], longitude=i['geoCode']['longitude'],
                          amenities=i['amenities'], rating=i['rating'], iataCode=i['iataCode'])
         db.session.add(newHotel)
     db.session.commit()

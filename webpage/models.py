@@ -2,14 +2,12 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 import os
 
-
-# Google Cloud SQL (change this accordingly) 
-USER ="postgres"
-PASSWORD ="toptravel"
+# Google Cloud SQL (change this accordingly)
+USER = "postgres"
+PASSWORD = "toptravel"
 # PUBLIC_IP_ADDRESS ="34.68.182.175"
-PUBLIC_IP_ADDRESS ="localhost"
-DBNAME ="toptraveldb"
-
+PUBLIC_IP_ADDRESS = "localhost"
+DBNAME = "toptraveldb"
 
 # Configuration
 # One-To-Many relation: Assume that a Publisher can have many Books 
@@ -18,35 +16,37 @@ app = Flask(__name__)
 
 app.app_context().push()
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING", f'postgresql://{USER}:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True # to suppress a warning message
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",
+                                                       f'postgresql://{USER}:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True  # to suppress a warning message
 db = SQLAlchemy(app)
 
 
 class City(db.Model):
     __tablename__ = 'city'
 
-    name = db.Column(db.String(30), nullable = False)
-    iataCode = db.Column(db.String(3), primary_key = True)
-    population = db.Column(db.String(12))
+    name = db.Column(db.String(30), nullable=False)
+    iataCode = db.Column(db.String(3), primary_key=True)
+    population = db.Column(db.Integer)
     location = db.Column(db.String(30))
-    pictures = db.Column(db.ARRAY(db.String(200)))
+    pictures = db.Column(db.ARRAY(db.Text))
 
-    activities = db.relationship('Activity', backref = 'city')
-    flights = db.relationship('Flight', backref = 'city')
-    hotels = db.relationship('Hotel', backref = 'city')
+    activities = db.relationship('Activity', backref='city')
+    flights = db.relationship('Flight', backref='city')
+    hotels = db.relationship('Hotel', backref='city')
+
 
 class Activity(db.Model):
     __tablename__ = 'activity'
 
-    id = db.Column(db.String(10), primary_key = True)
-    name = db.Column(db.String(800), nullable = False)
-    description = db.Column(db.String(3000))
-    rating = db.Column(db.String(3))
+    id = db.Column(db.String(10), primary_key=True)
+    name = db.Column(db.Text, nullable=False)
+    description = db.Column(db.Text)
+    rating = db.Column(db.Numeric(2, 1))
     price_amount = db.Column(db.String(8))
     price_currencyCode = db.Column(db.String(3))
-    pictures = db.Column(db.ARRAY(db.String(500)))
-    bookingLink = db.Column(db.String(500))
+    pictures = db.Column(db.ARRAY(db.Text))
+    bookingLink = db.Column(db.Text)
     iataCode = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
 
 
@@ -54,19 +54,19 @@ class Activity(db.Model):
 class Flight(db.Model):
     __tablename__ = 'flight'
 
-    id = db.Column(db.String(80), primary_key = True)
+    id = db.Column(db.String(80), primary_key=True)
     iataCode = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
 
 
 class Hotel(db.Model):
     __tablename__ = 'hotel'
 
-    id = db.Column(db.String(8), primary_key = True)
+    id = db.Column(db.String(8), primary_key=True)
     name = db.Column(db.String(80), nullable=False)
-    latitude = db.Column(db.Float)
-    longitude = db.Column(db.Float)
+    latitude = db.Column(db.Numeric(8, 5))
+    longitude = db.Column(db.Numeric(8, 5))
     amenities = db.Column(db.ARRAY(db.String(20)))
-    rating = db.Column(db.Integer)
+    rating = db.Column(db.SmallInteger)
     iataCode = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
 
 
