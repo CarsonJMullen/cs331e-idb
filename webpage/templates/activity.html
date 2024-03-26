@@ -32,7 +32,7 @@
         <tr><td colspan="3"><img src="{{activity.pictures[0]}}"></td></tr>
         <tr>
             <td><div class="attribute"><span>Description</span></div></td>
-            <td><div class="info"><span>{{activity.description}}</span></div></td>
+            <td><div class="info"><span>{{activity.description|safe}}</span></div></td>
         </tr>
         {% if activity.rating %}
         <tr>
