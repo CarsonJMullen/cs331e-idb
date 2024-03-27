@@ -75,7 +75,7 @@ class FlightDetails(db.Model):
     departure_time = db.Column(db.DateTime)
     arrival_airport = db.Column(db.String(3))
     arrival_time = db.Column(db.DateTime)
-    arrival_terminal = db.Column() #FIX THIS ONE
+    arrival_terminal = db.Column(db.String(2))
     flight_duration = db.Column(db.DateTime)
     airline = db.Column(db.String(30))
     
