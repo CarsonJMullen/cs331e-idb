@@ -8,22 +8,7 @@
         /* Set background image and dark overlay */
         body {
             background-image: url('https://www.mercierzeng.com/image/top-destinations/guilin-photography-tour.jpg'); /* Replace 'background-image.jpg' with your image path */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh; /* Ensure full screen height */
-            position: relative;
-        }
-        /* Add dark overlay */
-        body::before {
-            content: "";
-            background-color: rgba(0, 0, 0, 0.01); /* Adjust opacity as needed */
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            height: 90vh; /* Ensure full screen height */
         }
         /* Center title and buttons */
         .container {
@@ -33,26 +18,50 @@
             align-items: center;
             height: 100%;
         }
-        .btn-custom {
-            background-color: rgba(239, 239, 240, 0.5); /* Adjust the RGBA values and opacity as needed */
-            color: white;
-            border: none;
-            padding: 15px 14px;
-            margin: 0 10px;
-            border-radius: 5px;
-          }
 
-          .btn-custom:hover {
-            background-color: rgba(0, 123, 255, 0.7); /* Adjust the RGBA values and opacity as needed */
-          }
-          .title-background {
-              background-color: rgba(128, 128, 128, 0.5); /* Transparent gray background */
-              padding: 10px 20px; /* Adjust padding as needed */
-              border-radius: 10px; /* Add border-radius for rounded corners */
-            }
-          .capitalized {
-              text-transform: capitalize;
-            }
+        .title {
+            font-family: 'Pacifico', cursive;
+            font-size: 100px;
+            font-weight:bold;
+            color: black;
+            position: relative;
+            display: inline-block; /* Make the title container inline-block */
+            padding: 20px; /* Add some padding */
+        }
+
+        /* Pseudo-element for blurred background */
+        .title::before {
+            content: '';
+            position: absolute;
+            top: -10px; /* Adjust these values to control the size of the blurred area */
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background-color: rgb(255, 255, 255, 0.5); /* Semi-transparent black */
+            border-radius: 100px; /* Rounded corners */
+            backdrop-filter: blur(100px); /* Blur effect */
+            z-index: -1; /* Ensure the blurred background is behind the text */
+        }
+
+
+
+        .square {
+            background-color: #8C6A5D !important;
+            outline: none !important;
+            width: 130px;
+            height: 50px;
+            margin: 10px;
+            border-radius: 10rem; /* Rounded corners */
+            color: rgb(220,220,220, 0.3); /* White text color */
+        }
+
+        .link {
+            font-family: 'Pacifico', monospace;
+            color:white;
+            font-weight:bold;
+        }
+
+
     </style>
 </head>
 
@@ -60,12 +69,13 @@
     {% extends 'navbar.html' %}
     {% block content %}
     <div class="container">
-        <h1 class="text-white mb-4"><strong>TOP TRAVEL</strong></h1>
+        <h1 class="mb-4 title">Top Travel&nbsp;</h1>
+
 
         <div class="row">
             {% for i, j in [("Cities", "cities"), ("Activities", "activities/page=1"), ("Flights", "flights"), ("Hotels", "hotels/page=1")] %}
             <div class="col">
-                <button type="button" class="btn btn-light btn-lg"><a href={{j}} style="color:inherit;"> {{ i }}</a></button>
+                <button type="button" class="square"><a href={{j}} class="link text-decoration-none"> {{ i }}</a></button>
             </div>
             {% endfor %}
         </div>
