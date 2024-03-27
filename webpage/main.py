@@ -3,8 +3,37 @@ import json
 import os
 from user_info import get_gitlab_info, user_all_info, group_gitlab_info
 from static.constants import data_source, tools
+from models import City, Activity, Flight, Hotel
+from flask_sqlalchemy import SQLAlchemy
 
+# Google Cloud SQL (change this accordingly)
+USER = "postgres"
+PASSWORD = "postgres"
+PUBLIC_IP_ADDRESS ="35.223.216.248"
+# PUBLIC_IP_ADDRESS = "localhost"
+DBNAME = "toptraveldb"
+
+# Configuration
+# One-To-Many relation: Assume that a Publisher can have many Books
+# but a Book can only have one Publisher.
 app = Flask(__name__)
+
+app.app_context().push()
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",
+                                                       f'postgresql://{USER}:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True  # to suppress a warning message
+db = SQLAlchemy(app)
+
+########################################################################################################################
+#                                           load data                                                                  #
+########################################################################################################################
+def select(model):
+    stmt = db.select(model)
+    res = []
+    for i in db.session.execute(stmt):
+        res.append(i[0].__dict__)
+    return res
 
 ########################################################################################################################
 #                                           load data                                                                  #
@@ -15,9 +44,7 @@ with open(os.path.join(app.static_folder, 'data', 'cities', 'cities.json')) as f
 f.close()
 
 # activities
-with open(os.path.join(app.static_folder, 'data', 'activities', 'activities_multiple_cities.json')) as f:
-    activity_list = json.load(f)['data']
-f.close()
+activity_list = select(Activity)
 
 # flights
 with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-NYC-24-02-17.json')) as f:

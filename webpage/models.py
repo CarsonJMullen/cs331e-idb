@@ -4,9 +4,9 @@ import os
 
 # Google Cloud SQL (change this accordingly)
 USER = "postgres"
-PASSWORD = "toptravel"
-# PUBLIC_IP_ADDRESS ="34.68.182.175"
-PUBLIC_IP_ADDRESS = "localhost"
+PASSWORD = "postgres"
+PUBLIC_IP_ADDRESS ="35.223.216.248"
+# PUBLIC_IP_ADDRESS = "localhost"
 DBNAME = "toptraveldb"
 
 # Configuration
@@ -89,7 +89,3 @@ class Hotel(db.Model):
     amenities = db.Column(db.ARRAY(db.String(20)))
     rating = db.Column(db.SmallInteger)
     iataCode = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
-
-
-db.drop_all()
-db.create_all()

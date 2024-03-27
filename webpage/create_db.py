@@ -37,7 +37,7 @@ def create():
 
     for i in activity_list:
         try:
-            newActivity = Activity(id=int['id'], name=i['name'], description=i['description'], rating=float(i['rating']),
+            newActivity = Activity(id=i['id'], name=i['name'], description=i['description'], rating=float(i['rating']),
                                price_amount=i['price']['amount'], price_currencyCode=i['price']['currencyCode'],
                                pictures=i['pictures'], bookingLink=i['bookingLink'], iataCode=i['iataCode'])
         except:
