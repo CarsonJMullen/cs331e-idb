@@ -67,22 +67,14 @@
         <tr>
             <td><div class="attribute"><span>Find Things to do / Activities:</span></div></td>
             <td>
-                {% for i in activity_list %}
-                    {% if i.iataCode == airport_to_city(flight['itineraries'][0]['segments'][-1]['arrival']['iataCode'])['cityCode'] %}
-                        <div class="info"><a href="{{url_for('activities')}}">Activities</a></div>
-                    {% endif %}
-                {% endfor %}
+                <div class="info"><a href="{{url_for('activities', page=1)}}">Activities</a></div>
             </td>
         </tr>
 
         <tr>
             <td><div class="attribute"><span>Find Somewhere to Stay:</span></div></td>
             <td>
-                {% for i in hotel_list %}
-                    {% if i.iataCode == airport_to_city(flight['itineraries'][0]['segments'][-1]['arrival']['iataCode'])['cityCode'] %}
-                        <div class="info"><a href="{{url_for('hotels')}}">Hotels</a></div>
-                    {% endif %}
-                {% endfor %}
+                <div class="info"><a href="{{url_for('hotels', page=1)}}">Hotels</a></div>
             </td>
         </tr>
 

@@ -21,7 +21,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True  # to suppress a warning message
 db = SQLAlchemy(app)
 
-
 class City(db.Model):
     __tablename__ = 'city'
 
@@ -55,9 +54,31 @@ class Flight(db.Model):
     __tablename__ = 'flight'
 
     id = db.Column(db.String(80), primary_key=True)
+    departure_airport = db.Column(db.String(3), nullable=False)
+    arrival_airport = db.Column(db.String(3), nullable=False)
     iataCode = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
+    price = db.Column(db.String(8))
+    seats_left = db.Column(db.Integer)
+    duration = db.Column(db.DateTime)
+    num_legs = db.Column(db.Integer)
+    departure_time = db.Column(db.DateTime)
+    arrival_time = db.Column(db.DateTime)
+    airline = db.Column(db.String(30))
 
+class FlightDetails(db.Model):
+    __tablename__ = 'flight_details'
 
+    id = db.Column(db.String(80), primary_key=True)
+    flight_group = db.Column(db.String(80), db.ForeignKey('flight.id'))
+    flight_number = db.Column(db.Integer)
+    departure_airport = db.Column(db.String(3), nullable=False)
+    departure_time = db.Column(db.DateTime)
+    arrival_airport = db.Column(db.String(3))
+    arrival_time = db.Column(db.DateTime)
+    arrival_terminal = db.Column() #FIX THIS ONE
+    flight_duration = db.Column(db.DateTime)
+    airline = db.Column(db.String(30))
+    
 class Hotel(db.Model):
     __tablename__ = 'hotel'
 
