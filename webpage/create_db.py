@@ -18,7 +18,7 @@ flights = []
 for city in cities:
     with open(os.path.join(app.static_folder, 'data', 'flights', city + '-2024-05-13.json')) as f:
         flights.append(json.load(f))
-    f.close()c
+    f.close()
 
 # hotels
 with open(os.path.join(app.static_folder, 'data', 'hotels', 'hotel_list.json')) as f:
