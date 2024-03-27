@@ -60,9 +60,11 @@ with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-PAR-24-02-17.j
 f.close()
 
 # hotels 
-with open(os.path.join(app.static_folder, 'data', 'hotels', 'hotel_list.json')) as f:
-    hotel_list = json.load(f)['data']
-f.close()
+hotel_list = select(Hotel)
+
+# with open(os.path.join(app.static_folder, 'data', 'hotels', 'hotel_list.json')) as f:
+#     hotel_list = json.load(f)['data']
+# f.close()
 
 locations_list = [ny_flights, ber_flights, par_flights]
 # print(locations_list)
@@ -163,7 +165,7 @@ def flights():
 @app.route('/hotels/id=<string:hotel_id>')
 def this_hotel(hotel_id):
     for i in hotel_list:
-        if i['hotelId'] == hotel_id:
+        if i['id'] == hotel_id:
             return render_template('this_hotel.html', hotel=i, activity_list=activity_list)
     return render_template('hotels.html', hotel_list=hotel_list, page=1)
 
