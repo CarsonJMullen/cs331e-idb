@@ -26,7 +26,7 @@ cities = {
     'BER': {'latitude': '52.5200', 'longitude': '13.4050', 'city': 'Berlin'},
     'NYC': {'latitude': '40.7306', 'longitude': '-73.9352', 'city': 'New York'},
     'PAR': {'latitude': '48.8566', 'longitude': '2.3522', 'city': 'Paris'},
-    'FCO': {'latitude': '41.9028', 'longitude': '12.4964', 'city': 'Rome'},
+    'ROM': {'latitude': '41.9028', 'longitude': '12.4964', 'city': 'Rome'},
     'CPT': {'latitude': '-33.9249', 'longitude': '18.4241', 'city': 'Cape Town'},
     'SYD': {'latitude': '-33.8688', 'longitude': '151.2093', 'city': 'Sydney'},
     'AMS': {'latitude': '52.3676', 'longitude': '4.9041', 'city': 'Amsterdam'},

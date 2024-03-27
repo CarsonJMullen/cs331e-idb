@@ -29,22 +29,13 @@ def get_flight_data(destination, start = "AUS", date = datetime.date.today().str
     response = requests.get(url, headers=headers)
     return response.json()
 
-cities = {
-    'BER': {'latitude': '52.5200', 'longitude': '13.4050', 'city': 'Berlin'},
-    'NYC': {'latitude': '40.7306', 'longitude': '-73.9352', 'city': 'New York'},
-    'PAR': {'latitude': '48.8566', 'longitude': '2.3522', 'city': 'Paris'},
-    'FCO': {'latitude': '41.9028', 'longitude': '12.4964', 'city': 'Rome'},
-    'CPT': {'latitude': '-33.9249', 'longitude': '18.4241', 'city': 'Cape Town'},
-    'SYD': {'latitude': '-33.8688', 'longitude': '151.2093', 'city': 'Sydney'},
-    'AMS': {'latitude': '52.3676', 'longitude': '4.9041', 'city': 'Amsterdam'},
-    "LON": {'latitude': '51.5072', 'longitude': '-0.1276', 'city': 'London'},
-    "BCN": {'latitude': '41.3874', 'longitude': '2.1686', 'city': 'Barcelona'},
-    'MEX': {'latitude': '19.4326', 'longitude': '-99.1332', 'city': 'Mexico City'},
-    'MRS': {'latitude': '43.2965', 'longitude': '5.3698', 'city': 'Marseille'},
-    'MAD': {'latitude': '40.4168', 'longitude': '-3.7038', 'city': 'Madrid'},
-}
+with open(os.path.join('webpage', 'static', 'data', 'cities', 'cities.json')) as f:
+    city_list = json.load(f)['data']
+f.close()
 
-for city in cities.keys():
+cities = [city['iataCode'] for city in city_list]
+
+for city in cities:
     data = get_flight_data(city, "AUS", date='2024-05-13')
     date = '2024-05-13'
     file_path = os.path.join('webpage', 'static', 'data', 'flights', city + '-' + date + ".json")

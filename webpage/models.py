@@ -48,18 +48,16 @@ class Activity(db.Model):
     bookingLink = db.Column(db.Text)
     iataCode = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
 
-
-# TBD
 class Flight(db.Model):
     __tablename__ = 'flight'
 
     id = db.Column(db.String(80), primary_key=True)
     departure_airport = db.Column(db.String(3), nullable=False)
     arrival_airport = db.Column(db.String(3), nullable=False)
-    iataCode = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
+    arrival_city = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
     price = db.Column(db.String(8))
     seats_left = db.Column(db.Integer)
-    duration = db.Column(db.DateTime)
+    duration = db.Column(db.String(5))
     num_legs = db.Column(db.Integer)
     departure_time = db.Column(db.DateTime)
     arrival_time = db.Column(db.DateTime)
@@ -72,7 +70,7 @@ class FlightDetails(db.Model):
     flight_group = db.Column(db.String(80), db.ForeignKey('flight.id'))
     flight_number = db.Column(db.Integer)
     departure_airport = db.Column(db.String(3), nullable=False)
-    departure_time = db.Column(db.DateTime)
+    departure_time = db.Column(db.String(5))
     arrival_airport = db.Column(db.String(3))
     arrival_time = db.Column(db.DateTime)
     arrival_terminal = db.Column(db.String(2))

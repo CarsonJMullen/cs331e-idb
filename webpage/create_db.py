@@ -1,4 +1,5 @@
 from models import app, db, City, Activity, Flight, Hotel
+from flight_functions import create_convert_airline_cache, create_airport_to_city_cache, convert_airline, convert_duration, airport_to_city
 import os
 import json
 
@@ -13,7 +14,7 @@ with open(os.path.join(app.static_folder, 'data', 'activities', 'activities_mult
 f.close()
 
 # flights
-cities = ['BER', 'NYC', 'PAR', 'FCO', 'CPT', 'SYD', 'AMS', 'LON', 'BCN', 'MEX', 'MRS', 'MAD']
+cities = [city['iataCode'] for city in city_list]
 flights = []
 for city in cities:
     with open(os.path.join(app.static_folder, 'data', 'flights', city + '-2024-05-13.json')) as f:
@@ -25,6 +26,8 @@ with open(os.path.join(app.static_folder, 'data', 'hotels', 'hotel_list.json')) 
     hotel_list = json.load(f)['data']
 f.close()
 
+convert_airline_cache = create_convert_airline_cache()
+airport_to_city_cache = create_airport_to_city_cache()
 
 def create():
     # Populating
@@ -51,5 +54,24 @@ def create():
         db.session.add(newHotel)
     db.session.commit()
 
+    id = 0
+    for city in flights:
+        for f in city['data']:
+            newflight = Flight(id = id,
+                               departure_airport = f['itineraries'][0]['segments'][0]['departure']['iataCode'],
+                               arrival_airport = f['itineraries'][0]['segments'][-1]['arrival']['iataCode'],
+                               arrival_city = airport_to_city(airport_to_city_cache, f['itineraries'][0]['segments'][-1]['arrival']['iataCode'])['cityCode'],
+                               price = f['price']['total'],
+                               seats_left = f['numberOfBookableSeats'],
+                               duration = convert_duration(f['itineraries'][0]['duration']),
+                               num_legs = len(f['itineraries'][0]['segments']),
+                               departure_time = f['itineraries'][0]['segments'][0]['departure']['at'],
+                               arrival_time = f['itineraries'][0]['segments'][-1]['arrival']['at'],
+                               airline = convert_airline(convert_airline_cache, f['itineraries'][0]['segments'][0]['carrierCode'])
+            )
+            db.session.add(newflight)
+            id += 1
+
+    db.session.commit()
 
 create()

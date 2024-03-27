@@ -1,6 +1,6 @@
 {
     "meta": {
-        "count": 46,
+        "count": 49,
         "links": {
             "self": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=AUS&destinationLocationCode=NYC&departureDate=2024-05-13&adults=1&nonStop=false&max=250"
         }
@@ -39,7 +39,7 @@
                                 "carrierCode": "NK"
                             },
                             "duration": "PT3H53M",
-                            "id": "69",
+                            "id": "72",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -83,7 +83,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "69",
+                            "segmentId": "72",
                             "cabin": "ECONOMY",
                             "fareBasis": "GA21NR",
                             "class": "G",
@@ -250,7 +250,7 @@
                                 "carrierCode": "NK"
                             },
                             "duration": "PT2H45M",
-                            "id": "61",
+                            "id": "64",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -274,7 +274,7 @@
                                 "carrierCode": "NK"
                             },
                             "duration": "PT3H",
-                            "id": "62",
+                            "id": "65",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -318,7 +318,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "61",
+                            "segmentId": "64",
                             "cabin": "ECONOMY",
                             "fareBasis": "WA21NR",
                             "class": "W",
@@ -327,7 +327,7 @@
                             }
                         },
                         {
-                            "segmentId": "62",
+                            "segmentId": "65",
                             "cabin": "ECONOMY",
                             "fareBasis": "GA14NR",
                             "class": "G",
@@ -372,7 +372,7 @@
                                 "carrierCode": "NK"
                             },
                             "duration": "PT2H45M",
-                            "id": "51",
+                            "id": "54",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -396,7 +396,7 @@
                                 "carrierCode": "NK"
                             },
                             "duration": "PT3H3M",
-                            "id": "52",
+                            "id": "55",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -440,7 +440,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "51",
+                            "segmentId": "54",
                             "cabin": "ECONOMY",
                             "fareBasis": "WA21NR",
                             "class": "W",
@@ -449,7 +449,7 @@
                             }
                         },
                         {
-                            "segmentId": "52",
+                            "segmentId": "55",
                             "cabin": "ECONOMY",
                             "fareBasis": "GA14Y4",
                             "class": "G",
@@ -616,7 +616,7 @@
                                 "carrierCode": "NK"
                             },
                             "duration": "PT2H53M",
-                            "id": "65",
+                            "id": "68",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -640,7 +640,7 @@
                                 "carrierCode": "NK"
                             },
                             "duration": "PT4H54M",
-                            "id": "66",
+                            "id": "69",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -684,7 +684,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "65",
+                            "segmentId": "68",
                             "cabin": "ECONOMY",
                             "fareBasis": "GA21NR",
                             "class": "G",
@@ -693,7 +693,7 @@
                             }
                         },
                         {
-                            "segmentId": "66",
+                            "segmentId": "69",
                             "cabin": "ECONOMY",
                             "fareBasis": "GA21NR",
                             "class": "G",
@@ -737,7 +737,7 @@
                                 "carrierCode": "NK"
                             },
                             "duration": "PT2H41M",
-                            "id": "80",
+                            "id": "84",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -760,7 +760,7 @@
                                 "carrierCode": "NK"
                             },
                             "duration": "PT2H49M",
-                            "id": "81",
+                            "id": "85",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -804,7 +804,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "80",
+                            "segmentId": "84",
                             "cabin": "ECONOMY",
                             "fareBasis": "GA21NR",
                             "class": "G",
@@ -813,7 +813,7 @@
                             }
                         },
                         {
-                            "segmentId": "81",
+                            "segmentId": "85",
                             "cabin": "ECONOMY",
                             "fareBasis": "GA21NR",
                             "class": "G",
@@ -828,6 +828,288 @@
         {
             "type": "flight-offer",
             "id": "8",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2024-03-28",
+            "lastTicketingDateTime": "2024-03-28",
+            "numberOfBookableSeats": 9,
+            "itineraries": [
+                {
+                    "duration": "PT3H42M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "AUS",
+                                "at": "2024-05-13T06:00:00"
+                            },
+                            "arrival": {
+                                "iataCode": "JFK",
+                                "terminal": "5",
+                                "at": "2024-05-13T10:42:00"
+                            },
+                            "carrierCode": "B6",
+                            "number": "794",
+                            "aircraft": {
+                                "code": "223"
+                            },
+                            "operating": {
+                                "carrierCode": "B6"
+                            },
+                            "duration": "PT3H42M",
+                            "id": "51",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "EUR",
+                "total": "99.86",
+                "base": "80.00",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "99.86"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "B6"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "EUR",
+                        "total": "99.86",
+                        "base": "80.00"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "51",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "SI2QUEL1",
+                            "brandedFare": "DN",
+                            "brandedFareLabel": "BLUE BASIC",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            },
+                            "amenities": [
+                                {
+                                    "description": "CHECKED BAG FIRST",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "CHECKED BAG SECOND",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "EXTRA LEGROOM",
+                                    "isChargeable": true,
+                                    "amenityType": "PRE_RESERVED_SEAT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "ADVANCE SEAT SELECTION",
+                                    "isChargeable": true,
+                                    "amenityType": "PRE_RESERVED_SEAT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "SNACK",
+                                    "isChargeable": false,
+                                    "amenityType": "MEAL",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "ALCOHOLIC DRINK",
+                                    "isChargeable": true,
+                                    "amenityType": "MEAL",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "9",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2024-03-28",
+            "lastTicketingDateTime": "2024-03-28",
+            "numberOfBookableSeats": 9,
+            "itineraries": [
+                {
+                    "duration": "PT3H54M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "AUS",
+                                "at": "2024-05-13T18:25:00"
+                            },
+                            "arrival": {
+                                "iataCode": "JFK",
+                                "terminal": "5",
+                                "at": "2024-05-13T23:19:00"
+                            },
+                            "carrierCode": "B6",
+                            "number": "694",
+                            "aircraft": {
+                                "code": "223"
+                            },
+                            "operating": {
+                                "carrierCode": "B6"
+                            },
+                            "duration": "PT3H54M",
+                            "id": "73",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "EUR",
+                "total": "99.86",
+                "base": "80.00",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "99.86"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "B6"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "EUR",
+                        "total": "99.86",
+                        "base": "80.00"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "73",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "SI2QUEL1",
+                            "brandedFare": "DN",
+                            "brandedFareLabel": "BLUE BASIC",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            },
+                            "amenities": [
+                                {
+                                    "description": "CHECKED BAG FIRST",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "CHECKED BAG SECOND",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "EXTRA LEGROOM",
+                                    "isChargeable": true,
+                                    "amenityType": "PRE_RESERVED_SEAT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "ADVANCE SEAT SELECTION",
+                                    "isChargeable": true,
+                                    "amenityType": "PRE_RESERVED_SEAT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "SNACK",
+                                    "isChargeable": false,
+                                    "amenityType": "MEAL",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "ALCOHOLIC DRINK",
+                                    "isChargeable": true,
+                                    "amenityType": "MEAL",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "10",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -947,7 +1229,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "9",
+            "id": "11",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -977,7 +1259,7 @@
                                 "carrierCode": "NK"
                             },
                             "duration": "PT2H41M",
-                            "id": "67",
+                            "id": "70",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -1000,7 +1282,7 @@
                                 "carrierCode": "NK"
                             },
                             "duration": "PT2H38M",
-                            "id": "68",
+                            "id": "71",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -1044,7 +1326,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "67",
+                            "segmentId": "70",
                             "cabin": "ECONOMY",
                             "fareBasis": "UA14NR",
                             "class": "U",
@@ -1053,7 +1335,7 @@
                             }
                         },
                         {
-                            "segmentId": "68",
+                            "segmentId": "71",
                             "cabin": "ECONOMY",
                             "fareBasis": "UA14NR",
                             "class": "U",
@@ -1067,7 +1349,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "10",
+            "id": "12",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -1097,7 +1379,7 @@
                                 "carrierCode": "NK"
                             },
                             "duration": "PT2H41M",
-                            "id": "74",
+                            "id": "78",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -1120,7 +1402,7 @@
                                 "carrierCode": "NK"
                             },
                             "duration": "PT2H46M",
-                            "id": "75",
+                            "id": "79",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -1164,7 +1446,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "74",
+                            "segmentId": "78",
                             "cabin": "ECONOMY",
                             "fareBasis": "UA14NR",
                             "class": "U",
@@ -1173,7 +1455,7 @@
                             }
                         },
                         {
-                            "segmentId": "75",
+                            "segmentId": "79",
                             "cabin": "ECONOMY",
                             "fareBasis": "UA7NR",
                             "class": "U",
@@ -1187,7 +1469,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "11",
+            "id": "13",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -1307,7 +1589,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "12",
+            "id": "14",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -1530,7 +1812,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "13",
+            "id": "15",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -1652,7 +1934,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "14",
+            "id": "16",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -1683,7 +1965,7 @@
                                 "carrierCode": "UA"
                             },
                             "duration": "PT3H43M",
-                            "id": "50",
+                            "id": "53",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -1727,7 +2009,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "50",
+                            "segmentId": "53",
                             "cabin": "ECONOMY",
                             "fareBasis": "TAA7PFDN",
                             "brandedFare": "ECONOMY",
@@ -1793,7 +2075,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "15",
+            "id": "17",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -1824,7 +2106,7 @@
                                 "carrierCode": "UA"
                             },
                             "duration": "PT59M",
-                            "id": "78",
+                            "id": "82",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -1848,7 +2130,7 @@
                                 "carrierCode": "UA"
                             },
                             "duration": "PT3H28M",
-                            "id": "79",
+                            "id": "83",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -1892,7 +2174,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "78",
+                            "segmentId": "82",
                             "cabin": "ECONOMY",
                             "fareBasis": "SAA7AFDN",
                             "brandedFare": "ECONOMY",
@@ -1953,7 +2235,7 @@
                             ]
                         },
                         {
-                            "segmentId": "79",
+                            "segmentId": "83",
                             "cabin": "ECONOMY",
                             "fareBasis": "SAA7AFDN",
                             "brandedFare": "ECONOMY",
@@ -2019,7 +2301,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "16",
+            "id": "18",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -2245,7 +2527,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "17",
+            "id": "19",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -2276,7 +2558,7 @@
                                 "carrierCode": "UA"
                             },
                             "duration": "PT3H42M",
-                            "id": "49",
+                            "id": "52",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -2320,7 +2602,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "49",
+                            "segmentId": "52",
                             "cabin": "ECONOMY",
                             "fareBasis": "SAA2JHDS",
                             "brandedFare": "ECONOMY",
@@ -2386,7 +2668,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "18",
+            "id": "20",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -2416,7 +2698,7 @@
                                 "carrierCode": "AS"
                             },
                             "duration": "PT4H45M",
-                            "id": "46",
+                            "id": "48",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -2439,7 +2721,7 @@
                                 "carrierCode": "AS"
                             },
                             "duration": "PT5H24M",
-                            "id": "47",
+                            "id": "49",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -2483,7 +2765,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "46",
+                            "segmentId": "48",
                             "cabin": "ECONOMY",
                             "fareBasis": "QH2OAVBN",
                             "brandedFare": "SV",
@@ -2528,391 +2810,7 @@
                             ]
                         },
                         {
-                            "segmentId": "47",
-                            "cabin": "ECONOMY",
-                            "fareBasis": "GH2OAVBN",
-                            "brandedFare": "SV",
-                            "brandedFareLabel": "SAVER",
-                            "class": "X",
-                            "includedCheckedBags": {
-                                "quantity": 0
-                            },
-                            "amenities": [
-                                {
-                                    "description": "STANDARD PIECE MAX 50LB 62LI",
-                                    "isChargeable": true,
-                                    "amenityType": "BAGGAGE",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "MEAL 1",
-                                    "isChargeable": true,
-                                    "amenityType": "MEAL",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "110V AC POWER",
-                                    "isChargeable": false,
-                                    "amenityType": "ENTERTAINMENT",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "USB POWER",
-                                    "isChargeable": false,
-                                    "amenityType": "ENTERTAINMENT",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "flight-offer",
-            "id": "19",
-            "source": "GDS",
-            "instantTicketingRequired": false,
-            "nonHomogeneous": false,
-            "oneWay": false,
-            "lastTicketingDate": "2024-03-28",
-            "lastTicketingDateTime": "2024-03-28",
-            "numberOfBookableSeats": 3,
-            "itineraries": [
-                {
-                    "duration": "PT16H59M",
-                    "segments": [
-                        {
-                            "departure": {
-                                "iataCode": "AUS",
-                                "at": "2024-05-13T06:00:00"
-                            },
-                            "arrival": {
-                                "iataCode": "SEA",
-                                "at": "2024-05-13T08:24:00"
-                            },
-                            "carrierCode": "AS",
-                            "number": "595",
-                            "aircraft": {
-                                "code": "73J"
-                            },
-                            "operating": {
-                                "carrierCode": "AS"
-                            },
-                            "duration": "PT4H24M",
-                            "id": "84",
-                            "numberOfStops": 0,
-                            "blacklistedInEU": false
-                        },
-                        {
-                            "departure": {
-                                "iataCode": "SEA",
-                                "at": "2024-05-13T15:35:00"
-                            },
-                            "arrival": {
-                                "iataCode": "EWR",
-                                "terminal": "B",
-                                "at": "2024-05-13T23:59:00"
-                            },
-                            "carrierCode": "AS",
-                            "number": "314",
-                            "aircraft": {
-                                "code": "73J"
-                            },
-                            "operating": {
-                                "carrierCode": "AS"
-                            },
-                            "duration": "PT5H24M",
-                            "id": "85",
-                            "numberOfStops": 0,
-                            "blacklistedInEU": false
-                        }
-                    ]
-                }
-            ],
-            "price": {
-                "currency": "EUR",
-                "total": "291.10",
-                "base": "245.00",
-                "fees": [
-                    {
-                        "amount": "0.00",
-                        "type": "SUPPLIER"
-                    },
-                    {
-                        "amount": "0.00",
-                        "type": "TICKETING"
-                    }
-                ],
-                "grandTotal": "291.10"
-            },
-            "pricingOptions": {
-                "fareType": [
-                    "PUBLISHED"
-                ],
-                "includedCheckedBagsOnly": false
-            },
-            "validatingAirlineCodes": [
-                "AS"
-            ],
-            "travelerPricings": [
-                {
-                    "travelerId": "1",
-                    "fareOption": "STANDARD",
-                    "travelerType": "ADULT",
-                    "price": {
-                        "currency": "EUR",
-                        "total": "291.10",
-                        "base": "245.00"
-                    },
-                    "fareDetailsBySegment": [
-                        {
-                            "segmentId": "84",
-                            "cabin": "ECONOMY",
-                            "fareBasis": "QH2OAVBN",
-                            "brandedFare": "SV",
-                            "brandedFareLabel": "SAVER",
-                            "class": "X",
-                            "includedCheckedBags": {
-                                "quantity": 0
-                            },
-                            "amenities": [
-                                {
-                                    "description": "STANDARD PIECE MAX 50LB 62LI",
-                                    "isChargeable": true,
-                                    "amenityType": "BAGGAGE",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "MEAL 1",
-                                    "isChargeable": true,
-                                    "amenityType": "MEAL",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "110V AC POWER",
-                                    "isChargeable": false,
-                                    "amenityType": "ENTERTAINMENT",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "USB POWER",
-                                    "isChargeable": false,
-                                    "amenityType": "ENTERTAINMENT",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "segmentId": "85",
-                            "cabin": "ECONOMY",
-                            "fareBasis": "GH2OAVBN",
-                            "brandedFare": "SV",
-                            "brandedFareLabel": "SAVER",
-                            "class": "X",
-                            "includedCheckedBags": {
-                                "quantity": 0
-                            },
-                            "amenities": [
-                                {
-                                    "description": "STANDARD PIECE MAX 50LB 62LI",
-                                    "isChargeable": true,
-                                    "amenityType": "BAGGAGE",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "MEAL 1",
-                                    "isChargeable": true,
-                                    "amenityType": "MEAL",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "110V AC POWER",
-                                    "isChargeable": false,
-                                    "amenityType": "ENTERTAINMENT",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "USB POWER",
-                                    "isChargeable": false,
-                                    "amenityType": "ENTERTAINMENT",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "flight-offer",
-            "id": "20",
-            "source": "GDS",
-            "instantTicketingRequired": false,
-            "nonHomogeneous": false,
-            "oneWay": false,
-            "lastTicketingDate": "2024-03-28",
-            "lastTicketingDateTime": "2024-03-28",
-            "numberOfBookableSeats": 3,
-            "itineraries": [
-                {
-                    "duration": "PT10H54M",
-                    "segments": [
-                        {
-                            "departure": {
-                                "iataCode": "AUS",
-                                "at": "2024-05-13T06:00:00"
-                            },
-                            "arrival": {
-                                "iataCode": "SEA",
-                                "at": "2024-05-13T08:24:00"
-                            },
-                            "carrierCode": "AS",
-                            "number": "595",
-                            "aircraft": {
-                                "code": "73J"
-                            },
-                            "operating": {
-                                "carrierCode": "AS"
-                            },
-                            "duration": "PT4H24M",
-                            "id": "70",
-                            "numberOfStops": 0,
-                            "blacklistedInEU": false
-                        },
-                        {
-                            "departure": {
-                                "iataCode": "SEA",
-                                "at": "2024-05-13T09:20:00"
-                            },
-                            "arrival": {
-                                "iataCode": "JFK",
-                                "terminal": "7",
-                                "at": "2024-05-13T17:54:00"
-                            },
-                            "carrierCode": "AS",
-                            "number": "34",
-                            "aircraft": {
-                                "code": "73J"
-                            },
-                            "operating": {
-                                "carrierCode": "AS"
-                            },
-                            "duration": "PT5H34M",
-                            "id": "71",
-                            "numberOfStops": 0,
-                            "blacklistedInEU": false
-                        }
-                    ]
-                }
-            ],
-            "price": {
-                "currency": "EUR",
-                "total": "294.56",
-                "base": "253.00",
-                "fees": [
-                    {
-                        "amount": "0.00",
-                        "type": "SUPPLIER"
-                    },
-                    {
-                        "amount": "0.00",
-                        "type": "TICKETING"
-                    }
-                ],
-                "grandTotal": "294.56"
-            },
-            "pricingOptions": {
-                "fareType": [
-                    "PUBLISHED"
-                ],
-                "includedCheckedBagsOnly": false
-            },
-            "validatingAirlineCodes": [
-                "AS"
-            ],
-            "travelerPricings": [
-                {
-                    "travelerId": "1",
-                    "fareOption": "STANDARD",
-                    "travelerType": "ADULT",
-                    "price": {
-                        "currency": "EUR",
-                        "total": "294.56",
-                        "base": "253.00"
-                    },
-                    "fareDetailsBySegment": [
-                        {
-                            "segmentId": "70",
-                            "cabin": "ECONOMY",
-                            "fareBasis": "QH2OAVBN",
-                            "brandedFare": "SV",
-                            "brandedFareLabel": "SAVER",
-                            "class": "X",
-                            "includedCheckedBags": {
-                                "quantity": 0
-                            },
-                            "amenities": [
-                                {
-                                    "description": "STANDARD PIECE MAX 50LB 62LI",
-                                    "isChargeable": true,
-                                    "amenityType": "BAGGAGE",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "MEAL 1",
-                                    "isChargeable": true,
-                                    "amenityType": "MEAL",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "110V AC POWER",
-                                    "isChargeable": false,
-                                    "amenityType": "ENTERTAINMENT",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "USB POWER",
-                                    "isChargeable": false,
-                                    "amenityType": "ENTERTAINMENT",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "segmentId": "71",
+                            "segmentId": "49",
                             "cabin": "ECONOMY",
                             "fareBasis": "GH2OAVBN",
                             "brandedFare": "SV",
@@ -2972,50 +2870,50 @@
             "numberOfBookableSeats": 3,
             "itineraries": [
                 {
-                    "duration": "PT13H34M",
+                    "duration": "PT16H59M",
                     "segments": [
                         {
                             "departure": {
                                 "iataCode": "AUS",
-                                "at": "2024-05-13T08:20:00"
+                                "at": "2024-05-13T06:00:00"
                             },
                             "arrival": {
                                 "iataCode": "SEA",
-                                "at": "2024-05-13T11:05:00"
+                                "at": "2024-05-13T08:24:00"
                             },
                             "carrierCode": "AS",
-                            "number": "425",
+                            "number": "595",
                             "aircraft": {
                                 "code": "73J"
                             },
                             "operating": {
                                 "carrierCode": "AS"
                             },
-                            "duration": "PT4H45M",
-                            "id": "43",
+                            "duration": "PT4H24M",
+                            "id": "88",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
                         {
                             "departure": {
                                 "iataCode": "SEA",
-                                "at": "2024-05-13T14:20:00"
+                                "at": "2024-05-13T15:35:00"
                             },
                             "arrival": {
-                                "iataCode": "JFK",
-                                "terminal": "7",
-                                "at": "2024-05-13T22:54:00"
+                                "iataCode": "EWR",
+                                "terminal": "B",
+                                "at": "2024-05-13T23:59:00"
                             },
                             "carrierCode": "AS",
-                            "number": "16",
+                            "number": "314",
                             "aircraft": {
                                 "code": "73J"
                             },
                             "operating": {
                                 "carrierCode": "AS"
                             },
-                            "duration": "PT5H34M",
-                            "id": "44",
+                            "duration": "PT5H24M",
+                            "id": "89",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -3024,8 +2922,8 @@
             ],
             "price": {
                 "currency": "EUR",
-                "total": "294.56",
-                "base": "253.00",
+                "total": "291.10",
+                "base": "245.00",
                 "fees": [
                     {
                         "amount": "0.00",
@@ -3036,7 +2934,7 @@
                         "type": "TICKETING"
                     }
                 ],
-                "grandTotal": "294.56"
+                "grandTotal": "291.10"
             },
             "pricingOptions": {
                 "fareType": [
@@ -3054,12 +2952,12 @@
                     "travelerType": "ADULT",
                     "price": {
                         "currency": "EUR",
-                        "total": "294.56",
-                        "base": "253.00"
+                        "total": "291.10",
+                        "base": "245.00"
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "43",
+                            "segmentId": "88",
                             "cabin": "ECONOMY",
                             "fareBasis": "QH2OAVBN",
                             "brandedFare": "SV",
@@ -3104,7 +3002,7 @@
                             ]
                         },
                         {
-                            "segmentId": "44",
+                            "segmentId": "89",
                             "cabin": "ECONOMY",
                             "fareBasis": "GH2OAVBN",
                             "brandedFare": "SV",
@@ -3155,6 +3053,390 @@
         {
             "type": "flight-offer",
             "id": "22",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2024-03-28",
+            "lastTicketingDateTime": "2024-03-28",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT10H54M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "AUS",
+                                "at": "2024-05-13T06:00:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SEA",
+                                "at": "2024-05-13T08:24:00"
+                            },
+                            "carrierCode": "AS",
+                            "number": "595",
+                            "aircraft": {
+                                "code": "73J"
+                            },
+                            "operating": {
+                                "carrierCode": "AS"
+                            },
+                            "duration": "PT4H24M",
+                            "id": "74",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        },
+                        {
+                            "departure": {
+                                "iataCode": "SEA",
+                                "at": "2024-05-13T09:20:00"
+                            },
+                            "arrival": {
+                                "iataCode": "JFK",
+                                "terminal": "7",
+                                "at": "2024-05-13T17:54:00"
+                            },
+                            "carrierCode": "AS",
+                            "number": "34",
+                            "aircraft": {
+                                "code": "73J"
+                            },
+                            "operating": {
+                                "carrierCode": "AS"
+                            },
+                            "duration": "PT5H34M",
+                            "id": "75",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "EUR",
+                "total": "294.56",
+                "base": "253.00",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "294.56"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "AS"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "EUR",
+                        "total": "294.56",
+                        "base": "253.00"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "74",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "QH2OAVBN",
+                            "brandedFare": "SV",
+                            "brandedFareLabel": "SAVER",
+                            "class": "X",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            },
+                            "amenities": [
+                                {
+                                    "description": "STANDARD PIECE MAX 50LB 62LI",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "MEAL 1",
+                                    "isChargeable": true,
+                                    "amenityType": "MEAL",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "110V AC POWER",
+                                    "isChargeable": false,
+                                    "amenityType": "ENTERTAINMENT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "USB POWER",
+                                    "isChargeable": false,
+                                    "amenityType": "ENTERTAINMENT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "segmentId": "75",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "GH2OAVBN",
+                            "brandedFare": "SV",
+                            "brandedFareLabel": "SAVER",
+                            "class": "X",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            },
+                            "amenities": [
+                                {
+                                    "description": "STANDARD PIECE MAX 50LB 62LI",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "MEAL 1",
+                                    "isChargeable": true,
+                                    "amenityType": "MEAL",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "110V AC POWER",
+                                    "isChargeable": false,
+                                    "amenityType": "ENTERTAINMENT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "USB POWER",
+                                    "isChargeable": false,
+                                    "amenityType": "ENTERTAINMENT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "23",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2024-03-28",
+            "lastTicketingDateTime": "2024-03-28",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT13H34M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "AUS",
+                                "at": "2024-05-13T08:20:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SEA",
+                                "at": "2024-05-13T11:05:00"
+                            },
+                            "carrierCode": "AS",
+                            "number": "425",
+                            "aircraft": {
+                                "code": "73J"
+                            },
+                            "operating": {
+                                "carrierCode": "AS"
+                            },
+                            "duration": "PT4H45M",
+                            "id": "45",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        },
+                        {
+                            "departure": {
+                                "iataCode": "SEA",
+                                "at": "2024-05-13T14:20:00"
+                            },
+                            "arrival": {
+                                "iataCode": "JFK",
+                                "terminal": "7",
+                                "at": "2024-05-13T22:54:00"
+                            },
+                            "carrierCode": "AS",
+                            "number": "16",
+                            "aircraft": {
+                                "code": "73J"
+                            },
+                            "operating": {
+                                "carrierCode": "AS"
+                            },
+                            "duration": "PT5H34M",
+                            "id": "46",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "EUR",
+                "total": "294.56",
+                "base": "253.00",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "294.56"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "AS"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "EUR",
+                        "total": "294.56",
+                        "base": "253.00"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "45",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "QH2OAVBN",
+                            "brandedFare": "SV",
+                            "brandedFareLabel": "SAVER",
+                            "class": "X",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            },
+                            "amenities": [
+                                {
+                                    "description": "STANDARD PIECE MAX 50LB 62LI",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "MEAL 1",
+                                    "isChargeable": true,
+                                    "amenityType": "MEAL",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "110V AC POWER",
+                                    "isChargeable": false,
+                                    "amenityType": "ENTERTAINMENT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "USB POWER",
+                                    "isChargeable": false,
+                                    "amenityType": "ENTERTAINMENT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "segmentId": "46",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "GH2OAVBN",
+                            "brandedFare": "SV",
+                            "brandedFareLabel": "SAVER",
+                            "class": "X",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            },
+                            "amenities": [
+                                {
+                                    "description": "STANDARD PIECE MAX 50LB 62LI",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "MEAL 1",
+                                    "isChargeable": true,
+                                    "amenityType": "MEAL",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "110V AC POWER",
+                                    "isChargeable": false,
+                                    "amenityType": "ENTERTAINMENT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "USB POWER",
+                                    "isChargeable": false,
+                                    "amenityType": "ENTERTAINMENT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "24",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -3346,7 +3628,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "23",
+            "id": "25",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -3377,7 +3659,7 @@
                                 "carrierCode": "AS"
                             },
                             "duration": "PT3H10M",
-                            "id": "59",
+                            "id": "62",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -3401,7 +3683,7 @@
                                 "carrierCode": "AS"
                             },
                             "duration": "PT5H30M",
-                            "id": "60",
+                            "id": "63",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -3445,7 +3727,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "59",
+                            "segmentId": "62",
                             "cabin": "ECONOMY",
                             "fareBasis": "QH2OAVBN",
                             "brandedFare": "SV",
@@ -3490,7 +3772,7 @@
                             ]
                         },
                         {
-                            "segmentId": "60",
+                            "segmentId": "63",
                             "cabin": "ECONOMY",
                             "fareBasis": "OH2OAVBN",
                             "brandedFare": "SV",
@@ -3540,7 +3822,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "24",
+            "id": "26",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -3570,7 +3852,7 @@
                                 "carrierCode": "AS"
                             },
                             "duration": "PT4H24M",
-                            "id": "72",
+                            "id": "76",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -3593,7 +3875,7 @@
                                 "carrierCode": "AS"
                             },
                             "duration": "PT5H34M",
-                            "id": "73",
+                            "id": "77",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -3637,7 +3919,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "72",
+                            "segmentId": "76",
                             "cabin": "ECONOMY",
                             "fareBasis": "QH2OAVBN",
                             "brandedFare": "SV",
@@ -3682,7 +3964,7 @@
                             ]
                         },
                         {
-                            "segmentId": "73",
+                            "segmentId": "77",
                             "cabin": "ECONOMY",
                             "fareBasis": "GH2OAVBN",
                             "brandedFare": "SV",
@@ -3732,7 +4014,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "25",
+            "id": "27",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -3924,7 +4206,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "26",
+            "id": "28",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -3955,7 +4237,7 @@
                                 "carrierCode": "UA"
                             },
                             "duration": "PT3H41M",
-                            "id": "48",
+                            "id": "50",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -3999,7 +4281,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "48",
+                            "segmentId": "50",
                             "cabin": "ECONOMY",
                             "fareBasis": "WAA3PFDN",
                             "brandedFare": "ECONOMY",
@@ -4065,7 +4347,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "27",
+            "id": "29",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -4259,7 +4541,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "28",
+            "id": "30",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -4290,7 +4572,7 @@
                                 "carrierCode": "AS"
                             },
                             "duration": "PT3H42M",
-                            "id": "55",
+                            "id": "58",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -4314,7 +4596,7 @@
                                 "carrierCode": "AS"
                             },
                             "duration": "PT5H34M",
-                            "id": "56",
+                            "id": "59",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -4358,7 +4640,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "55",
+                            "segmentId": "58",
                             "cabin": "ECONOMY",
                             "fareBasis": "QH2OAVBN",
                             "brandedFare": "SV",
@@ -4403,7 +4685,7 @@
                             ]
                         },
                         {
-                            "segmentId": "56",
+                            "segmentId": "59",
                             "cabin": "ECONOMY",
                             "fareBasis": "OH2OAVBN",
                             "brandedFare": "SV",
@@ -4453,7 +4735,235 @@
         },
         {
             "type": "flight-offer",
-            "id": "29",
+            "id": "31",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2024-03-28",
+            "lastTicketingDateTime": "2024-03-28",
+            "numberOfBookableSeats": 9,
+            "itineraries": [
+                {
+                    "duration": "PT5H30M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "AUS",
+                                "at": "2024-05-13T06:10:00"
+                            },
+                            "arrival": {
+                                "iataCode": "IAH",
+                                "terminal": "C",
+                                "at": "2024-05-13T07:13:00"
+                            },
+                            "carrierCode": "UA",
+                            "number": "1407",
+                            "aircraft": {
+                                "code": "738"
+                            },
+                            "operating": {
+                                "carrierCode": "UA"
+                            },
+                            "duration": "PT1H3M",
+                            "id": "43",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        },
+                        {
+                            "departure": {
+                                "iataCode": "IAH",
+                                "terminal": "C",
+                                "at": "2024-05-13T08:15:00"
+                            },
+                            "arrival": {
+                                "iataCode": "LGA",
+                                "terminal": "B",
+                                "at": "2024-05-13T12:40:00"
+                            },
+                            "carrierCode": "UA",
+                            "number": "1810",
+                            "aircraft": {
+                                "code": "319"
+                            },
+                            "operating": {
+                                "carrierCode": "UA"
+                            },
+                            "duration": "PT3H25M",
+                            "id": "44",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "EUR",
+                "total": "309.61",
+                "base": "267.00",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "309.61"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "UA"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "EUR",
+                        "total": "309.61",
+                        "base": "267.00"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "43",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "KAA4AFIN",
+                            "brandedFare": "ECOPLUS",
+                            "brandedFareLabel": "ECONOMY PLUS",
+                            "class": "K",
+                            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            },
+                            "amenities": [
+                                {
+                                    "description": "CHECKED BAG FIRST",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "SECOND BAG",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "PRE RESERVED SEAT ASSIGNMENT",
+                                    "isChargeable": false,
+                                    "amenityType": "PRE_RESERVED_SEAT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "PRIORITY BOARDING",
+                                    "isChargeable": true,
+                                    "amenityType": "TRAVEL_SERVICES",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "ECONOMY PLUS TO BUSINESS",
+                                    "isChargeable": true,
+                                    "amenityType": "UPGRADES",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "MILEAGE ACCRUAL",
+                                    "isChargeable": false,
+                                    "amenityType": "BRANDED_FARES",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "segmentId": "44",
+                            "cabin": "PREMIUM_ECONOMY",
+                            "fareBasis": "KAA4AFIN",
+                            "brandedFare": "ECOPLUS",
+                            "brandedFareLabel": "ECONOMY PLUS",
+                            "class": "B",
+                            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            },
+                            "amenities": [
+                                {
+                                    "description": "CHECKED BAG FIRST",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "SECOND BAG",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "PRE RESERVED SEAT ASSIGNMENT",
+                                    "isChargeable": false,
+                                    "amenityType": "PRE_RESERVED_SEAT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "PRIORITY BOARDING",
+                                    "isChargeable": true,
+                                    "amenityType": "TRAVEL_SERVICES",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "ECONOMY PLUS TO BUSINESS",
+                                    "isChargeable": true,
+                                    "amenityType": "UPGRADES",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "MILEAGE ACCRUAL",
+                                    "isChargeable": false,
+                                    "amenityType": "BRANDED_FARES",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "32",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -4647,7 +5157,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "30",
+            "id": "33",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -4870,230 +5380,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "31",
-            "source": "GDS",
-            "instantTicketingRequired": false,
-            "nonHomogeneous": false,
-            "oneWay": false,
-            "lastTicketingDate": "2024-03-28",
-            "lastTicketingDateTime": "2024-03-28",
-            "numberOfBookableSeats": 2,
-            "itineraries": [
-                {
-                    "duration": "PT7H20M",
-                    "segments": [
-                        {
-                            "departure": {
-                                "iataCode": "AUS",
-                                "at": "2024-05-13T06:10:00"
-                            },
-                            "arrival": {
-                                "iataCode": "IAH",
-                                "terminal": "C",
-                                "at": "2024-05-13T07:13:00"
-                            },
-                            "carrierCode": "UA",
-                            "number": "1407",
-                            "aircraft": {
-                                "code": "738"
-                            },
-                            "operating": {
-                                "carrierCode": "UA"
-                            },
-                            "duration": "PT1H3M",
-                            "id": "25",
-                            "numberOfStops": 0,
-                            "blacklistedInEU": false
-                        },
-                        {
-                            "departure": {
-                                "iataCode": "IAH",
-                                "terminal": "B",
-                                "at": "2024-05-13T09:55:00"
-                            },
-                            "arrival": {
-                                "iataCode": "LGA",
-                                "terminal": "B",
-                                "at": "2024-05-13T14:30:00"
-                            },
-                            "carrierCode": "UA",
-                            "number": "4804",
-                            "aircraft": {
-                                "code": "E7W"
-                            },
-                            "duration": "PT3H35M",
-                            "id": "26",
-                            "numberOfStops": 0,
-                            "blacklistedInEU": false
-                        }
-                    ]
-                }
-            ],
-            "price": {
-                "currency": "EUR",
-                "total": "314.98",
-                "base": "272.00",
-                "fees": [
-                    {
-                        "amount": "0.00",
-                        "type": "SUPPLIER"
-                    },
-                    {
-                        "amount": "0.00",
-                        "type": "TICKETING"
-                    }
-                ],
-                "grandTotal": "314.98"
-            },
-            "pricingOptions": {
-                "fareType": [
-                    "PUBLISHED"
-                ],
-                "includedCheckedBagsOnly": false
-            },
-            "validatingAirlineCodes": [
-                "UA"
-            ],
-            "travelerPricings": [
-                {
-                    "travelerId": "1",
-                    "fareOption": "STANDARD",
-                    "travelerType": "ADULT",
-                    "price": {
-                        "currency": "EUR",
-                        "total": "314.98",
-                        "base": "272.00"
-                    },
-                    "fareDetailsBySegment": [
-                        {
-                            "segmentId": "25",
-                            "cabin": "ECONOMY",
-                            "fareBasis": "VAA2AHDS",
-                            "brandedFare": "ECONOMY",
-                            "brandedFareLabel": "ECONOMY",
-                            "class": "V",
-                            "includedCheckedBags": {
-                                "quantity": 0
-                            },
-                            "amenities": [
-                                {
-                                    "description": "CHECKED BAG FIRST",
-                                    "isChargeable": true,
-                                    "amenityType": "BAGGAGE",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "SECOND BAG",
-                                    "isChargeable": true,
-                                    "amenityType": "BAGGAGE",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "PRE RESERVED SEAT ASSIGNMENT",
-                                    "isChargeable": false,
-                                    "amenityType": "PRE_RESERVED_SEAT",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "PRIORITY BOARDING",
-                                    "isChargeable": true,
-                                    "amenityType": "TRAVEL_SERVICES",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "ECONOMY TO ECONOMY PLUS",
-                                    "isChargeable": true,
-                                    "amenityType": "UPGRADES",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "MILEAGE ACCRUAL",
-                                    "isChargeable": false,
-                                    "amenityType": "BRANDED_FARES",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "segmentId": "26",
-                            "cabin": "ECONOMY",
-                            "fareBasis": "VAA2AHDS",
-                            "brandedFare": "ECONOMY",
-                            "brandedFareLabel": "ECONOMY",
-                            "class": "V",
-                            "includedCheckedBags": {
-                                "quantity": 0
-                            },
-                            "amenities": [
-                                {
-                                    "description": "CHECKED BAG FIRST",
-                                    "isChargeable": true,
-                                    "amenityType": "BAGGAGE",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "SECOND BAG",
-                                    "isChargeable": true,
-                                    "amenityType": "BAGGAGE",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "PRE RESERVED SEAT ASSIGNMENT",
-                                    "isChargeable": false,
-                                    "amenityType": "PRE_RESERVED_SEAT",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "PRIORITY BOARDING",
-                                    "isChargeable": true,
-                                    "amenityType": "TRAVEL_SERVICES",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "ECONOMY TO ECONOMY PLUS",
-                                    "isChargeable": true,
-                                    "amenityType": "UPGRADES",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                },
-                                {
-                                    "description": "MILEAGE ACCRUAL",
-                                    "isChargeable": false,
-                                    "amenityType": "BRANDED_FARES",
-                                    "amenityProvider": {
-                                        "name": "BrandedFare"
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "flight-offer",
-            "id": "32",
+            "id": "34",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -5124,7 +5411,7 @@
                                 "carrierCode": "UA"
                             },
                             "duration": "PT54M",
-                            "id": "53",
+                            "id": "56",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -5145,7 +5432,7 @@
                                 "code": "E7W"
                             },
                             "duration": "PT3H35M",
-                            "id": "54",
+                            "id": "57",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -5189,7 +5476,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "53",
+                            "segmentId": "56",
                             "cabin": "ECONOMY",
                             "fareBasis": "VAA2AHDS",
                             "brandedFare": "ECONOMY",
@@ -5250,7 +5537,7 @@
                             ]
                         },
                         {
-                            "segmentId": "54",
+                            "segmentId": "57",
                             "cabin": "ECONOMY",
                             "fareBasis": "VAA2AHDS",
                             "brandedFare": "ECONOMY",
@@ -5316,7 +5603,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "33",
+            "id": "35",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -5510,7 +5797,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "34",
+            "id": "36",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -5541,7 +5828,7 @@
                                 "carrierCode": "AS"
                             },
                             "duration": "PT3H42M",
-                            "id": "57",
+                            "id": "60",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -5565,7 +5852,7 @@
                                 "carrierCode": "AS"
                             },
                             "duration": "PT5H44M",
-                            "id": "58",
+                            "id": "61",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -5609,7 +5896,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "57",
+                            "segmentId": "60",
                             "cabin": "ECONOMY",
                             "fareBasis": "QH2OAVBN",
                             "brandedFare": "SV",
@@ -5654,7 +5941,7 @@
                             ]
                         },
                         {
-                            "segmentId": "58",
+                            "segmentId": "61",
                             "cabin": "ECONOMY",
                             "fareBasis": "QH2OAVBN",
                             "brandedFare": "SV",
@@ -5704,7 +5991,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "35",
+            "id": "37",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -5898,7 +6185,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "36",
+            "id": "38",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -5929,7 +6216,7 @@
                                 "carrierCode": "AS"
                             },
                             "duration": "PT4H",
-                            "id": "86",
+                            "id": "90",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -5953,7 +6240,7 @@
                                 "carrierCode": "AS"
                             },
                             "duration": "PT5H29M",
-                            "id": "87",
+                            "id": "91",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -5997,7 +6284,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "86",
+                            "segmentId": "90",
                             "cabin": "ECONOMY",
                             "fareBasis": "QH2OAVBN",
                             "brandedFare": "SV",
@@ -6042,7 +6329,7 @@
                             ]
                         },
                         {
-                            "segmentId": "87",
+                            "segmentId": "91",
                             "cabin": "ECONOMY",
                             "fareBasis": "QH2OAVBN",
                             "brandedFare": "SV",
@@ -6092,7 +6379,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "37",
+            "id": "39",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -6286,7 +6573,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "38",
+            "id": "40",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -6317,7 +6604,7 @@
                                 "carrierCode": "UA"
                             },
                             "duration": "PT3H36M",
-                            "id": "45",
+                            "id": "47",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -6361,7 +6648,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "45",
+                            "segmentId": "47",
                             "cabin": "ECONOMY",
                             "fareBasis": "VAA2JHDS",
                             "brandedFare": "ECONOMY",
@@ -6427,7 +6714,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "39",
+            "id": "41",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -6653,7 +6940,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "40",
+            "id": "42",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -6878,7 +7165,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "41",
+            "id": "43",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -7103,7 +7390,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "42",
+            "id": "44",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -7133,7 +7420,7 @@
                                 "carrierCode": "F9"
                             },
                             "duration": "PT2H23M",
-                            "id": "82",
+                            "id": "86",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -7164,7 +7451,7 @@
                                     "departureAt": "2024-05-13T21:36:00"
                                 }
                             ],
-                            "id": "83",
+                            "id": "87",
                             "numberOfStops": 1,
                             "blacklistedInEU": false
                         }
@@ -7208,7 +7495,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "82",
+                            "segmentId": "86",
                             "cabin": "ECONOMY",
                             "fareBasis": "V07PXP5",
                             "brandedFare": "ECO",
@@ -7274,7 +7561,7 @@
                             ]
                         },
                         {
-                            "segmentId": "83",
+                            "segmentId": "87",
                             "cabin": "ECONOMY",
                             "fareBasis": "V07PXP5",
                             "brandedFare": "ECO",
@@ -7345,7 +7632,232 @@
         },
         {
             "type": "flight-offer",
-            "id": "43",
+            "id": "45",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2024-03-28",
+            "lastTicketingDateTime": "2024-03-28",
+            "numberOfBookableSeats": 9,
+            "itineraries": [
+                {
+                    "duration": "PT7H20M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "AUS",
+                                "at": "2024-05-13T06:10:00"
+                            },
+                            "arrival": {
+                                "iataCode": "IAH",
+                                "terminal": "C",
+                                "at": "2024-05-13T07:13:00"
+                            },
+                            "carrierCode": "UA",
+                            "number": "1407",
+                            "aircraft": {
+                                "code": "738"
+                            },
+                            "operating": {
+                                "carrierCode": "UA"
+                            },
+                            "duration": "PT1H3M",
+                            "id": "25",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        },
+                        {
+                            "departure": {
+                                "iataCode": "IAH",
+                                "terminal": "B",
+                                "at": "2024-05-13T09:55:00"
+                            },
+                            "arrival": {
+                                "iataCode": "LGA",
+                                "terminal": "B",
+                                "at": "2024-05-13T14:30:00"
+                            },
+                            "carrierCode": "UA",
+                            "number": "4804",
+                            "aircraft": {
+                                "code": "E7W"
+                            },
+                            "duration": "PT3H35M",
+                            "id": "26",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "EUR",
+                "total": "479.46",
+                "base": "425.00",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "479.46"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "UA"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "EUR",
+                        "total": "479.46",
+                        "base": "425.00"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "25",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "VAA2AHIS",
+                            "brandedFare": "ECOPLUS",
+                            "brandedFareLabel": "ECONOMY PLUS",
+                            "class": "V",
+                            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            },
+                            "amenities": [
+                                {
+                                    "description": "CHECKED BAG FIRST",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "SECOND BAG",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "PRE RESERVED SEAT ASSIGNMENT",
+                                    "isChargeable": false,
+                                    "amenityType": "PRE_RESERVED_SEAT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "PRIORITY BOARDING",
+                                    "isChargeable": true,
+                                    "amenityType": "TRAVEL_SERVICES",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "ECONOMY PLUS TO BUSINESS",
+                                    "isChargeable": true,
+                                    "amenityType": "UPGRADES",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "MILEAGE ACCRUAL",
+                                    "isChargeable": false,
+                                    "amenityType": "BRANDED_FARES",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "segmentId": "26",
+                            "cabin": "PREMIUM_ECONOMY",
+                            "fareBasis": "VAA2AHIS",
+                            "brandedFare": "ECOPLUS",
+                            "brandedFareLabel": "ECONOMY PLUS",
+                            "class": "B",
+                            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            },
+                            "amenities": [
+                                {
+                                    "description": "CHECKED BAG FIRST",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "SECOND BAG",
+                                    "isChargeable": true,
+                                    "amenityType": "BAGGAGE",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "PRE RESERVED SEAT ASSIGNMENT",
+                                    "isChargeable": false,
+                                    "amenityType": "PRE_RESERVED_SEAT",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "PRIORITY BOARDING",
+                                    "isChargeable": true,
+                                    "amenityType": "TRAVEL_SERVICES",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "ECONOMY PLUS TO BUSINESS",
+                                    "isChargeable": true,
+                                    "amenityType": "UPGRADES",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                },
+                                {
+                                    "description": "MILEAGE ACCRUAL",
+                                    "isChargeable": false,
+                                    "amenityType": "BRANDED_FARES",
+                                    "amenityProvider": {
+                                        "name": "BrandedFare"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "46",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -7376,7 +7888,7 @@
                                 "carrierCode": "HA"
                             },
                             "duration": "PT8H25M",
-                            "id": "63",
+                            "id": "66",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -7400,7 +7912,7 @@
                                 "carrierCode": "HA"
                             },
                             "duration": "PT9H45M",
-                            "id": "64",
+                            "id": "67",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -7444,7 +7956,7 @@
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "63",
+                            "segmentId": "66",
                             "cabin": "ECONOMY",
                             "fareBasis": "OLX3OTBN",
                             "brandedFare": "MB",
@@ -7505,7 +8017,7 @@
                             ]
                         },
                         {
-                            "segmentId": "64",
+                            "segmentId": "67",
                             "cabin": "ECONOMY",
                             "fareBasis": "LHF2OTBN",
                             "brandedFare": "MB",
@@ -7571,7 +8083,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "44",
+            "id": "47",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -7796,7 +8308,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "45",
+            "id": "48",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -8022,7 +8534,7 @@
         },
         {
             "type": "flight-offer",
-            "id": "46",
+            "id": "49",
             "source": "GDS",
             "instantTicketingRequired": false,
             "nonHomogeneous": false,
@@ -8052,7 +8564,7 @@
                                 "carrierCode": "UA"
                             },
                             "duration": "PT3H11M",
-                            "id": "76",
+                            "id": "80",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         },
@@ -8072,7 +8584,7 @@
                                 "code": "CR5"
                             },
                             "duration": "PT1H37M",
-                            "id": "77",
+                            "id": "81",
                             "numberOfStops": 0,
                             "blacklistedInEU": false
                         }
@@ -8081,8 +8593,8 @@
             ],
             "price": {
                 "currency": "EUR",
-                "total": "612.76",
-                "base": "549.00",
+                "total": "653.61",
+                "base": "587.00",
                 "fees": [
                     {
                         "amount": "0.00",
@@ -8093,7 +8605,7 @@
                         "type": "TICKETING"
                     }
                 ],
-                "grandTotal": "612.76"
+                "grandTotal": "653.61"
             },
             "pricingOptions": {
                 "fareType": [
@@ -8111,17 +8623,18 @@
                     "travelerType": "ADULT",
                     "price": {
                         "currency": "EUR",
-                        "total": "612.76",
-                        "base": "549.00"
+                        "total": "653.61",
+                        "base": "587.00"
                     },
                     "fareDetailsBySegment": [
                         {
-                            "segmentId": "76",
+                            "segmentId": "80",
                             "cabin": "ECONOMY",
-                            "fareBasis": "EAA0OHEN",
+                            "fareBasis": "WAA4AKDN",
                             "brandedFare": "ECONOMY",
                             "brandedFareLabel": "ECONOMY",
-                            "class": "E",
+                            "class": "W",
+                            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
                             "includedCheckedBags": {
                                 "quantity": 0
                             },
@@ -8177,12 +8690,13 @@
                             ]
                         },
                         {
-                            "segmentId": "77",
+                            "segmentId": "81",
                             "cabin": "ECONOMY",
                             "fareBasis": "EAA0OHEN",
                             "brandedFare": "ECONOMY",
                             "brandedFareLabel": "ECONOMY",
                             "class": "E",
+                            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
                             "includedCheckedBags": {
                                 "quantity": 0
                             },
@@ -8272,12 +8786,12 @@
                 "cityCode": "WAS",
                 "countryCode": "US"
             },
-            "SEA": {
-                "cityCode": "SEA",
-                "countryCode": "US"
-            },
             "JFK": {
                 "cityCode": "NYC",
+                "countryCode": "US"
+            },
+            "SEA": {
+                "cityCode": "SEA",
                 "countryCode": "US"
             },
             "IAH": {
@@ -8312,6 +8826,7 @@
             "320": "AIRBUS A320",
             "32Q": "AIRBUS A321NEO",
             "332": "AIRBUS A330-200",
+            "223": "AIRBUS  A220-300",
             "752": "BOEING 757-200",
             "319": "AIRBUS A319",
             "738": "BOEING 737-800",
@@ -8323,6 +8838,7 @@
         "carriers": {
             "AS": "ALASKA AIRLINES",
             "F9": "FRONTIER AIRLINES",
+            "B6": "JETBLUE AIRWAYS",
             "HA": "HAWAIIAN AIRLINES",
             "UA": "UNITED AIRLINES",
             "NK": "SPIRIT AIRLINES"
