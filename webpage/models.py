@@ -51,7 +51,7 @@ class Activity(db.Model):
 class Flight(db.Model):
     __tablename__ = 'flight'
 
-    id = db.Column(db.String(80), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     departure_airport = db.Column(db.String(3), nullable=False)
     arrival_airport = db.Column(db.String(3), nullable=False)
     arrival_city = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
@@ -66,15 +66,15 @@ class Flight(db.Model):
 class FlightDetails(db.Model):
     __tablename__ = 'flight_details'
 
-    id = db.Column(db.String(80), primary_key=True)
-    flight_group = db.Column(db.String(80), db.ForeignKey('flight.id'))
+    id = db.Column(db.Integer, primary_key=True)
+    flight_group = db.Column(db.Integer, db.ForeignKey('flight.id'))
     flight_number = db.Column(db.Integer)
     departure_airport = db.Column(db.String(3), nullable=False)
-    departure_time = db.Column(db.String(5))
+    departure_time = db.Column(db.DateTime)
     arrival_airport = db.Column(db.String(3))
     arrival_time = db.Column(db.DateTime)
     arrival_terminal = db.Column(db.String(2))
-    flight_duration = db.Column(db.DateTime)
+    flight_duration = db.Column(db.String(5))
     airline = db.Column(db.String(30))
     
 class Hotel(db.Model):

@@ -1,4 +1,4 @@
-from models import app, db, City, Activity, Flight, Hotel
+from models import app, db, City, Activity, Flight, Hotel, FlightDetails
 from flight_functions import create_convert_airline_cache, create_airport_to_city_cache, convert_airline, convert_duration, airport_to_city
 import os
 import json
@@ -63,7 +63,8 @@ def create():
         db.session.add(newHotel)
     db.session.commit()
 
-    id = 0
+    id, fd_id = 0, 0
+
     for city in flights:
         for f in city['data']:
             newflight = Flight(id = id,
@@ -79,6 +80,24 @@ def create():
                                airline = convert_airline(convert_airline_cache, f['itineraries'][0]['segments'][0]['carrierCode'])
             )
             db.session.add(newflight)
+
+            for itin in f['itineraries']:
+                for leg in itin['segments']:
+
+                    newflightdetails = FlightDetails(id = fd_id,
+                                                    flight_group = id,
+                                                    flight_number =leg['number'],
+                                                    departure_airport = leg['departure']['iataCode'],
+                                                    departure_time = leg['departure']['at'],
+                                                    arrival_airport = leg['arrival']['iataCode'],
+                                                    arrival_time = leg['arrival']['at'],
+                                                    arrival_terminal = leg['arrival'].get('terminal'),
+                                                    flight_duration = convert_duration(leg['duration']),
+                                                    airline = convert_airline(convert_airline_cache, leg['carrierCode'])
+                    )
+                    db.session.add(newflightdetails)
+                    fd_id += 1
+
             id += 1
 
     db.session.commit()
