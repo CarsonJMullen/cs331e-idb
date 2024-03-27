@@ -13,17 +13,12 @@ with open(os.path.join(app.static_folder, 'data', 'activities', 'activities_mult
 f.close()
 
 # flights
-with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-NYC-24-02-17.json')) as f:
-    ny_flights = json.load(f)
-f.close()
-
-with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-BER-24-02-17.json')) as f:
-    ber_flights = json.load(f)
-f.close()
-
-with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-PAR-24-02-17.json')) as f:
-    par_flights = json.load(f)
-f.close()
+cities = ['BER', 'NYC', 'PAR', 'FCO', 'CPT', 'SYD', 'AMS', 'LON', 'BCN', 'MEX', 'MRS', 'MAD']
+flights = []
+for city in cities:
+    with open(os.path.join(app.static_folder, 'data', 'flights', city + '-2024-05-13.json')) as f:
+        flights.append(json.load(f))
+    f.close()
 
 # hotels
 with open(os.path.join(app.static_folder, 'data', 'hotels', 'hotel_list.json')) as f:
