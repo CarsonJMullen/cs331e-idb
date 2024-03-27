@@ -23,22 +23,10 @@ headers = {
 
 # Cities
 cities = [
-    # {
-    #     'city': 'Bangalore'
-    # },
-    # {
-    #     'city': 'Barcelona'
-    # },
     {
         'city': 'Berlin',
         'iataCode': 'BER'
     },
-    # {
-    #     'city': 'Dallas'
-    # },
-    # {
-    #     'city': 'London'
-    # },
     {
         'city': 'New York',
         'iataCode': 'NYC'
@@ -47,9 +35,42 @@ cities = [
         'city': 'Paris',
         'iataCode': 'PAR'
     },
-    # {
-    #     'city': 'San Francisco'
-    # }
+    {
+        'city': 'Rome',
+        'iataCode': 'FCO'
+    },
+    {
+        'city': 'London',
+        'iataCode': 'LON'
+    },
+    {
+        'city': 'Cape Town',
+        'iataCode': 'CPT'
+    },
+    {
+        'city': 'Sydney',
+        'iataCode': 'SYD'
+    },
+    {
+        'city': 'Amsterdam',
+        'iataCode': 'AMS'
+    },
+    {
+        'city': 'Barcelona',
+        'iataCode': 'BCN'
+    },
+    {
+        'city': 'Mexico',
+        'iataCode': 'MEX'
+    },
+    {
+        'city': 'Marseille',
+        'iataCode': 'MRS'
+    },
+    {
+        'city': 'Madrid',
+        'iataCode': ' MAD'
+    }
 ]
 
 final = {'data': []}
@@ -57,9 +78,9 @@ for i in cities: #[0:1]:
     # Parameters to be included in the request
     params = {
         'cityCode': i['iataCode'],
-        'radius': '5',  # Radius in kilometers
+        'radius': '25',  # Radius in kilometers
         'radiusUnit': 'KM',
-        'amenities': 'AIR_CONDITIONING, WIFI, ROOM_SERVICE, BAR or LOUNGE, TELEVISION',
+        'amenities': 'AIR_CONDITIONING, WIFI, ROOM_SERVICE',
         'ratings': '3,4,5',
     }
 

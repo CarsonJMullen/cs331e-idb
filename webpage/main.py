@@ -3,86 +3,37 @@ import json
 import os
 from user_info import get_gitlab_info, user_all_info, group_gitlab_info
 from static.constants import data_source, tools
+from models import City, Activity, Flight, Hotel
+from flask_sqlalchemy import SQLAlchemy
 
+# Google Cloud SQL (change this accordingly)
+USER = "postgres"
+PASSWORD = "postgres"
+PUBLIC_IP_ADDRESS ="35.223.216.248"
+# PUBLIC_IP_ADDRESS = "localhost"
+DBNAME = "toptraveldb"
+
+# Configuration
+# One-To-Many relation: Assume that a Publisher can have many Books
+# but a Book can only have one Publisher.
 app = Flask(__name__)
 
-# hotel_list = [
-#     { # this hotel is not in hotel_list.json
-#         "chainCode": "DS",
-#         "iataCode": "BER",
-#         "dupeId": 700140863,
-#         "name": "COSMO HOTEL",
-#         "hotelId": "DSBERCHB",
-#         "geoCode": {
-#             "latitude": 52.51167,
-#             "longitude": 13.4014
-#         },
-#         "address": {
-#             "countryCode": "DE"
-#         },
-#         "distance": {
-#             "value": 17.97,
-#             "unit": "KM"
-#         },
-#         "amenities": [
-#             "AIR_CONDITIONING",
-#             "WIFI",
-#             "ROOM_SERVICE"
-#         ],
-#         "rating": 5,
-#         "lastUpdate": "2023-06-15T10:15:56"
-#     },
-#     {
-#         "chainCode": "LW",
-#         "iataCode": "NYC",
-#         "dupeId": 700113468,
-#         "name": "THE GREENWICH HOTEL",
-#         "hotelId": "LWNYC730",
-#         "geoCode": {
-#             "latitude": 40.71985,
-#             "longitude": -74.01022
-#         },
-#         "address": {
-#             "countryCode": "US"
-#         },
-#         "distance": {
-#             "value": 0.73,
-#             "unit": "KM"
-#         },
-#         "amenities": [
-#             "AIR_CONDITIONING",
-#             "WIFI",
-#             "ROOM_SERVICE"
-#         ],
-#         "rating": 5,
-#         "lastUpdate": "2023-06-15T10:12:33"
-#     },
-#     {
-#         "chainCode": "DC",
-#         "iataCode": "PAR",
-#         "dupeId": 700010162,
-#         "name": "LE MEURICE",
-#         "hotelId": "DCPAR625",
-#         "geoCode": {
-#             "latitude": 48.86512,
-#             "longitude": 2.32777
-#         },
-#         "address": {
-#             "countryCode": "FR"
-#         },
-#         "distance": {
-#             "value": 2.02,
-#             "unit": "KM"
-#         },
-#         "amenities": [
-#             "AIR_CONDITIONING",
-#             "WIFI",
-#             "ROOM_SERVICE"
-#         ],
-#         "rating": 5,
-#         "lastUpdate": "2023-06-15T09:55:00"
-#     }
-# ]
+app.app_context().push()
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",
+                                                       f'postgresql://{USER}:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True  # to suppress a warning message
+db = SQLAlchemy(app)
+
+########################################################################################################################
+#                                           load data                                                                  #
+########################################################################################################################
+def select(model):
+    stmt = db.select(model)
+    res = []
+    for i in db.session.execute(stmt):
+        res.append(i[0].__dict__)
+    return res
 
 ########################################################################################################################
 #                                           load data                                                                  #
@@ -93,9 +44,7 @@ with open(os.path.join(app.static_folder, 'data', 'cities', 'cities.json')) as f
 f.close()
 
 # activities
-with open(os.path.join(app.static_folder, 'data', 'activities', 'activities_multiple_cities.json')) as f:
-    activity_list = json.load(f)['data']
-f.close()
+activity_list = select(Activity)
 
 # flights
 with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-NYC-24-02-17.json')) as f:
@@ -111,9 +60,11 @@ with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-PAR-24-02-17.j
 f.close()
 
 # hotels 
-with open(os.path.join(app.static_folder, 'data', 'hotels', 'hotel_list.json')) as f:
-    hotel_list = json.load(f)['data']
-f.close()
+hotel_list = select(Hotel)
+
+# with open(os.path.join(app.static_folder, 'data', 'hotels', 'hotel_list.json')) as f:
+#     hotel_list = json.load(f)['data']
+# f.close()
 
 locations_list = [ny_flights, ber_flights, par_flights]
 # print(locations_list)
@@ -214,7 +165,7 @@ def flights():
 @app.route('/hotels/id=<string:hotel_id>')
 def this_hotel(hotel_id):
     for i in hotel_list:
-        if i['hotelId'] == hotel_id:
+        if i['id'] == hotel_id:
             return render_template('this_hotel.html', hotel=i, activity_list=activity_list)
     return render_template('hotels.html', hotel_list=hotel_list, page=1)
 

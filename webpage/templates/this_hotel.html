@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
     <style>
         #name{
@@ -12,6 +13,7 @@
     </style>
     <title>This_Hotel</title>
 </head>
+
 <body>
     {% extends 'navbar.html' %}
     {% block content %}
@@ -26,15 +28,44 @@
                 <h2 id="name">{{hotel.name}}</h2>
             </td>
         </tr>
-
         <tr>
             <td colspan="3">
                 {% if hotel.iataCode == 'BER' %}
-                    <div class="info"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d315.01703455489513!2d13.40138634823243!3d52.511740478327035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851d80fbcb9ef%3A0x5d30bd0a4c4f9363!2sCosmo%20Hotel%20Berlin%20Mitte!5e0!3m2!1sen!2sus!4v1708568416194!5m2!1sen!2sus" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=12PsPpVgGHzeOmJqsnXDv0NLI-9KbLts&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+        
                 {% elif hotel.iataCode == 'NYC' %}
-                    <div class="info"><iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3023.9167101806956!2d-74.01021999999999!3d40.71985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDQzJzExLjUiTiA3NMKwMDAnMzYuOCJX!5e0!3m2!1sen!2sus!4v1708568547765!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    <div class="info"><iframe src="https://www.google.com/maps/d/embed?mid=1p5V9-HnIHkEsSwUIAohcAZWTZVnekLM&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                
+                {% elif hotel.iataCode == 'MAD' %}
+                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1i32QMbNVx0rK0VCxCHul8-wkY89dBJo&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+
+                {% elif hotel.iataCode == 'FCO' %}
+                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1CTNjRqfGwdSj-uOLnGg5JvJ08jdzdUY&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+
+                {% elif hotel.iataCode == 'CPT' %}
+                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1jU6ev-qalJnIUBoz3mzHOt0jVFk5f58&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+
+                {% elif hotel.iataCode == 'SYD' %}
+                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=17QM967n-EzfYby7ZuFMD9xqLhmJrmls&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+
+                {% elif hotel.iataCode == 'AMS' %}
+                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=10Zz2P1KSgdMeHRj-4Dki0q2nKte4jT4&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+
+                {% elif hotel.iataCode == 'PAR' %}
+                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=179-Vz1zi-1lZuPk5ix6EaN8xfSkOBeE&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+
+                {% elif hotel.iataCode == 'LON' %}
+                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=12biJKJnJsDtnYPBYVcgYoR2xQlZ5k1s&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+
+                {% elif hotel.iataCode == 'BCN' %}
+                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Z0csGAh1H89vP3B6niXo7hQOmoV9B0s&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+
+                {% elif hotel.iataCode == 'MEX' %}
+                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1zmigHpPeDKdCINJwaczUMP0vHl06WwA&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+
                 {% else %}
-                    <div class="info"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d961.5967937576752!2d2.327465824924946!3d48.865039082035125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f37dc585251%3A0xe0a171bc7aaa5c94!2sLe%20Meurice!5e0!3m2!1sen!2sus!4v1708568988276!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1tR6pDKEpQ5LR9BUH0xTP9UtvsojW4Ig&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+                
                 {% endif %}
             </td>
         </tr>
@@ -45,7 +76,7 @@
             </td>
 
             <td>
-                <div class="info"><span>{{hotel.geoCode['latitude']}}</span></div>
+                <div class="info"><span>{{hotel.latitude}}</span></div>
             </td>
         </tr>
 
@@ -54,7 +85,7 @@
                 <div class="attribute"><span>Longitude: </span></div>
             </td>
             <td>
-                <div class="info"><span>{{hotel.geoCode['longitude']}}</span></div>
+                <div class="info"><span>{{hotel.longitude}}</span></div>
             </td>
         </tr>
 

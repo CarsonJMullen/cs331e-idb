@@ -32,6 +32,8 @@ airport_to_city_cache = create_airport_to_city_cache()
 def create():
     # Populating
     # ----------
+    db.drop_all()
+    db.create_all()
     for i in city_list:
         newCity = City(name=i['name'], iataCode=i['iataCode'], population=int(i['population'].replace(',', '')), location=i['location'], pictures=i['pictures'])
         db.session.add(newCity)
@@ -40,7 +42,11 @@ def create():
 
     for i in activity_list:
         try:
-            newActivity = Activity(id=int['id'], name=i['name'], description=i['description'], rating=float(i['rating']),
+            rating = float(i['rating'])
+        except:
+            rating = 0
+        try:
+            newActivity = Activity(id=i['id'], name=i['name'], description=i['description'], rating=rating,
                                price_amount=i['price']['amount'], price_currencyCode=i['price']['currencyCode'],
                                pictures=i['pictures'], bookingLink=i['bookingLink'], iataCode=i['iataCode'])
         except:
