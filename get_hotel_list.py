@@ -37,7 +37,7 @@ cities = [
     },
     {
         'city': 'Rome',
-        'iataCode': 'FCO'
+        'iataCode': 'ROM'
     },
     {
         'city': 'London',
@@ -69,7 +69,7 @@ cities = [
     },
     {
         'city': 'Madrid',
-        'iataCode': ' MAD'
+        'iataCode': 'MAD'
     }
 ]
 

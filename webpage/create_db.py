@@ -33,7 +33,10 @@ def create():
     # Populating
     # ----------
     db.drop_all()
+    print("Deleted all entries")
     db.create_all()
+    print("Created tables")
+
     for i in city_list:
         newCity = City(name=i['name'], iataCode=i['iataCode'], population=int(i['population'].replace(',', '')), location=i['location'], pictures=i['pictures'])
         db.session.add(newCity)

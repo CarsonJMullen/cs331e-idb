@@ -18,14 +18,14 @@ def create_convert_airline_cache():
     full_d = {}
     for flights_list in flights:
         d = flights_list['dictionaries']['carriers']
-        full_d = full_d | d
+        full_d = {**full_d, **d}
     return full_d
 
 def create_airport_to_city_cache():
     full_d = {}
     for flights_list in flights:
         d = flights_list['dictionaries']['locations']
-        full_d = full_d | d
+        full_d = {**full_d, **d}
     return full_d
 
 def convert_airline(d, s):
@@ -60,7 +60,5 @@ def convert_duration(duration):
     formatted_time = '{:02d}:{:02d}'.format(hours, minutes)
 
     return formatted_time
-
-print(create_airport_to_city_cache())
 
 
