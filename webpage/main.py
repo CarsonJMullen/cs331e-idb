@@ -3,7 +3,7 @@ import json
 import os
 from user_info import get_gitlab_info, user_all_info, group_gitlab_info
 from static.constants import data_source, tools
-from models import City, Activity, Flight, Hotel
+from models import City, Activity, Flight, Hotel, FlightDetails
 from flask_sqlalchemy import SQLAlchemy
 
 # Google Cloud SQL (change this accordingly)
@@ -12,6 +12,7 @@ PASSWORD = "postgres"
 PUBLIC_IP_ADDRESS ="35.223.216.248"
 # PUBLIC_IP_ADDRESS = "localhost"
 DBNAME = "toptraveldb"
+
 
 # Configuration
 # One-To-Many relation: Assume that a Publisher can have many Books
@@ -44,17 +45,8 @@ f.close()
 activity_list = select(Activity)
 
 # flights
-with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-NYC-24-02-17.json')) as f:
-    ny_flights = json.load(f)
-f.close()
-
-with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-BER-24-02-17.json')) as f:
-    ber_flights = json.load(f)
-f.close()
-
-with open(os.path.join(app.static_folder, 'data', 'flights', 'AUS-PAR-24-02-17.json')) as f:
-    par_flights = json.load(f)
-f.close()
+flights_list = select(Flight)
+flight_details = select(FlightDetails)
 
 # hotels 
 hotel_list = select(Hotel)
@@ -62,52 +54,6 @@ hotel_list = select(Hotel)
 # with open(os.path.join(app.static_folder, 'data', 'hotels', 'hotel_list.json')) as f:
 #     hotel_list = json.load(f)['data']
 # f.close()
-
-locations_list = [ny_flights, ber_flights, par_flights]
-# print(locations_list)
-flights_list = locations_list[0] # this only reads ny_flights
-
-
-# print(flights_list["data"])
-
-def convert_airline(s):
-    d = flights_list['dictionaries']['carriers']
-    if s in d:
-        return d[s]
-    else:
-        return "Unknown"
-
-
-def airport_to_city(airport):
-    d = flights_list['dictionaries']['locations']
-
-    if airport in d:
-        return d[airport]
-    else:
-        return airport
-
-
-def convert_duration(duration):
-    # Remove the 'PT' prefix
-    duration = duration[2:]
-
-    hours = 0
-    minutes = 0
-
-    if 'H' in duration:
-        hours_index = duration.index('H')
-        hours = int(duration[:hours_index])
-        duration = duration[hours_index + 1:]
-
-    if 'M' in duration:
-        minutes_index = duration.index('M')
-        minutes = int(duration[:minutes_index])
-
-    # Format the hours and minutes into HH:MM
-    formatted_time = '{:02d}:{:02d}'.format(hours, minutes)
-
-    return formatted_time
-
 
 @app.route('/')
 @app.route('/home/')
@@ -140,7 +86,7 @@ def activity(activity_id):
 def activities(page=1):
     return render_template('activities.html', activity_list=activity_list, page=page)
 
-
+'''
 @app.route('/flights/<string:flight_id>')
 def single_flight(flight_id):
     for f in flights_list['data']:
@@ -152,11 +98,11 @@ def single_flight(flight_id):
     return render_template('flights.html', flights=flights_list['data'], convert_duration=convert_duration,
                            convert_airline=convert_airline, airport_to_city=airport_to_city)
 
+'''
 
-@app.route('/flights/')
-def flights():
-    return render_template('flights.html', flights=flights_list['data'], convert_duration=convert_duration,
-                           convert_airline=convert_airline, airport_to_city=airport_to_city)
+@app.route('/flights/page=<int:page>')
+def flights(page=1):
+    return render_template('flights.html', flights=flights_list, page = page)
 
 
 @app.route('/hotels/id=<string:hotel_id>')

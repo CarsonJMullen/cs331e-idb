@@ -17,6 +17,7 @@
         <table id="flights" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
+                    <th scope="col">id</th>
                     <th scope="col">Departure Airport</th>
                     <th scope="col">Arrival Airport
                     <th scope="col">Arrival City</th>
@@ -27,49 +28,62 @@
                     <th scope="col">Departure Time</th>
                     <th scope="col">Arrival Time</th>
                     <th scope="col">Airline</th>
-                    <th scope="col">More Info</th>
+                    <!-- <th scope="col">More Info</th> -->
+
                 </tr>
             </thead>
-            {% for f in flights %}
+            {% for f in flights[(page-1)*10:page*10] %}
                 <tr>
                     <td><div>
-                        <span>{{ f['itineraries'][0]['segments'][0]['departure']['iataCode'] }}</span>
+                        <span>{{ f.id}}</span>
                     </div></td>
                     <td><div>
-                        <span>{{ f['itineraries'][0]['segments'][-1]['arrival']['iataCode'] }}</span>
+                        <span>{{ f.departure_airport }}</span>
                     </div></td>
                     <td><div>
-                        <a href="{{ url_for('city', iataCode=airport_to_city(f['itineraries'][0]['segments'][-1]['arrival']['iataCode'])['cityCode']) }}">
-                            {{ airport_to_city(f['itineraries'][0]['segments'][-1]['arrival']['iataCode'])['cityCode'] }}
+                        <span>{{ f.arrival_airport }}</span>
+                    </div></td>
+                    <td><div>
+                        <a href="{{ url_for('city', iataCode=f.arrival_city) }}">
+                            {{ f.arrival_city }}
                         </a><br>
                     <td><div>
-                        <span>${{f.price.total}}</span>
+                        <span>${{f.price}}</span>
                     </div></td>
                     <td><div>
-                        <span>{{f.numberOfBookableSeats}}</span>
+                        <span>{{f.seats_left}}</span>
                     </div></td>
                     <td><div>
-                            <span>{{convert_duration(f['itineraries'][0]['duration'])}}</span>
+                            <span>{{f.duration}}</span>
                     </div></td>
                     <td><div>
-                        <span>{{ f['itineraries'][0]['segments']|length }}</span>
+                        <span>{{ f.num_legs }}</span>
                     </div></td>
                     <td><div>
-                        <span>{{ f['itineraries'][0]['segments'][0]['departure']['at'] }}</span>
+                        <span>{{ f.departure_time }}</span>
                     </div></td>
                     <td><div>
-                        <span>{{ f['itineraries'][0]['segments'][-1]['arrival']['at'] }}</span>
+                        <span>{{ f.arrival_time }}</span>
                     </div></td>
                     <td><div>
-                        <span>{{ convert_airline(f['itineraries'][0]['segments'][0]['carrierCode']) }}</span>
+                        <span>{{ f.airline }}</span>
                     </div></td>
-                    <td><div>
-                        <a href="{{url_for('single_flight', flight_id=f.id)}}">More Info</a><br>
-                    </div></td>
+
                 </tr>
             {% endfor %}
         </table>
-    </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="{{url_for('flights', page=1)}}">&laquo</a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('flights', page=page-1)}}">&lt</a></li>
+                {% for i in range([page-5, 1]|max, [page+6, flights|length//10+2]|min) %}
+                <li class="page-item {% if i==page %}active{% endif %}"><a class="page-link" href="{{url_for('flights', page=i)}}">{{i}}</a></li>
+                {% endfor %}
+                <li class="page-item"><a class="page-link" href="{{url_for('flights', page=page+1)}}">&gt</a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('flights', page=flights|length//10+1)}}">&raquo</a></li>
+            </ul>
+        </nav>
+        </div>
     {% endblock %}
 </body>
 </html>
