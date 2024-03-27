@@ -9,7 +9,7 @@ names = {
     'Kibam Kang': ['Kibam Kang', 'kibam kang', 'kkx2402GL']
 }
 
-# TODO: update your bio
+
 member_info = {
     'Anjie Liu': {
         'image': "../static/images/people/AnjieImage.jpeg",
@@ -57,21 +57,27 @@ data_source = {
     }
 }
 
+
+
 tools = {
     "Bootstrap": {
-        'image': '../static/images/bootstrap.png',
+        'image': '../static/images/tools/bootstrap.png',
         'link': 'https://getbootstrap.com'
     },
     "GitLab": {
-        'image': '../static/images/gitlab.png',
+        'image': '../static/images/tools/gitlab.png',
         'link': 'https://gitlab.com'
     },
     "Google Cloud": {
-        'image': '../static/images/google_cloud.png',
+        'image': '../static/images/tools/google_cloud.png',
         'link': 'https://console.cloud.google.com/'
     },
     "Flask":{
-        "image": '../static/images/flask.png',
+        "image": '../static/images/tools/flask.png',
         'link': 'https://flask.palletsprojects.com/en/3.0.x/'
+    },
+    "SQLAlchemy":{
+        "image": '../static/images/tools/sqlalchemy.png',
+        'link': 'https://www.sqlalchemy.org'
     }
 }
