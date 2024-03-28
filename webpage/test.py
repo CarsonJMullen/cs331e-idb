@@ -17,7 +17,7 @@ from models import db, City, Flight, FlightDetails, Hotel, Activity
 # -----------
 class DBTestCases(unittest.TestCase):
     # ---------
-    # insertion, deletion, and update 
+    # insertion, deletion, and update
     # ---------
 
     # city tests 

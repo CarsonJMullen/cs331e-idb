@@ -24,4 +24,5 @@ before_script:
 
 test:
   script:
+  - cd webpage
   - python3 test.py
