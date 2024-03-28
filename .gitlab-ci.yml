@@ -24,4 +24,4 @@ before_script:
 
 test:
   script:
-  - python test.py
+  - python3 test.py
