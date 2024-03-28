@@ -63,44 +63,126 @@ class DBTestCases(unittest.TestCase):
 
 
     # flight tests 
-    # def test_flight_insert(self):
-    #     s = Flight(id=-1 ,arrival_airport = 'SZX',departure_airport = "PEK", airline='BOEING MURDER', arrival_city = 'SZX')
-    #     db.session.add(s)
-    #     db.session.commit()
+    def test_flight_insert(self):
+        s = Flight(id=-1 ,arrival_airport = 'SZX',departure_airport = 'PEK', airline='BOEING MURDER', arrival_city = 'MAD')
+        db.session.add(s)
+        db.session.commit()
 
-    #     r = db.session.query(Flight).filter_by(airline='BOEING MURDER').one()
-    #     self.assertEqual(str(r.airline), 'BOEING MURDER')
+        r = db.session.query(Flight).filter_by(airline='BOEING MURDER').one()
+        self.assertEqual(str(r.airline), 'BOEING MURDER')
 
-    #     db.session.query(Flight).filter_by(airline='BOEING MURDER').delete()
-    #     db.session.commit()
+        db.session.query(Flight).filter_by(airline='BOEING MURDER').delete()
+        db.session.commit()
 
-    # def test_flight_delete(self):
-    #     s = Flight(id = -2, arrival_airport = 'SZX',departure_airport = "PEK", airline='BOEING MURDER', arrival_city = 'SZX')
-    #     db.session.add(s)
-    #     db.session.commit()
+    def test_flight_delete(self):
+        s = Flight(id = -1, arrival_airport = 'SZX',departure_airport = 'PEK', airline='BOEING MURDER', arrival_city = 'MAD')
+        db.session.add(s)
+        db.session.commit()
 
-    #     r = db.session.query(Flight).filter_by(departure_airport = "PEK").one()
-    #     self.assertEqual(str(r.departure_airport), 'PEK')
+        result1 = db.session.execute(db.select(db.func.count()).select_from(Flight)).scalar()
 
-    #     db.session.query(Flight).filter_by(departure_airport = "PEK").delete()
-    #     db.session.commit()
+        db.session.query(Flight).filter_by(airline='BOEING MURDER').delete()
+        db.session.commit()
+    
+        result2 = db.session.execute(db.select(db.func.count()).select_from(Flight)).scalar()
+        self.assertEqual(result2, result1-1)
 
-    # def test_flight_update(self):
-    #     s = Flight(id = -3, arrival_airport = 'SZX',departure_airport = "PEK", price='100000000.0', airline='BOEING MURDER', arrival_city = 'SZX')
-    #     db.session.add(s)
-    #     db.session.commit()
 
-    #     r = db.session.query(Flight).filter_by(price='100000000.0').one()
-    #     self.assertEqual(str(r.price), '100000000.0')
+    def test_flight_update(self):
+        s = Flight(id = -1, arrival_airport = 'SZX',departure_airport = "PEK", airline='BOEING MURDER', arrival_city = 'MAD')
+        db.session.add(s)
+        db.session.commit()
 
-    #     db.session.query(Flight).filter_by(price='100000000.0').delete()
-    #     db.session.commit()
+        db.session.query(Flight).filter_by(airline='BOEING MURDER').update({Flight.price: '100000'})
+        db.session.commit()
+        
+        r = db.session.query(Flight).filter_by(airline='BOEING MURDER').one()
+        self.assertEqual(str(r.price), '100000')
+
+        db.session.query(Flight).filter_by(airline='BOEING MURDER').delete()
+        db.session.commit()
 
 
     # FlightDetails 
+    
+    def test_flightDetail_insert(self):
+        s = FlightDetails(id=-1 , flight_group = 0, departure_airport = 'MAD')
+        db.session.add(s)
+        db.session.commit()
+
+        r = db.session.query(FlightDetails).filter_by(id=-1).one()
+        self.assertEqual(r.id, -1)
+
+        db.session.query(FlightDetails).filter_by(id=-1).delete()
+        db.session.commit()
+
+    def test_flightDetail_delete(self):
+        s = FlightDetails(id=-1 , flight_group = 0, departure_airport = 'MAD')
+        db.session.add(s)
+        db.session.commit()
+
+        result1 = db.session.execute(db.select(db.func.count()).select_from(FlightDetails)).scalar()
+
+        db.session.query(FlightDetails).filter_by(id=-1).delete()
+        db.session.commit()
+    
+        result2 = db.session.execute(db.select(db.func.count()).select_from(FlightDetails)).scalar()
+        self.assertEqual(result2, result1-1)
+
+
+    def test_flightDetail_update(self):
+        s = FlightDetails(id=-1 , flight_group = 0, departure_airport = 'MAD')
+        db.session.add(s)
+        db.session.commit()
+
+        db.session.query(FlightDetails).filter_by(id=-1).update({FlightDetails.airline: 'BOEING MURDER'})
+        db.session.commit()
         
+        r = db.session.query(FlightDetails).filter_by(id=-1).one()
+        self.assertEqual(str(r.airline), 'BOEING MURDER')
+
+        db.session.query(FlightDetails).filter_by(id=-1).delete()
+        db.session.commit()
+     
     # Activity 
+    def test_Activity_insert(self):
+        s = Activity(id='0000000001' , name='bycicyle ryding', iataCode='MAD')
+        db.session.add(s)
+        db.session.commit()
+
+        r = db.session.query(Activity).filter_by(name='bycicyle ryding').one()
+        self.assertEqual(str(r.name), 'bycicyle ryding')
+
+        db.session.query(Activity).filter_by(name='bycicyle ryding').delete()
+        db.session.commit()
+
+    def test_Activity_delete(self):
+        s = Activity(id='0000000001' , name='bycicyle ryding', iataCode='MAD')
+        db.session.add(s)
+        db.session.commit()
+
+        result1 = db.session.execute(db.select(db.func.count()).select_from(Activity)).scalar()
+
+        db.session.query(Activity).filter_by(name='bycicyle ryding').delete()
+        db.session.commit()
+    
+        result2 = db.session.execute(db.select(db.func.count()).select_from(Activity)).scalar()
+        self.assertEqual(result2, result1-1)
+
+    def test_Activity_update(self):
+        s = Activity(id='0000000001' , name='bycicyle ryding', iataCode='MAD')
+        db.session.add(s)
+        db.session.commit()
+
+        db.session.query(Activity).filter_by(name='bycicyle ryding').update({Activity.rating: 4.2})
+        db.session.commit()
         
+        r = db.session.query(Activity).filter_by(name='bycicyle ryding').one()
+        self.assertEqual(str(r.rating), '4.2')
+
+        db.session.query(Activity).filter_by(name='bycicyle ryding').delete()
+        db.session.commit()
+    
     # Hotels 
         
 if __name__ == '__main__':
