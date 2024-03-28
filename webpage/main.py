@@ -13,9 +13,6 @@ PUBLIC_IP_ADDRESS ="35.223.216.248"
 # PUBLIC_IP_ADDRESS = "localhost"
 DBNAME = "toptraveldb"
 
-# Configuration
-# One-To-Many relation: Assume that a Publisher can have many Books
-# but a Book can only have one Publisher.
 app = Flask(__name__)
 
 app.app_context().push()
@@ -35,20 +32,22 @@ def select(model):
         res.append(i[0].__dict__)
     return res
 
-# cities
-with open(os.path.join(app.static_folder, 'data', 'cities', 'cities.json')) as f:
-    city_list = json.load(f)['data']
-f.close()
 
-# activities
+# cities
+city_list = select(City)
+print("Got City list")
+
 activity_list = select(Activity)
+print("Got activity list")
 
 # flights
 flights_list = select(Flight)
 flight_details = select(FlightDetails)
+print("Got flight list")
 
-# hotels 
+# hotels
 hotel_list = select(Hotel)
+print("Got hotel list")
 
 # with open(os.path.join(app.static_folder, 'data', 'hotels', 'hotel_list.json')) as f:
 #     hotel_list = json.load(f)['data']

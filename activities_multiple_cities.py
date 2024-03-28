@@ -42,10 +42,11 @@ def filterMissing(n):
     try:
         if n['price']['amount'] == "0.0":
             return False
-        elif n['name']:
-            return True
+        elif "my tests in different languages" in n['name']:
+            return False
     except:
         return False
+    return True
 
 total = 0
 final = {'data': []}
