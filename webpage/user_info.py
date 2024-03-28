@@ -3,6 +3,7 @@ import sys
 sys.path.insert(0, '..')
 from static.constants import names, url, private_token, project_name, member_info
 
+
 def get_gitlab_info():
     if not url or not private_token or not project_name:
         raise ValueError("Missing required arguments: url, private_token, and project_name.")
@@ -13,16 +14,14 @@ def get_gitlab_info():
         total_commit_count = project.statistics['commit_count']
 
         user_commit_info = {}
-        for page in range(1, (total_commit_count // 100) + 2):
-            commits = project.commits.list(all=True, page=page, per_page=100)
-            for commit in commits:
-                committer = commit.committer_name
-                if committer in user_commit_info:
-                    user_commit_info[committer] += 1
-                else:
-                    user_commit_info[committer] = 1
-            if not commits:
-                break
+        commits = project.commits
+        commits = commits.list(get_all=True, all=True)  # all=True, page=page, per_page=100
+        for commit in commits:
+            committer = commit.committer_name
+            if committer in user_commit_info:
+                user_commit_info[committer] += 1
+            else:
+                user_commit_info[committer] = 1
 
         # print(project.issues.list(all=True)[0].author['name'])
         total_issue_count = 0
