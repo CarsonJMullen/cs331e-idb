@@ -44,6 +44,10 @@
             background-color: #8FBDD3;
             box-shadow: 0 .5rem 1rem rgb(143, 189, 211, .5);
         }
+        .square-3 {
+            background-color: #EAC696;
+            box-shadow: 0 .5rem 1rem rgb(234, 198, 150, .5);
+        }
         #title {
           font-family: 'Pacifico', cursive;
           font-size: 48px;
@@ -114,7 +118,7 @@
                 </div>
                 <div class="square square_for_stats square-1">
                     <div class="square-header">Total Unittests</div>
-                    <div class="square-number">0</div>
+                    <div class="square-number">15</div>
                 </div>
             </div>
         </div>
@@ -150,7 +154,7 @@
         <div class="row justify-content-center">
             <div class="col d-flex justify-content-around">
                 {% for d in postman_api %}
-                <div class="square square_for_links square-2">
+                <div class="square square_for_links square-3">
                     <div class="square-link">
                         <a href={{ postman_api[d] }} class="link-light text-decoration-none">{{ d }}</a>
                     </div>
