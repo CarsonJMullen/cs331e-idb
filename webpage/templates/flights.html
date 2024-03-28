@@ -28,7 +28,7 @@
                     <th scope="col">Departure Time</th>
                     <th scope="col">Arrival Time</th>
                     <th scope="col">Airline</th>
-                    <!-- <th scope="col">More Info</th> -->
+                    <th scope="col">More Info</th>
 
                 </tr>
             </thead>
@@ -68,7 +68,10 @@
                     <td><div>
                         <span>{{ f.airline }}</span>
                     </div></td>
-
+                    <td><div>
+                        <a href="{{url_for('single_flight', flight_id=f.id)}}">More Info</a><br>
+                    </div></td>
+                
                 </tr>
             {% endfor %}
         </table>

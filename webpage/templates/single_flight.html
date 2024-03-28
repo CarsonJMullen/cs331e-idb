@@ -32,35 +32,43 @@
         <tr>
             <td><div class="attribute"><span>Departure Airport: </span></div></td>
 
-            <td><div class="info"><span>{{ flight['itineraries'][0]['segments'][0]['departure']['iataCode'] }}</span></div></td>
+            <td><div class="info"><span>{{ flight.departure_airport}}</span></div></td>
         </tr>
         <tr>
             <td><div class="attribute"><span>Arrival Airport: </span></div></td>
-            <td><div class="info"><span>{{ flight['itineraries'][0]['segments'][-1]['arrival']['iataCode'] }}</span></div></td>
+            <td><div class="info"><span>{{ flight.arrival_airport }}</span></div></td>
         </tr>
         <tr>
             <td><div class="attribute"><span>Arrival City: </span></div></td>
-            <td><div class="info"><a href="{{ url_for('city', iataCode=airport_to_city(flight['itineraries'][0]['segments'][-1]['arrival']['iataCode'])['cityCode']) }}">{{ airport_to_city(flight['itineraries'][0]['segments'][-1]['arrival']['iataCode'])['cityCode'] }}</a></div></td>
+            <td><div class="info"><a href="{{ url_for('city', iataCode=flight.arrival_city) }}">{{ flight.arrival_city }}</a></div></td>
         </tr>
         <tr>
             <td><div class="attribute"><span>Price: </span></div></td>
-            <td><div class="info"><span>${{flight.price.total}}</span></div></td>
+            <td><div class="info"><span>${{flight.price}}</span></div></td>
         </tr>
-        
         <tr>
-            <td><div class="attribute"><span>Amenities:</span></div></td>
-            <td><div class="info">
-                <ol>
-                    {% if 'amenities' in flight['travelerPricings'][0]['fareDetailsBySegment'][0] %}
-                        {% for i in flight['travelerPricings'][0]['fareDetailsBySegment'][0]['amenities'] %}
-                            <li>{{i.description}}</li>
-                        {% endfor %}
-                    {% else %}
-                        <span>No Amenities</span>
-                    {% endif %}
-                
-                </ol> 
-            </div></td>
+            <td><div class="attribute"><span>Seats Left: </span></div></td>
+            <td><div class="info"><span>{{flight.seats_left}}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Duration: </span></div></td>
+            <td><div class="info"><span>{{flight.duration}}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Stops: </span></div></td>
+            <td><div class="info"><span>{{flight.num_legs-1}}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Departure Time: </span></div></td>
+            <td><div class="info"><span>{{flight.departure_time}}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Arrival Time: </span></div></td>
+            <td><div class="info"><span>{{flight.arrival_time}}</span></div></td>
+        </tr>
+        <tr>
+            <td><div class="attribute"><span>Airline: </span></div></td>
+            <td><div class="info"><span>{{flight.airline}}</span></div></td>
         </tr>
         
         <tr>
@@ -87,6 +95,8 @@
     <table id="flights" class="table table-striped" style="width:100%">
         <thead>
             <tr>
+            
+              <th scope="col">Flight ID</th>
               <th scope="col">Flight Number</th>
               <th scope="col">Departure Airport</th>
               <th scope="col">Departure Time</th>
@@ -98,45 +108,47 @@
             
             </tr>
         </thead>
-        {% for i in itineraries %}
 
-            {% for leg in i.segments %}
+        {% for leg in fd %}
             <tr>
 
                 <td><div>
-                    <span>{{leg.number}}</span>
+                    <span>{{leg.flight_group}}</span>
                 </div></td>
 
                 <td><div>
-                    <span>{{leg.departure.iataCode}}</span>
+                    <span>{{leg.flight_number}}</span>
                 </div></td>
 
                 <td><div>
-                    <span>{{leg.departure.at}}</span>
+                    <span>{{leg.departure_airport}}</span>
                 </div></td>
 
                 <td><div>
-                    <span>{{leg.arrival.iataCode}}</span>
+                    <span>{{leg.departure_time}}</span>
                 </div></td>
 
                 <td><div>
-                    <span>{{leg.arrival.at}}</span>
+                    <span>{{leg.arrival_airport}}</span>
                 </div></td>
 
                 <td><div>
-                    <span>{{leg.arrival.terminal}}</span>
+                    <span>{{leg.arrival_time}}</span>
                 </div></td>
 
                 <td><div>
-                    <span>{{convert_duration(leg.duration)}}</span>
+                    <span>{{leg.arrival_terminal}}</span>
                 </div></td>
 
                 <td><div>
-                    <span>{{convert_airline(leg.carrierCode)}}</span>
+                    <span>{{leg.flight_duration}}</span>
+                </div></td>
+
+                <td><div>
+                    <span>{{leg.airline}}</span>
                 </div></td>
                 
             </tr>
-            {% endfor %}
         {% endfor %}
         </table>
     </div>

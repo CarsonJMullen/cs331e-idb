@@ -13,7 +13,6 @@ PUBLIC_IP_ADDRESS ="35.223.216.248"
 # PUBLIC_IP_ADDRESS = "localhost"
 DBNAME = "toptraveldb"
 
-
 # Configuration
 # One-To-Many relation: Assume that a Publisher can have many Books
 # but a Book can only have one Publisher.
@@ -86,19 +85,14 @@ def activity(activity_id):
 def activities(page=1):
     return render_template('activities.html', activity_list=activity_list, page=page)
 
-'''
+
 @app.route('/flights/<string:flight_id>')
 def single_flight(flight_id):
-    for f in flights_list['data']:
-        if f['id'] == str(flight_id):
-            itineraries = f['itineraries']
-            return render_template('single_flight.html', flight=f, convert_duration=convert_duration,
-                                   convert_airline=convert_airline, airport_to_city=airport_to_city,
-                                   activity_list=activity_list, hotel_list=hotel_list, itineraries=itineraries)
-    return render_template('flights.html', flights=flights_list['data'], convert_duration=convert_duration,
-                           convert_airline=convert_airline, airport_to_city=airport_to_city)
+    for i in range(len(flights_list)):
+        if str(flights_list[i]['id']) == str(flight_id):
+            return render_template('single_flight.html', flight = flights_list[i], fd = [d for d in flight_details if str(d['flight_group']) == str(flight_id)])
+    return render_template('flights.html', flights=flights_list, page = 1)
 
-'''
 
 @app.route('/flights/page=<int:page>')
 def flights(page=1):
