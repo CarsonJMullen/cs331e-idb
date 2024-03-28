@@ -29,25 +29,24 @@ def select(model):
     stmt = db.select(model)
     res = []
     for i in db.session.execute(stmt):
-        res.append(i[0].__dict__)
+        # Convert SQLAlchemy object to a dictionary
+        obj_dict = {}
+        for key in i[0].__dict__:
+            if not key.startswith('_'):
+                obj_dict[key] = getattr(i[0], key)
+        res.append(obj_dict)
     return res
-
 
 # cities
 city_list = select(City)
-print("Got City list")
-
 activity_list = select(Activity)
-print("Got activity list")
 
 # flights
 flights_list = select(Flight)
 flight_details = select(FlightDetails)
-print("Got flight list")
 
 # hotels
 hotel_list = select(Hotel)
-print("Got hotel list")
 
 # with open(os.path.join(app.static_folder, 'data', 'hotels', 'hotel_list.json')) as f:
 #     hotel_list = json.load(f)['data']
@@ -110,6 +109,41 @@ def this_hotel(hotel_id):
 def hotels(page=1):
     return render_template('hotels.html', hotel_list=hotel_list, page=page)
 
+# Define API Endpoints
+@app.route('/activities/get/', methods=['GET'])
+def get_activities():
+    city_filter = request.args.get('city')
+    if city_filter:
+        filtered_activities = [activity for activity in activity_list if activity['iataCode'] == city_filter]
+        return jsonify(filtered_activities)
+    else:
+        return jsonify(activity_list)
+
+@app.route('/hotels/get/', methods=['GET'])
+def get_hotels():
+    city_filter = request.args.get('city')
+    if city_filter:
+        filtered_hotels = [h for h in hotel_list if h['iataCode'] == city_filter]
+        return jsonify(filtered_hotels)
+    else:
+        return jsonify(hotel_list)
+
+@app.route('/flights/get/', methods=['GET'])
+def get_flights():
+    city_filter = request.args.get('city')
+    if city_filter:
+        filtered_flights = [f for f in flights_list if f['arrival_city'] == city_filter]
+        return jsonify(filtered_flights)
+    else:
+        return jsonify(flights_list)
+
+@app.route('/flight_details/get/', methods=['GET'])
+def get_flightdetails():
+    return jsonify(flight_details)
+
+@app.route('/cities/get/', methods=['GET'])
+def get_cities():
+    return jsonify(city_list)
 
 @app.route('/about/')
 def about():
@@ -119,7 +153,6 @@ def about():
 
     return render_template('about.html', group_stats=group_stats, member_stats=member_stats, data_source=data_source,
                            tools=tools)
-
 
 if __name__ == '__main__':
     app.debug = True
