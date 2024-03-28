@@ -158,7 +158,7 @@ def about():
 
 @app.route('/unittest/')
 def unittest():
-    return "happy"
+    return render_template('unittest.html')
 
 if __name__ == '__main__':
     app.debug = True
