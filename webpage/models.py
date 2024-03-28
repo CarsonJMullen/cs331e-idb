@@ -6,7 +6,7 @@ import os
 USER = "postgres"
 PASSWORD = "postgres"
 PUBLIC_IP_ADDRESS ="35.223.216.248"
-# PUBLIC_IP_ADDRESS = "localhost"
+#PUBLIC_IP_ADDRESS = "localhost"
 DBNAME = "toptraveldb"
 
 # Configuration
