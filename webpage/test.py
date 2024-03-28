@@ -237,6 +237,8 @@ class DBTestCases(unittest.TestCase):
         db.session.query(Hotel).filter_by(name='north jester').delete()
         db.session.commit()
 
+def run():
+    unittest.main()
         
 if __name__ == '__main__':
-    unittest.main()
+    run()

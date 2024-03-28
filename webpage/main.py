@@ -2,9 +2,11 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 import json
 import os
 from user_info import get_gitlab_info, user_all_info, group_gitlab_info
-from static.constants import data_source, tools
+from static.constants import data_source, tools, postman_api
 from models import City, Activity, Flight, Hotel, FlightDetails
 from flask_sqlalchemy import SQLAlchemy
+import unittest
+from test import run
 
 # Google Cloud SQL (change this accordingly)
 USER = "postgres"
@@ -152,7 +154,11 @@ def about():
     group_stats = group_gitlab_info(all_stats)
 
     return render_template('about.html', group_stats=group_stats, member_stats=member_stats, data_source=data_source,
-                           tools=tools)
+                           tools=tools, postman_api=postman_api)
+
+@app.route('/unittest/')
+def unittest():
+    return "happy"
 
 if __name__ == '__main__':
     app.debug = True

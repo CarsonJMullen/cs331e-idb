@@ -124,24 +124,38 @@
             <div class="col d-flex justify-content-around">
                 <div class="square square_for_links square-2">
                     <div class="square-link">
-                        <a href="https://cs-331e-top-travelers.postman.co/workspace/My-Workspace~dc54dd68-2fa6-44dd-8805-4e3db6e8f6d3/overview" class="link-light">Postman API</a>
+                        <a href="https://gitlab.com/kkx2402GL/cs331e-idb/-/issues" class="link-light text-decoration-none">GitLab Issue Tracker</a>
                     </div>
                 </div>
                 <div class="square square_for_links square-2">
                     <div class="square-link">
-                        <a href="https://gitlab.com/kkx2402GL/cs331e-idb/-/issues" class="link-light">GitLab Issue Tracker</a>
+                        <a href="https://gitlab.com/kkx2402GL/cs331e-idb" class="link-light text-decoration-none">GitLab Repository</a>
                     </div>
                 </div>
                 <div class="square square_for_links square-2">
                     <div class="square-link">
-                        <a href="https://gitlab.com/kkx2402GL/cs331e-idb" class="link-light">GitLab Repository</a>
+                        <a href="https://gitlab.com/kkx2402GL/cs331e-idb/-/wikis/technical_report" class="link-light text-decoration-none">Gitlab Wiki</a>
                     </div>
                 </div>
                 <div class="square square_for_links square-2">
                     <div class="square-link">
-                        <a href="https://gitlab.com/kkx2402GL/cs331e-idb/-/wikis/technical_report" class="link-light">Gitlab Wiki</a>
+                        <a href="http://yuml.me/anjieliu/preview/travel" class="link-light text-decoration-none">UML</a>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <h1 id="subtitle" class="text-white display-1">Postman API</h1>
+
+        <div class="row justify-content-center">
+            <div class="col d-flex justify-content-around">
+                {% for d in postman_api %}
+                <div class="square square_for_links square-2">
+                    <div class="square-link">
+                        <a href={{ postman_api[d] }} class="link-light text-decoration-none">{{ d }}</a>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
 
@@ -169,10 +183,6 @@
             {% endfor %}
         </div>
 
-
-
-
-
         <!-- TOOLS -->
         <h1 id="subtitle" class="text-white display-1">Tools</h1>
         <div class="row justify-content-center">
@@ -189,6 +199,16 @@
             </div>
             {% endfor %}
         </div>
+
+        <h1 id="subtitle" class="text-white display-1">Unit Tests</h1>
+        <button class="button" onclick="redirectToNextPage()">Click Me!</button>
+
+        <script>
+            function redirectToNextPage() {
+                window.location.href = "{{ url_for('unittest') }}"; // Use Flask's url_for to generate the URL
+            }
+        </script>
+
     </div>
     {% endblock %}
 </body>
