@@ -50,10 +50,6 @@ data_source = {
     "Amadeus Flight Offers Search": {
         'link': 'https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search',
         'description': 'We utilized the Amadeus Flight Offers Search API to gather flight data from AUS to 3 popular tourist sites (Berlin, Paris, and NYC) on 2/17. As we add interactiveness to the project, we will show all flights between AUS and the selected cities for the current day.'
-    },
-    "Postman Collection (Phase II)":{
-        'link': 'https://developers.amadeus.com',
-        'description': None
     }
 }
 
@@ -84,4 +80,13 @@ tools = {
         "image": '../static/images/tools/postman.jpg',
         'link': 'https://www.postman.com'
     }
+}
+
+postman_api = {
+    "Workspace": "https://cs-331e-top-travelers.postman.co/workspace/My-Workspace~dc54dd68-2fa6-44dd-8805-4e3db6e8f6d3/collection/33692531-f5fab7c7-37b8-4bbf-be81-1f8b07d36030?action=share&creator=33692618",
+    "Activities": "https://cs-331e-top-travelers.postman.co/workspace/My-Workspace~dc54dd68-2fa6-44dd-8805-4e3db6e8f6d3/collection/33692531-94e9dfb0-0342-4449-bd30-59fec98035e6?action=share&creator=33692618",
+    "Cities": "https://cs-331e-top-travelers.postman.co/workspace/My-Workspace~dc54dd68-2fa6-44dd-8805-4e3db6e8f6d3/collection/33692531-2cb939b7-ca6b-4d04-b6d0-894341bbf50c?action=share&creator=33692618",
+    "FlightDetails": "https://cs-331e-top-travelers.postman.co/workspace/My-Workspace~dc54dd68-2fa6-44dd-8805-4e3db6e8f6d3/collection/33692618-22069846-14bb-471b-8e6f-f0b9385415a9?action=share&creator=33692618",
+    "Flights": "https://cs-331e-top-travelers.postman.co/workspace/My-Workspace~dc54dd68-2fa6-44dd-8805-4e3db6e8f6d3/collection/33692531-ff5b494b-f30c-43a4-8476-a1ed2fee64ad?action=share&creator=33692618",
+    "Hotels" : "https://cs-331e-top-travelers.postman.co/workspace/My-Workspace~dc54dd68-2fa6-44dd-8805-4e3db6e8f6d3/collection/33692531-f5fab7c7-37b8-4bbf-be81-1f8b07d36030?action=share&creator=33692618"
 }

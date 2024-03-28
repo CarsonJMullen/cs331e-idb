@@ -21,6 +21,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True  # to suppress a warning message
 db = SQLAlchemy(app)
 
+
 class City(db.Model):
     __tablename__ = 'city'
 
