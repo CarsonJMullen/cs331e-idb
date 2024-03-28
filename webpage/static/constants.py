@@ -33,7 +33,7 @@ member_info = {
         'image': "../static/images/people/KibamImage.jpeg",
         'bio': 'I am senior student at The University of Texas at Austin. I am a Mathmatician.',
         'responsibilities': 'team leader, front-end, Amadeus API',
-        'unittests': 0
+        'unittests': 15
     }
 }
 
