@@ -79,5 +79,9 @@ tools = {
     "SQLAlchemy":{
         "image": '../static/images/tools/sqlalchemy.png',
         'link': 'https://www.sqlalchemy.org'
+    },
+    "Postman":{
+        "image": '../static/images/tools/postman.jpg',
+        'link': 'https://www.postman.com'
     }
 }

@@ -9,6 +9,9 @@
         body {
             background-image: url('https://www.mercierzeng.com/image/top-destinations/guilin-photography-tour.jpg'); /* Replace 'background-image.jpg' with your image path */
             height: 90vh; /* Ensure full screen height */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
         }
         /* Center title and buttons */
         .container {
@@ -73,7 +76,7 @@
 
 
         <div class="row">
-            {% for i, j in [("Cities", "cities"), ("Activities", "activities/page=1"), ("Flights", "flights"), ("Hotels", "hotels/page=1"), ("About", "about")] %}
+            {% for i, j in [("Cities", "cities"), ("Activities", "activities/page=1"), ("Flights", "flights/page=1"), ("Hotels", "hotels/page=1"), ("About", "about")] %}
             <div class="col">
                 <button type="button" class="square"><a href={{j}} class="link text-decoration-none"> {{ i }}</a></button>
             </div>
