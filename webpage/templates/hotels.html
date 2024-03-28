@@ -24,7 +24,7 @@
             </thead>
             {% for i in hotel_list[(page-1)*10:page*10]%}
                 <tr>
-                    <td><div>
+                    <td class="w-75"><div>
                         <a href="{{url_for('this_hotel', hotel_id=i.id)}}">{{i.name}}</a><br>
                     </div></td>
                     <td><div>

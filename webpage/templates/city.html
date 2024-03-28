@@ -30,7 +30,7 @@
                 <!-- TODO: Add slideshow/carousel later -->
                 <tr><td colspan="3"><img src="{{city.pictures[0]}}"></td></tr>
                 <tr>
-                    <td><div class="attribute"><span>Population</span></div></td>
+                    <td class="w-25"><div class="attribute"><span>Population</span></div></td>
                     <td><div class="info"><span>{{city.population}}</span></div></td>
                 </tr>
                 <tr>
@@ -46,7 +46,7 @@
                 <tr><td><h2 id="Activities">Activities</h2></td></tr>
                 <tr><td><div class="info">
                     {% for i in activity_list %}
-                    {% if i.city == city.name %}
+                    {% if i.iataCode == city.iataCode %}
                     <div><a href="{{url_for('activity', activity_id=i.id)}}">{{i.name}}</a><br></div>
                     {% endif %}
                     {% endfor %}
