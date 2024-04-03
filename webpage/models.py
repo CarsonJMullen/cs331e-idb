@@ -5,8 +5,8 @@ import os
 # Google Cloud SQL (change this accordingly)
 USER = "postgres"
 PASSWORD = "postgres"
-PUBLIC_IP_ADDRESS ="35.223.216.248"
-#PUBLIC_IP_ADDRESS = "localhost"
+# PUBLIC_IP_ADDRESS ="35.223.216.248"
+PUBLIC_IP_ADDRESS = "localhost"
 DBNAME = "toptraveldb"
 
 # Configuration
@@ -25,8 +25,8 @@ db = SQLAlchemy(app)
 class City(db.Model):
     __tablename__ = 'city'
 
+    id = db.Column(db.String(3), primary_key=True)
     name = db.Column(db.String(30), nullable=False)
-    iataCode = db.Column(db.String(3), primary_key=True)
     population = db.Column(db.Integer)
     location = db.Column(db.String(30))
     pictures = db.Column(db.ARRAY(db.Text))
@@ -47,7 +47,7 @@ class Activity(db.Model):
     price_currencyCode = db.Column(db.String(3))
     pictures = db.Column(db.ARRAY(db.Text))
     bookingLink = db.Column(db.Text)
-    iataCode = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
+    iataCode = db.Column(db.String(3), db.ForeignKey('city.id'))
 
 class Flight(db.Model):
     __tablename__ = 'flight'
@@ -55,7 +55,7 @@ class Flight(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     departure_airport = db.Column(db.String(3), nullable=False)
     arrival_airport = db.Column(db.String(3), nullable=False)
-    arrival_city = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
+    arrival_city = db.Column(db.String(3), db.ForeignKey('city.id'))
     price = db.Column(db.String(8))
     seats_left = db.Column(db.Integer)
     duration = db.Column(db.String(5))
@@ -87,4 +87,4 @@ class Hotel(db.Model):
     longitude = db.Column(db.Numeric(8, 5))
     amenities = db.Column(db.ARRAY(db.String(20)))
     rating = db.Column(db.SmallInteger)
-    iataCode = db.Column(db.String(3), db.ForeignKey('city.iataCode'))
+    iataCode = db.Column(db.String(3), db.ForeignKey('city.id'))

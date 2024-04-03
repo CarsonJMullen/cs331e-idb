@@ -47,7 +47,7 @@ def create():
     print('Cleared table')
 
     for i in city_list:
-        newCity = City(name=i['name'], iataCode=i['iataCode'], population=int(i['population'].replace(',', '')),
+        newCity = City(name=i['name'], id=i['iataCode'], population=int(i['population'].replace(',', '')),
                        location=i['location'], pictures=i['pictures'])
         db.session.add(newCity)
     # commit the session to my DB.

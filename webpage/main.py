@@ -11,8 +11,8 @@ from test import run
 # Google Cloud SQL (change this accordingly)
 USER = "postgres"
 PASSWORD = "postgres"
-PUBLIC_IP_ADDRESS ="35.223.216.248"
-#PUBLIC_IP_ADDRESS = "localhost"
+# PUBLIC_IP_ADDRESS = "35.223.216.248"
+PUBLIC_IP_ADDRESS = "localhost"
 DBNAME = "toptraveldb"
 
 app = Flask(__name__)
@@ -23,6 +23,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",
                                                        f'postgresql://{USER}:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True  # to suppress a warning message
 db = SQLAlchemy(app)
+
 
 ########################################################################################################################
 #                                           load data                                                                  #
@@ -39,9 +40,26 @@ def select(model):
         res.append(obj_dict)
     return res
 
+
+def select_dict(model, attr=True, value=True, page_limit=None, page=1):
+    stmt = db.select(model).where(attr == value).limit(page_limit).offset((page-1)*10)
+    res = {}
+    for i in db.session.execute(stmt):
+        # Convert SQLAlchemy object to a dictionary
+        i_dict = i[0].__dict__
+        obj_dict = {}
+        for key in i_dict:
+            if not key.startswith('_') and key != 'id':
+                obj_dict[key] = getattr(i[0], key)
+        res[i_dict['id']] = obj_dict
+    return res
+
+
 # cities
-city_list = select(City)
-activity_list = select(Activity)
+city_list = select_dict(City)
+
+# activities
+activity_list = select_dict(Activity)
 
 # flights
 flights_list = select(Flight)
@@ -50,9 +68,6 @@ flight_details = select(FlightDetails)
 # hotels
 hotel_list = select(Hotel)
 
-# with open(os.path.join(app.static_folder, 'data', 'hotels', 'hotel_list.json')) as f:
-#     hotel_list = json.load(f)['data']
-# f.close()
 
 @app.route('/')
 @app.route('/home/')
@@ -62,10 +77,8 @@ def index():
 
 @app.route('/cities/<string:iataCode>')
 def city(iataCode):
-    for i in city_list:
-        if i['iataCode'] == str(iataCode):
-            return render_template('city.html', city=i, activity_list=activity_list, hotel_list=hotel_list)
-    return render_template('cities.html', city_list=city_list)
+    activity_list = select_dict(Activity, Activity.iataCode, iataCode)
+    return render_template('city.html', city=city_list[iataCode], activity_list=activity_list, hotel_list=hotel_list)
 
 
 @app.route('/cities/')
@@ -75,28 +88,28 @@ def cities():
 
 @app.route('/activities/id=<int:activity_id>')
 def activity(activity_id):
-    for i in activity_list:
-        if i['id'] == str(activity_id):
-            return render_template('activity.html', activity=i)
-    return render_template('activities.html', activity_list=activity_list, page=1)
+    return render_template('activity.html', activity=activity_list[str(activity_id)])
 
 
 @app.route('/activities/page=<int:page>')
 def activities(page=1):
-    return render_template('activities.html', activity_list=activity_list, page=page)
+    count = len(activity_list)
+    activity_list_limit = select_dict(Activity, page_limit=10, page=page)
+    return render_template('activities.html', activity_list=activity_list_limit, page=page, count=count)
 
 
 @app.route('/flights/<string:flight_id>')
 def single_flight(flight_id):
     for i in range(len(flights_list)):
         if str(flights_list[i]['id']) == str(flight_id):
-            return render_template('single_flight.html', flight = flights_list[i], fd = [d for d in flight_details if str(d['flight_group']) == str(flight_id)])
-    return render_template('flights.html', flights=flights_list, page = 1)
+            return render_template('single_flight.html', flight=flights_list[i],
+                                   fd=[d for d in flight_details if str(d['flight_group']) == str(flight_id)])
+    return render_template('flights.html', flights=flights_list, page=1)
 
 
 @app.route('/flights/page=<int:page>')
 def flights(page=1):
-    return render_template('flights.html', flights=flights_list, page = page)
+    return render_template('flights.html', flights=flights_list, page=page)
 
 
 @app.route('/hotels/id=<string:hotel_id>')
@@ -111,6 +124,7 @@ def this_hotel(hotel_id):
 def hotels(page=1):
     return render_template('hotels.html', hotel_list=hotel_list, page=page)
 
+
 # Define API Endpoints
 @app.route('/activities/get/', methods=['GET'])
 def get_activities():
@@ -121,6 +135,7 @@ def get_activities():
     else:
         return jsonify(activity_list)
 
+
 @app.route('/hotels/get/', methods=['GET'])
 def get_hotels():
     city_filter = request.args.get('city')
@@ -129,6 +144,7 @@ def get_hotels():
         return jsonify(filtered_hotels)
     else:
         return jsonify(hotel_list)
+
 
 @app.route('/flights/get/', methods=['GET'])
 def get_flights():
@@ -139,13 +155,16 @@ def get_flights():
     else:
         return jsonify(flights_list)
 
+
 @app.route('/flight_details/get/', methods=['GET'])
 def get_flightdetails():
     return jsonify(flight_details)
 
+
 @app.route('/cities/get/', methods=['GET'])
 def get_cities():
     return jsonify(city_list)
+
 
 @app.route('/about/')
 def about():
@@ -156,9 +175,11 @@ def about():
     return render_template('about.html', group_stats=group_stats, member_stats=member_stats, data_source=data_source,
                            tools=tools, postman_api=postman_api)
 
+
 @app.route('/unittest/')
 def unittest():
     return render_template('unittest.html')
+
 
 if __name__ == '__main__':
     app.debug = True

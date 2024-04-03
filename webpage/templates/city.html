@@ -46,9 +46,7 @@
                 <tr><td><h2 id="Activities">Activities</h2></td></tr>
                 <tr><td><div class="info">
                     {% for i in activity_list %}
-                    {% if i.iataCode == city.iataCode %}
-                    <div><a href="{{url_for('activity', activity_id=i.id)}}">{{i.name}}</a><br></div>
-                    {% endif %}
+                    <div><a href="{{url_for('activity', activity_id=i)}}">{{activity_list[i].name}}</a><br></div>
                     {% endfor %}
                 </div></td></tr>
             </table>
@@ -58,8 +56,8 @@
                 <tr><td><h2 id="hotels">Hotels</h2></td></tr>
                 <tr><td><div class="info">
                     {% for i in hotel_list %}
-                    {% if i.iataCode == city.iataCode %}
-                    <div><a href="{{url_for('this_hotel', hotel_id=i.id)}}">{{i.name}}</a><br></div>
+                    {% if i.iataCode == city %}
+                    <div><a href="{{url_for('this_hotel', hotel_id=i)}}">{{i.name}}</a><br></div>
                     {% endif %}
                     {% endfor %}
                 </div></td></tr>

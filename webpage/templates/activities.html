@@ -23,19 +23,19 @@
                   <th scope="col">Price</th>
                 </tr>
             </thead>
-            {% for i in activity_list[(page-1)*10:page*10] %}
+            {% for i in activity_list %}
                 <tr>
                     <td class="w-75"><div>
-                        <a href="{{url_for('activity', activity_id=i.id)}}">{{i.name}}</a><br>
+                        <a href="{{url_for('activity', activity_id=i)}}">{{activity_list[i].name}}</a><br>
                     </div></td>
                     <td><div>
-                        <a href="{{url_for('city', iataCode=i.iataCode)}}">{{i.iataCode}}</a><br>
+                        <a href="{{url_for('city', iataCode=activity_list[i].iataCode)}}">{{activity_list[i].iataCode}}</a><br>
                     </div></td>
                     <td><div>
-                        <span>{{i.rating}}</span><br>
+                        <span>{{activity_list[i].rating}}</span><br>
                     </div></td>
                     <td><div>
-                        <span>{{i.price_amount}}</span>&nbsp<span>{{i.price_currencyCode}}</span><br>
+                        <span>{{activity_list[i].price_amount}}</span>&nbsp<span>{{activity_list[i].price_currencyCode}}</span><br>
                     </div></td>
                 </tr>
             {% endfor %}
@@ -44,7 +44,7 @@
         <ul class="pagination">
             <li class="page-item"><a class="page-link" href="{{url_for('activities', page=1)}}">&laquo</a></li>
             <li class="page-item"><a class="page-link" href="{{url_for('activities', page=page-1)}}">&lt</a></li>
-            {% for i in range([page-5, 1]|max, [page+6, activity_list|length//10+2]|min) %}
+            {% for i in range([page-5, 1]|max, [page+6, count//10+2]|min) %}
             <li class="page-item {% if i==page %}active{% endif %}"><a class="page-link" href="{{url_for('activities', page=i)}}">{{i}}</a></li>
             {% endfor %}
             <li class="page-item"><a class="page-link" href="{{url_for('activities', page=page+1)}}">&gt</a></li>
