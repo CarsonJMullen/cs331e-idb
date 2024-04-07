@@ -96,14 +96,15 @@ def activity(activity_id):
     return render_template('activity.html', activity=activity_list[str(activity_id)])
 
 
-@app.route('/activities/')
-@app.route('/activities/page=<int:page>')
-@app.route('/activities/page=<int:page>&order_by=<order_by>')
-@app.route('/activities/page=<int:page>&order_by=<order_by>&order=<desc>')
-def activities(page=1, order_by='id', desc=False):
+@app.route('/activities/page=<int:page>&order_by=<order_by>&desc=<int:desc>&value=<value>')
+def activities(page, order_by, desc, value):
     count = len(activity_list)
-    activity_list_limit = select_dict(Activity, page_limit=10, page=page, order_by=getattr(Activity, order_by), desc=desc)
-    return render_template('activities.html', activity_list=activity_list_limit, page=page, count=count, order_by=order_by, desc=desc)
+    if value != '1':
+        activity_list_limit = select_dict(Activity, page_limit=10, page=page, order_by=getattr(Activity, order_by), desc=desc, attr=Activity.iataCode, value=value)
+        count = len(select_dict(Activity, attr=Activity.iataCode, value=value))
+    else:
+        activity_list_limit = select_dict(Activity, page_limit=10, page=page, order_by=getattr(Activity, order_by), desc=desc)
+    return render_template('activities.html', city_list=city_list, activity_list=activity_list_limit, page=page, count=count, order_by=order_by, desc=desc, value=value)
 
 
 @app.route('/flights/<string:flight_id>')

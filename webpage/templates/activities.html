@@ -18,20 +18,26 @@
             <thead>
                 <tr>
                     <th scope="col">Name
-                        <a href="{{url_for('activities', page=page, order_by='name')}}"><i class="bi bi-arrow-up"></i></a>
-                        <a href="{{url_for('activities', page=page, order_by='name', desc=True)}}"><i class="bi bi-arrow-down"></i></a>
+                        <a href="{{url_for('activities', page=page, order_by='name', desc=False, value=value)}}"><i class="bi bi-arrow-up"></i></a>
+                        <a href="{{url_for('activities', page=page, order_by='name', desc=True, value=value)}}"><i class="bi bi-arrow-down"></i></a>
                     </th>
-                    <th scope="col">City
-                        <a href="{{url_for('activities', page=page, order_by='iataCode')}}"><i class="bi bi-arrow-up"></i></a>
-                        <a href="{{url_for('activities', page=page, order_by='iataCode', desc=True)}}"><i class="bi bi-arrow-down"></i></a>
+                    <th scope="col">
+                        <a data-bs-toggle="dropdown" aria-expanded="false">City</a>
+                        <ul class="dropdown-menu">
+                            {% for i in city_list %}
+                            <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, value=i)}}">{{city_list[i].name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                        <a href="{{url_for('activities', page=page, order_by='iataCode', desc=False, value=value)}}"><i class="bi bi-arrow-up"></i></a>
+                        <a href="{{url_for('activities', page=page, order_by='iataCode', desc=True, value=value)}}"><i class="bi bi-arrow-down"></i></a>
                     </th>
                     <th scope="col">Rating
-                        <a href="{{url_for('activities', page=page, order_by='rating')}}"><i class="bi bi-arrow-up"></i></a>
-                        <a href="{{url_for('activities', page=page, order_by='rating', desc=True)}}"><i class="bi bi-arrow-down"></i></a>
+                        <a href="{{url_for('activities', page=page, order_by='rating', desc=False, value=value)}}"><i class="bi bi-arrow-up"></i></a>
+                        <a href="{{url_for('activities', page=page, order_by='rating', desc=True, value=value)}}"><i class="bi bi-arrow-down"></i></a>
                     </th>
                     <th scope="col">Price
-                        <a href="{{url_for('activities', page=page, order_by='price_amount')}}"><i class="bi bi-arrow-up"></i></a>
-                        <a href="{{url_for('activities', page=page, order_by='price_amount', desc=True)}}"><i class="bi bi-arrow-down"></i></a>
+                        <a href="{{url_for('activities', page=page, order_by='price_amount', desc=False, value=value)}}"><i class="bi bi-arrow-up"></i></a>
+                        <a href="{{url_for('activities', page=page, order_by='price_amount', desc=True, value=value)}}"><i class="bi bi-arrow-down"></i></a>
                     </th>
                 </tr>
             </thead>
@@ -54,13 +60,13 @@
         </table>
     <nav aria-label="Page navigation example">
         <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=1, order_by=order_by, desc=desc)}}">&laquo</a></li>
-            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=[page-1, 1]|max, order_by=order_by, desc=desc)}}">&lt</a></li>
-            {% for i in range([page-5, 1]|max, [page+6, count//10+2]|min) %}
-            <li class="page-item {% if i==page %}active{% endif %}"><a class="page-link" href="{{url_for('activities', page=i, order_by=order_by, desc=desc)}}">{{i}}</a></li>
+            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, value=value)}}">&laquo</a></li>
+            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=[page-1, 1]|max, order_by=order_by, desc=desc, value=value)}}">&lt</a></li>
+            {% for i in range([page-5, 1]|max, [page+6, (count-1)//10+2]|min) %}
+            <li class="page-item {% if i==page %}active{% endif %}"><a class="page-link" href="{{url_for('activities', page=i, order_by=order_by, desc=desc, value=value)}}">{{i}}</a></li>
             {% endfor %}
-            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=[page+1, count//10+1]|min, order_by=order_by, desc=desc)}}">&gt</a></li>
-            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=count//10+1, order_by=order_by, desc=desc)}}">&raquo</a></li>
+            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=[page+1, (count-1)//10+1]|min, order_by=order_by, desc=desc, value=value)}}">&gt</a></li>
+            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=(count-1)//10+1, order_by=order_by, desc=desc, value=value)}}">&raquo</a></li>
         </ul>
     </nav>
     </div>
