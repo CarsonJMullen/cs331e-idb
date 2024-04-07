@@ -83,7 +83,7 @@ flights_list = select(Flight)
 flight_details = select(FlightDetails)
 
 # hotels
-hotel_list = select(Hotel)
+hotel_list = select_dict(Hotel)
 
 
 @app.route('/')
@@ -134,15 +134,15 @@ def flights(page=1):
 
 @app.route('/hotels/id=<string:hotel_id>')
 def this_hotel(hotel_id):
-    for i in hotel_list:
-        if i['id'] == hotel_id:
-            return render_template('this_hotel.html', hotel=i, activity_list=activity_list)
-    return render_template('hotels.html', hotel_list=hotel_list, page=1)
+    activity_list = select_dict(Activity, Activity.iataCode, hotel_list[str(hotel_id)]['iataCode'], page_limit=10, order_by=Activity.rating, desc=True)
+    return render_template('this_hotel.html', hotel=hotel_list[str(hotel_id)], activity_list=activity_list)
 
 
-@app.route('/hotels/page=<int:page>')
-def hotels(page=1):
-    return render_template('hotels.html', hotel_list=hotel_list, page=page)
+@app.route('/hotels/page=<int:page>&order_by=<order_by>&desc=<int:desc>&attr=<attr>&value=<value>')
+def hotels(page, order_by, desc, attr, value):
+    hotel_list_filtered = select_dict(Hotel, page_limit=10, page=page, order_by=getattr(Hotel, order_by), desc=desc, attr=getattr(Hotel, attr), value=value)
+    count = len(select_dict(Hotel, attr=getattr(Hotel, attr), value=value))
+    return render_template('hotels.html', city_list=city_list ,hotel_list=hotel_list_filtered, count=count, page=page, order_by=order_by, desc=desc, attr=attr, value=value)
 
 
 # Define API Endpoints
