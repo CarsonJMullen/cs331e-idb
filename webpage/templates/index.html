@@ -23,9 +23,10 @@
         }
 
         .title {
+            display: -webkit-flex;
             font-family: 'Pacifico', cursive;
             font-size: 100px;
-            font-weight:bold;
+            {#font-weight:bold;#}
             color: black;
             position: relative;
             display: inline-block; /* Make the title container inline-block */
@@ -42,7 +43,9 @@
             bottom: -10px;
             background-color: rgb(255, 255, 255, 0.5); /* Semi-transparent black */
             border-radius: 100px; /* Rounded corners */
-            backdrop-filter: blur(100px); /* Blur effect */
+            {#-webkit-backdrop-filter: blur(1px);#}
+            {#box-shadow: 0px 0px 200px 1px rgb(255, 255, 255, 0.5);#}
+            filter: blur(4px);
             z-index: -1; /* Ensure the blurred background is behind the text */
         }
 
