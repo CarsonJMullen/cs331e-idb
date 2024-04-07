@@ -32,8 +32,10 @@ airport_to_city_cache = create_airport_to_city_cache()
 
 
 def create():
+    # TODO: add "toptraveldb" database in your local machine
     # Populating
     # ----------
+    db.create_all()
     db.session.query(FlightDetails).delete()
     db.session.commit()
     db.session.query(Flight).delete()
