@@ -41,15 +41,20 @@ def select(model):
     return res
 
 
-def select_dict(model, attr=True, value=True, page_limit=None, page=1):
+def select_dict(model, attr=True, value=True, page_limit=None, page=1, order_by=None, desc=False):
     stmt = db.select(model).where(attr == value).limit(page_limit).offset((page-1)*10)
+    if order_by:
+        if desc:
+            stmt = stmt.order_by(order_by.desc())
+        else:
+            stmt = stmt.order_by(order_by)
     res = {}
     for i in db.session.execute(stmt):
         # Convert SQLAlchemy object to a dictionary
         i_dict = i[0].__dict__
         obj_dict = {}
         for key in i_dict:
-            if not key.startswith('_') and key != 'id':
+            if not key.startswith('_'):
                 obj_dict[key] = getattr(i[0], key)
         res[i_dict['id']] = obj_dict
     return res
@@ -91,11 +96,14 @@ def activity(activity_id):
     return render_template('activity.html', activity=activity_list[str(activity_id)])
 
 
+@app.route('/activities/')
 @app.route('/activities/page=<int:page>')
-def activities(page=1):
+@app.route('/activities/page=<int:page>&order_by=<order_by>')
+@app.route('/activities/page=<int:page>&order_by=<order_by>&order=<desc>')
+def activities(page=1, order_by='id', desc=False):
     count = len(activity_list)
-    activity_list_limit = select_dict(Activity, page_limit=10, page=page)
-    return render_template('activities.html', activity_list=activity_list_limit, page=page, count=count)
+    activity_list_limit = select_dict(Activity, page_limit=10, page=page, order_by=getattr(Activity, order_by), desc=desc)
+    return render_template('activities.html', activity_list=activity_list_limit, page=page, count=count, order_by=order_by, desc=desc)
 
 
 @app.route('/flights/<string:flight_id>')
