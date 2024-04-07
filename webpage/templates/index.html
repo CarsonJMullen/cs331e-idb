@@ -58,13 +58,9 @@
             height: 50px;
             margin: 10px;
             border-radius: 10rem; /* Rounded corners */
-            color: rgb(220,220,220, 0.3); /* White text color */
-        }
-
-        .link {
             font-family: 'Pacifico', monospace;
-            color:white;
             font-weight:bold;
+            color: white; /* White text color */
         }
 
 
@@ -79,9 +75,9 @@
 
 
         <div class="row">
-            {% for i, j in [("Cities", "cities"), ("Activities", "activities/page=1"), ("Flights", "flights/page=1"), ("Hotels", "hotels/page=1"), ("About", "about")] %}
+            {% for i, j in [("Cities", "cities"), ("Activities", "activities/page=1&order_by=id&desc=0&attr=id&value=0"), ("Flights", "flights/page=1"), ("Hotels", "hotels/page=1"), ("About", "about")] %}
             <div class="col">
-                <button type="button" class="square"><a href={{j}} class="link text-decoration-none"> {{ i }}</a></button>
+                <a href={{j}} class="text-decoration-none"><button type="button" class="square"> {{ i }}</button></a>
             </div>
             {% endfor %}
         </div>
