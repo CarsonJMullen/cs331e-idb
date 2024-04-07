@@ -35,6 +35,7 @@ def create():
     # TODO: add "toptraveldb" database in your local machine
     # Populating
     # ----------
+    db.drop_all()
     db.create_all()
     db.session.query(FlightDetails).delete()
     db.session.commit()

@@ -5,8 +5,6 @@ from user_info import get_gitlab_info, user_all_info, group_gitlab_info
 from static.constants import data_source, tools, postman_api
 from models import City, Activity, Flight, Hotel, FlightDetails
 from flask_sqlalchemy import SQLAlchemy
-import unittest
-from test import run
 
 # Google Cloud SQL (change this accordingly)
 USER = "postgres"
@@ -76,6 +74,7 @@ def select_distinct(attr):
         res.append(i[0])
     return res
 
+
 # cities
 city_list = select_dict(City)
 
@@ -115,7 +114,7 @@ def activity(activity_id):
 @app.route('/activities/page=<int:page>&order_by=<order_by>&desc=<int:desc>&attr=<attr>&value=<value>')
 def activities(page, order_by, desc, attr, value):
     activity_list_limit = select_dict(Activity, page_limit=10, page=page, order_by=getattr(Activity, order_by), desc=desc, attr=getattr(Activity, attr), value=value)
-    count = len(select_dict(Activity, attr=Activity.iataCode, value=value))
+    count = len(select_dict(Activity, attr=getattr(Activity, attr), value=value))
     curr_list = select_distinct(Activity.price_currencyCode)
     return render_template('activities.html', city_list=city_list, activity_list=activity_list_limit, curr_list=curr_list, count=count, page=page, order_by=order_by, desc=desc, attr=attr, value=value)
 
