@@ -95,6 +95,7 @@ def index():
 @app.route('/cities/<string:iataCode>')
 def city(iataCode):
     activity_list = select_dict(Activity, Activity.iataCode, iataCode, page_limit=10, order_by=Activity.rating, desc=True)
+    hotel_list = select_dict(Hotel, Hotel.iataCode, iataCode, page_limit=10, order_by=Hotel.rating, desc=True)
     return render_template('city.html', city=city_list[iataCode], activity_list=activity_list, hotel_list=hotel_list)
 
 
