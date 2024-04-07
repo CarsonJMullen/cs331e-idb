@@ -2,9 +2,23 @@
 <html lang="en">
 <head>
     <style>
-        .main{
-            margin:2%
+        .main {
+            margin: 2%;
+            overflow-x: auto; /* Allows horizontal scrolling for smaller devices */
         }
+        .super-narrow-column {
+            width: 80px; /* Width for narrow columns */
+        }
+        .narrow-column {
+            width: 130px; /* Width for narrow columns */
+        }
+        .wide-column {
+            width: 180px; /* Width for wide columns */
+        }
+        table, th, td {
+            font-size: 12.5px; /* Smaller font size for table content */
+        }
+    
     </style>
     <meta charset="UTF-8">
     <title>Flights</title>
@@ -17,22 +31,53 @@
         <table id="flights" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">Departure Airport</th>
-                    <th scope="col">Arrival Airport
-                    <th scope="col">Arrival City</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Seats Left</th>
-                    <th scope="col">Duration</th>
-                    <th scope="col"># of Legs</th>
-                    <th scope="col">Departure Time</th>
-                    <th scope="col">Arrival Time</th>
-                    <th scope="col">Airline</th>
+                    <th scope="col" class="super-narrow-column">id
+                        <a href="{{url_for('flights', page=page, order_by='id', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
+                        <a href="{{url_for('flights', page=page, order_by='id', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
+                    </th>
+                    <th scope="col" class="narrow-column">Departure Airport</th>
+                    <th scope="col" class="narrow-column">Arrival Airport
+                    <th scope="col" class="narrow-column">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Arrival City</a>
+                        <ul class="dropdown-menu">
+                            {% for i in city_list %}
+                            <li><a class="dropdown-item" href="{{url_for('flights', page=1, order_by=order_by, desc=desc, attr='arrival_city', value=i)}}">{{city_list[i].name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                        </th>
+                    <th scope="col" class="super-narrow-column">Price
+                        <a href="{{url_for('flights', page=page, order_by='price', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
+                        <a href="{{url_for('flights', page=page, order_by='price', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
+                    </th>
+                    <th scope="col" class="narrow-column">Duration
+                        <a href="{{url_for('flights', page=page, order_by='duration', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
+                        <a href="{{url_for('flights', page=page, order_by='duration', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
+                    </th>
+                    <th scope="col" class="narrow-column"># of Legs
+                        <a href="{{url_for('flights', page=page, order_by='num_legs', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
+                        <a href="{{url_for('flights', page=page, order_by='num_legs', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
+                    </th>
+                    <th scope="col" class="wide-column">Departure Time
+                        <a href="{{url_for('flights', page=page, order_by='departure_time', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
+                        <a href="{{url_for('flights', page=page, order_by='departure_time', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
+                    </th>
+                    <th scope="col" class="wide-column">Arrival Time
+                        <a href="{{url_for('flights', page=page, order_by='arrival_time', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
+                        <a href="{{url_for('flights', page=page, order_by='arrival_time', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
+                    </th>
+                    <th scope="col">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Airline</a>
+                        <ul class="dropdown-menu">
+                            {% for i in airline_list %}
+                            <li><a class="dropdown-item" href="{{url_for('flights', page=1, order_by=order_by, desc=desc, attr='airline', value=i)}}">{{i}}</a></li>
+                            {% endfor %}
+                        </ul>
+                        </th>
                     <th scope="col">More Info</th>
 
                 </tr>
             </thead>
-            {% for f in flights[(page-1)*10:page*10] %}
+            {% for f in flight_list %}
                 <tr>
                     <td><div>
                         <span>{{ f.id}}</span>
@@ -49,9 +94,6 @@
                         </a><br>
                     <td><div>
                         <span>${{f.price}}</span>
-                    </div></td>
-                    <td><div>
-                        <span>{{f.seats_left}}</span>
                     </div></td>
                     <td><div>
                             <span>{{f.duration}}</span>
@@ -77,13 +119,13 @@
         </table>
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="{{url_for('flights', page=1)}}">&laquo</a></li>
-                <li class="page-item"><a class="page-link" href="{{url_for('flights', page=page-1)}}">&lt</a></li>
-                {% for i in range([page-5, 1]|max, [page+6, flights|length//10+2]|min) %}
-                <li class="page-item {% if i==page %}active{% endif %}"><a class="page-link" href="{{url_for('flights', page=i)}}">{{i}}</a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('flights', page=1, order_by=order_by, desc=desc, attr=attr, value=value)}}">&laquo</a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('flights', page=[page-1, 1]|max, order_by=order_by, desc=desc, attr=attr, value=value)}}">&lt</a></li>
+                {% for i in range([page-5, 1]|max, [page+6, (count-1)//10+2]|min) %}
+                <li class="page-item {% if i==page %}active{% endif %}"><a class="page-link" href="{{url_for('flights', page=i, order_by=order_by, desc=desc, attr=attr, value=value)}}">{{i}}</a></li>
                 {% endfor %}
-                <li class="page-item"><a class="page-link" href="{{url_for('flights', page=page+1)}}">&gt</a></li>
-                <li class="page-item"><a class="page-link" href="{{url_for('flights', page=flights|length//10+1)}}">&raquo</a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('flights', page=[page+1, (count-1)//10+1]|min, order_by=order_by, desc=desc, attr=attr, value=value)}}">&gt</a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('flights', page=(count-1)//10+1, order_by=order_by, desc=desc, attr=attr, value=value)}}">&raquo</a></li>
             </ul>
         </nav>
         </div>

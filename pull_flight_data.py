@@ -36,8 +36,8 @@ f.close()
 cities = [city['iataCode'] for city in city_list]
 
 for city in cities:
-    data = get_flight_data(city, "AUS", date='2024-05-13')
-    date = '2024-05-13'
+    date = '2024-05-15'
+    data = get_flight_data(city, "AUS", date=date)
     file_path = os.path.join('webpage', 'static', 'data', 'flights', city + '-' + date + ".json")
     with open(file_path, 'w') as json_file:
         json.dump(data, json_file, indent=4)

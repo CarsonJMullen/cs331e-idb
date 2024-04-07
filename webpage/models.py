@@ -56,7 +56,7 @@ class Flight(db.Model):
     departure_airport = db.Column(db.String(3), nullable=False)
     arrival_airport = db.Column(db.String(3), nullable=False)
     arrival_city = db.Column(db.String(3), db.ForeignKey('city.id'))
-    price = db.Column(db.String(8))
+    price = db.Column(db.Numeric(8, 2))
     seats_left = db.Column(db.Integer)
     duration = db.Column(db.String(5))
     num_legs = db.Column(db.Integer)

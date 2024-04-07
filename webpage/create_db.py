@@ -17,10 +17,12 @@ f.close()
 # flights
 cities = [city['iataCode'] for city in city_list]
 flights = []
+dates = ['2024-05-13', '2024-05-14', '2024-05-15']
 for city in cities:
-    with open(os.path.join(app.static_folder, 'data', 'flights', city + '-2024-05-13.json')) as f:
-        flights.append(json.load(f))
-    f.close()
+    for date in dates:
+        with open(os.path.join(app.static_folder, 'data', 'flights', city + '-' + date + '.json')) as f:
+            flights.append(json.load(f))
+        f.close()
 
 # hotels
 with open(os.path.join(app.static_folder, 'data', 'hotels', 'hotel_list.json')) as f:
@@ -90,7 +92,7 @@ def create():
                                arrival_city=airport_to_city(airport_to_city_cache,
                                                             f['itineraries'][0]['segments'][-1]['arrival']['iataCode'])[
                                    'cityCode'],
-                               price=f['price']['total'],
+                               price=float(f['price']['total']),
                                seats_left=f['numberOfBookableSeats'],
                                duration=convert_duration(f['itineraries'][0]['duration']),
                                num_legs=len(f['itineraries'][0]['segments']),
