@@ -41,16 +41,26 @@ def select(model):
     return res
 
 
-def select_dict(model, attr=True, value=True, page_limit=None, page=1, order_by=None, desc=False):
-    stmt = db.select(model).where(attr == value).limit(page_limit).offset((page-1)*10)
+def select_dict(model, attr=None, value=None, page_limit=None, page=1, order_by=None, desc=False):
+    stmt = db.select(model)
+    # Filter
+    if attr and value != "0":
+        stmt = stmt.where(attr == value)
+
+    # Page limit
+    if page_limit:
+        stmt = stmt.limit(page_limit).offset((page-1)*10)
+
+    # Sort
     if order_by:
         if desc:
             stmt = stmt.order_by(order_by.desc())
         else:
             stmt = stmt.order_by(order_by)
+
+    # Convert SQLAlchemy object to a dictionary
     res = {}
     for i in db.session.execute(stmt):
-        # Convert SQLAlchemy object to a dictionary
         i_dict = i[0].__dict__
         obj_dict = {}
         for key in i_dict:
@@ -98,13 +108,9 @@ def activity(activity_id):
 
 @app.route('/activities/page=<int:page>&order_by=<order_by>&desc=<int:desc>&value=<value>')
 def activities(page, order_by, desc, value):
-    count = len(activity_list)
-    if value != '1':
-        activity_list_limit = select_dict(Activity, page_limit=10, page=page, order_by=getattr(Activity, order_by), desc=desc, attr=Activity.iataCode, value=value)
-        count = len(select_dict(Activity, attr=Activity.iataCode, value=value))
-    else:
-        activity_list_limit = select_dict(Activity, page_limit=10, page=page, order_by=getattr(Activity, order_by), desc=desc)
-    return render_template('activities.html', city_list=city_list, activity_list=activity_list_limit, page=page, count=count, order_by=order_by, desc=desc, value=value)
+    activity_list_limit = select_dict(Activity, page_limit=10, page=page, order_by=getattr(Activity, order_by), desc=desc, attr=Activity.iataCode, value=value)
+    count = len(select_dict(Activity, attr=Activity.iataCode, value=value))
+    return render_template('activities.html', city_list=city_list, activity_list=activity_list_limit, count=count, page=page, order_by=order_by, desc=desc, value=value)
 
 
 @app.route('/flights/<string:flight_id>')
