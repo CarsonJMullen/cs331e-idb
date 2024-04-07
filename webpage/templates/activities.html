@@ -29,7 +29,7 @@
                         <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">City</a>
                         <ul class="dropdown-menu">
                             {% for i in city_list %}
-                            <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='iataCode', value=i)}}">{{city_list[i].name}}</a></li>
+                                <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='iataCode', value=i)}}">{{city_list[i].name}}</a></li>
                             {% endfor %}
                         </ul>
                         <a href="{{url_for('activities', page=page, order_by='iataCode', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>

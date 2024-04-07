@@ -49,8 +49,6 @@
             z-index: -1; /* Ensure the blurred background is behind the text */
         }
 
-
-
         .square {
             background-color: #8C6A5D !important;
             outline: none !important;
@@ -61,6 +59,15 @@
             font-family: 'Pacifico', monospace;
             font-weight:bold;
             color: white; /* White text color */
+        }
+
+        /* google-like search bar */
+        .form-group .form-control {
+            margin-top: 20px; /* Increase top margin */
+            border-radius: 25px; /* Make corners rounder */
+            width: 600px;
+            font-family: 'Pacifico', monospace;
+            font-weight:bold;
         }
 
 
@@ -81,7 +88,16 @@
             </div>
             {% endfor %}
         </div>
+
+
+        <form id="searchForm">
+            <div class="form-group row">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="search anything related to travel to get you started">
+            </div>
+        </form>
+
     </div>
+
 
     {% endblock %}
 </body>

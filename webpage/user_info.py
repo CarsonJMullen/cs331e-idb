@@ -59,7 +59,7 @@ def find_user(d, k):
 
 def sort_by_total(d):
     # helper function for user_all_info()
-    sorted_dict = dict(sorted(d.items(), key=lambda x: x[1]['commits'] + x[1]['issues'], reverse=False))
+    sorted_dict = dict(sorted(d.items(), key=lambda x: x[1]['commits'] + x[1]['issues'] + x[1]['unittests'], reverse=False))
     return sorted_dict
 
 
