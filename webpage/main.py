@@ -69,6 +69,12 @@ def select_dict(model, attr=None, value=None, page_limit=None, page=1, order_by=
         res[i_dict['id']] = obj_dict
     return res
 
+def select_distinct(attr):
+    stmt = db.select(attr).distinct()
+    res = []
+    for i in db.session.execute(stmt):
+        res.append(i[0])
+    return res
 
 # cities
 city_list = select_dict(City)
@@ -92,7 +98,7 @@ def index():
 
 @app.route('/cities/<string:iataCode>')
 def city(iataCode):
-    activity_list = select_dict(Activity, Activity.iataCode, iataCode)
+    activity_list = select_dict(Activity, Activity.iataCode, iataCode, page_limit=10, order_by=Activity.rating, desc=True)
     return render_template('city.html', city=city_list[iataCode], activity_list=activity_list, hotel_list=hotel_list)
 
 
@@ -106,11 +112,12 @@ def activity(activity_id):
     return render_template('activity.html', activity=activity_list[str(activity_id)])
 
 
-@app.route('/activities/page=<int:page>&order_by=<order_by>&desc=<int:desc>&value=<value>')
-def activities(page, order_by, desc, value):
-    activity_list_limit = select_dict(Activity, page_limit=10, page=page, order_by=getattr(Activity, order_by), desc=desc, attr=Activity.iataCode, value=value)
+@app.route('/activities/page=<int:page>&order_by=<order_by>&desc=<int:desc>&attr=<attr>&value=<value>')
+def activities(page, order_by, desc, attr, value):
+    activity_list_limit = select_dict(Activity, page_limit=10, page=page, order_by=getattr(Activity, order_by), desc=desc, attr=getattr(Activity, attr), value=value)
     count = len(select_dict(Activity, attr=Activity.iataCode, value=value))
-    return render_template('activities.html', city_list=city_list, activity_list=activity_list_limit, count=count, page=page, order_by=order_by, desc=desc, value=value)
+    curr_list = select_distinct(Activity.price_currencyCode)
+    return render_template('activities.html', city_list=city_list, activity_list=activity_list_limit, curr_list=curr_list, count=count, page=page, order_by=order_by, desc=desc, attr=attr, value=value)
 
 
 @app.route('/flights/<string:flight_id>')
