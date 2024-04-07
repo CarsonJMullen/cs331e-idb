@@ -43,7 +43,7 @@ class Activity(db.Model):
     name = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text)
     rating = db.Column(db.Numeric(2, 1))
-    price_amount = db.Column(db.String(8))
+    price_amount = db.Column(db.Numeric(8, 2))
     price_currencyCode = db.Column(db.String(3))
     pictures = db.Column(db.ARRAY(db.Text))
     bookingLink = db.Column(db.Text)

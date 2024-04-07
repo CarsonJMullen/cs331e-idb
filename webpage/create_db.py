@@ -61,7 +61,7 @@ def create():
             rating = 0
         try:
             newActivity = Activity(id=i['id'], name=i['name'], description=i['description'], rating=rating,
-                                   price_amount=i['price']['amount'], price_currencyCode=i['price']['currencyCode'],
+                                   price_amount=float(i['price']['amount']), price_currencyCode=i['price']['currencyCode'],
                                    pictures=i['pictures'], bookingLink=i['bookingLink'], iataCode=i['iataCode'])
         except:
             continue
