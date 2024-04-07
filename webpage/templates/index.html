@@ -82,11 +82,7 @@
 
 
         <div class="row">
-<<<<<<< Updated upstream
-            {% for i, j in [("Cities", "cities"), ("Activities", "activities/page=1&order_by=id&desc=0&attr=id&value=0"), ("Flights", "flights/page=1"), ("Hotels", "hotels/page=1"), ("About", "about")] %}
-=======
             {% for i, j in [("Cities", "cities/order_by=name&desc=0"), ("Activities", "activities/page=1&order_by=id&desc=0&attr=id&value=0"), ("Flights", "flights/page=1"), ("Hotels", "hotels/page=1"), ("About", "about")] %}
->>>>>>> Stashed changes
             <div class="col">
                 <a href={{j}} class="text-decoration-none"><button type="button" class="square"> {{ i }}</button></a>
             </div>
