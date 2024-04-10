@@ -71,7 +71,7 @@
                     <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">City</a>
                         <ul class="dropdown-menu filter-menu">
                             {% for i in city_list %}
-                            <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='iataCode', value=i, search=search)}}">{{city_list[i].name}}</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='iataCode', value=i.iataCode, search=search)}}">{{i.name}}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
@@ -99,19 +99,19 @@
                 <div class="card col-md-4 mb-3 border-0">
                     <div class="row g-0 shadow rounded border">
                         <div class="col-md-3">
-                            <a href="{{url_for('activity', activity_id=i)}}"><img src="{{activity_list[i].pictures[0]}}" class=" rounded-start" alt="..."></a>
+                            <a href="{{url_for('activity', activity_id=i.id)}}"><img src="{{i.pictures[0]}}" class=" rounded-start" alt="..."></a>
                         </div>
                         <div class="col-md-9">
-                            <div class="card-header"><a href="{{url_for('activity', activity_id=i)}}">{{activity_list[i].name}}</a></div>
+                            <div class="card-header"><a href="{{url_for('activity', activity_id=i.id)}}">{{i.name}}</a></div>
                             <div class="row g-0">
                                 <div class="col-md-3">
-                                    <p class="card-text">City: <a href="{{url_for('city', iataCode=activity_list[i].iataCode)}}">{{activity_list[i].iataCode}}</a></p>
+                                    <p class="card-text">City: <a href="{{url_for('city', iataCode=i.iataCode)}}">{{i.iataCode}}</a></p>
                                 </div>
                                 <div class="col-md-3">
-                                    <p class="card-text">Rating: {{activity_list[i].rating}}</p>
+                                    <p class="card-text">Rating: {{i.rating}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                    <p class="card-text">Price: {{activity_list[i].price_amount}}&nbsp{{activity_list[i].price_currencyCode}}</p>
+                                    <p class="card-text">Price: {{i.price_amount}}&nbsp{{i.price_currencyCode}}</p>
                                 </div>
                             </div>
                         </div>

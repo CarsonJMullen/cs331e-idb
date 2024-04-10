@@ -137,7 +137,7 @@
 
             <td>
                 {% for i in activity_list %}
-                    <div class="info"><a href="{{url_for('activity', activity_id=i)}}">{{activity_list[i].name}}</a></div>
+                    <div class="info"><a href="{{url_for('activity', activity_id=i.id)}}">{{i.name}}</a></div>
                 {% endfor %}
             </td>
         </tr>    

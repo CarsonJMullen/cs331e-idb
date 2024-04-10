@@ -41,7 +41,7 @@
                         <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Arrival City</a>
                         <ul class="dropdown-menu">
                             {% for i in city_list %}
-                            <li><a class="dropdown-item" href="{{url_for('flights', page=1, order_by=order_by, desc=desc, attr='arrival_city', value=i)}}">{{city_list[i].name}}</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('flights', page=1, order_by=order_by, desc=desc, attr='arrival_city', value=i.id)}}">{{i.name}}</a></li>
                             {% endfor %}
                         </ul>
                         </th>

@@ -66,7 +66,7 @@
                     <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">City</a>
                         <ul class="dropdown-menu filter-menu">
                             {% for i in city_list %}
-                            <li><a class="dropdown-item" href="{{url_for('hotels', page=1, order_by=order_by, desc=desc, attr='iataCode', value=i, search=search)}}">{{city_list[i].name}}</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('hotels', page=1, order_by=order_by, desc=desc, attr='iataCode', value=i, search=search)}}">{{i.name}}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
@@ -94,16 +94,20 @@
                 <div class="card col-md-4 mb-3 border-0">
                     <div class="row g-0 shadow rounded border">
                         <div class="col-md-3">
-                            <a href="{{url_for('this_hotel', hotel_id=i)}}"><img src="{{city_list[hotel_list[i].iataCode].pictures[0]}}" class=" rounded-start" alt="..."></a>
+                            {% for city in city_list %}
+                            {% if city.id == i.iataCode %}
+                            <a href="{{url_for('this_hotel', hotel_id=i.id)}}"><img src="{{city.pictures[0]}}" class=" rounded-start" alt="..."></a>
+                            {% endif %}
+                            {% endfor %}
                         </div>
                         <div class="col-md-9">
-                            <div class="card-header"><a href="{{url_for('this_hotel', hotel_id=i)}}">{{hotel_list[i].name}}</a></div>
+                            <div class="card-header"><a href="{{url_for('this_hotel', hotel_id=i.id)}}">{{i.name}}</a></div>
                             <div class="row g-0">
                                 <div class="col-md-6">
-                                    <p class="card-text">City: <a href="{{url_for('city', iataCode=hotel_list[i].iataCode)}}">{{hotel_list[i].iataCode}}</a></p>
+                                    <p class="card-text">City: <a href="{{url_for('city', iataCode=i.iataCode)}}">{{i.iataCode}}</a></p>
                                 </div>
                                 <div class="col-md-6">
-                                    <p class="card-text">Rating: {{hotel_list[i].rating}}</p>
+                                    <p class="card-text">Rating: {{i.rating}}</p>
                                 </div>
                             </div>
                         </div>
