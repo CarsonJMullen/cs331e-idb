@@ -6,10 +6,6 @@
         .main{
             margin:2%
         }
-        .dropdown-toggle{
-            text-decoration:none;
-            color:inherit;
-        }
         img{
             width: 100%;
             height: 75px;
@@ -47,26 +43,27 @@
     <div class="main">
         <h1>Activities</h1>
         <div class="row">
-            <div class="dropdown col-md-1">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sort By</button>
+            <div class="dropdown col-md-2">
+                {% set order = {'name': 'Name', 'iataCode': 'City', 'rating': 'Rating', 'price_amount': 'Price', 'id': 'None'} %}
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sort By: {{order[order_by]}}</button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='name', desc=desc, attr=attr, value=value, search=search)}}">Name</a></li>
-                    <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='iataCode', desc=desc, attr=attr, value=value, search=search)}}">City</a></li>
-                    <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='rating', desc=desc, attr=attr, value=value, search=search)}}">Rating</a></li>
-                    <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='price_amount', desc=desc, attr=attr, value=value, search=search)}}">Price</a></li>
+                    {% for i in order %}
+                    <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=i, desc=desc, attr=attr, value=value, search=search)}}">{{order[i]}}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
 
-            <div class="dropdown col-md-1">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Order By</button>
+            <div class="dropdown col-md-2">
+                {% set asc = {0: 'Ascending', 1: 'Descending'} %}
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Order By: {{asc[desc]}}</button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=order_by, desc=False, attr=attr, value=value, search=search)}}">Ascending</a></li>
-                    <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=order_by, desc=True, attr=attr, value=value, search=search)}}">Descending</a></li>
+                    <li><a class="dropdown-item" href="{{url_for('hotels', page=page, order_by=order_by, desc=False, attr=attr, value=value, search=search)}}">Ascending</a></li>
+                    <li><a class="dropdown-item" href="{{url_for('hotels', page=page, order_by=order_by, desc=True, attr=attr, value=value, search=search)}}">Descending</a></li>
                 </ul>
             </div>
 
-            <div class="dropdown col-md-1">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter By</button>
+            <div class="dropdown col-md-2">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter By: {{order[attr]}} {{value}}</button>
                 <ul class="dropdown-menu filter-menu">
                     <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">City</a>
                         <ul class="dropdown-menu filter-menu">
@@ -82,9 +79,10 @@
                             {% endfor %}
                         </ul>
                     </li>
+                    <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=order_by, desc=False, attr='id', value=' ', search=search)}}">None</a></li>
                 </ul>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <div class="form-inline">
                     <form class="row" action="{{url_for('activities', page=page, order_by=order_by, desc=desc, attr=attr, value=value, search=search)}}" method="post">
                         <div class="col-md-10"><input type="text" class="form-control" name="search" placeholder="search anything related to travel to get you started"></div>

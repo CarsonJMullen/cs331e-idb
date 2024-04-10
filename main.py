@@ -30,12 +30,12 @@ db = SQLAlchemy(app)
 def select(model, attr=None, value=None, page_limit=None, page=1, order_by=None, desc=False, search=None):
     stmt = db.select(model)
     # Filter
-    if attr and value != "0":
+    if attr and value != " ":
         stmt = stmt.where(attr == value)
 
     # Page limit
     if page_limit:
-        stmt = stmt.limit(page_limit).offset((page-1)*12)
+        stmt = stmt.limit(page_limit).offset((page-1)*page_limit)
 
     # Sort
     if order_by:
@@ -45,7 +45,7 @@ def select(model, attr=None, value=None, page_limit=None, page=1, order_by=None,
             stmt = stmt.order_by(order_by)
 
     # Search
-    if search != '00' and search:
+    if search != ' ' and search:
         for i in search.split():
             if model == Activity:
                 stmt = stmt.filter(model.name.ilike(f'%{i}%') | model.description.ilike(f'%{i}%'))
@@ -141,7 +141,7 @@ def hotels(page, order_by, desc, attr, value, search):
     if request.method == 'POST':
         search = request.form['search']
         if search == '':
-            search = '00'
+            search = ' '
     hotel_list_filtered = select(Hotel, page_limit=12, page=page, order_by=getattr(Hotel, order_by), desc=desc, attr=getattr(Hotel, attr), value=value, search=search)
     count = len(select(Hotel, attr=getattr(Hotel, attr), value=value, search=search))
     return render_template('hotels.html', city_list=city_list ,hotel_list=hotel_list_filtered, count=count, page=page, order_by=order_by, desc=desc, attr=attr, value=value, search=search)

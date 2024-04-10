@@ -6,17 +6,16 @@
             margin: 2%;
             overflow-x: auto; /* Allows horizontal scrolling for smaller devices */
         }
-        .super-narrow-column {
-            width: 80px; /* Width for narrow columns */
-        }
-        .narrow-column {
-            width: 130px; /* Width for narrow columns */
-        }
-        .wide-column {
-            width: 180px; /* Width for wide columns */
-        }
         table, th, td {
-            font-size: 12.5px; /* Smaller font size for table content */
+            font-size: 14px; /* Smaller font size for table content */
+        }
+        .dropdown-toggle{
+            text-decoration:none;
+            color:inherit;
+        }
+        i{
+            font-size: 12px;
+            padding: 0px;
         }
     
     </style>
@@ -31,13 +30,13 @@
         <table id="flights" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th scope="col" class="super-narrow-column">id
+                    <th scope="col" style="width: 5%;">id
                         <a href="{{url_for('flights', page=page, order_by='id', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
                         <a href="{{url_for('flights', page=page, order_by='id', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
                     </th>
-                    <th scope="col" class="narrow-column">Departure Airport</th>
-                    <th scope="col" class="narrow-column">Arrival Airport
-                    <th scope="col" class="narrow-column">
+                    <th scope="col" style="width: 10.5%;">Departure Airport</th>
+                    <th scope="col" style="width: 8.5%;">Arrival Airport
+                    <th scope="col" style="width: 5%;">
                         <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Arrival City</a>
                         <ul class="dropdown-menu">
                             {% for i in city_list %}
@@ -45,23 +44,23 @@
                             {% endfor %}
                         </ul>
                         </th>
-                    <th scope="col" class="super-narrow-column">Price
+                    <th scope="col" style="width: 6.5%">Price
                         <a href="{{url_for('flights', page=page, order_by='price', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
                         <a href="{{url_for('flights', page=page, order_by='price', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
                     </th>
-                    <th scope="col" class="narrow-column">Duration
+                    <th scope="col" style="width: 8.5%;">Duration
                         <a href="{{url_for('flights', page=page, order_by='duration', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
                         <a href="{{url_for('flights', page=page, order_by='duration', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
                     </th>
-                    <th scope="col" class="narrow-column"># of Legs
+                    <th scope="col" style="width: 8.5%;"># of Legs
                         <a href="{{url_for('flights', page=page, order_by='num_legs', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
                         <a href="{{url_for('flights', page=page, order_by='num_legs', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
                     </th>
-                    <th scope="col" class="wide-column">Departure Time
+                    <th scope="col" style="width: 12%;">Departure Time
                         <a href="{{url_for('flights', page=page, order_by='departure_time', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
                         <a href="{{url_for('flights', page=page, order_by='departure_time', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
                     </th>
-                    <th scope="col" class="wide-column">Arrival Time
+                    <th scope="col" style="width: 11.5%">Arrival Time
                         <a href="{{url_for('flights', page=page, order_by='arrival_time', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
                         <a href="{{url_for('flights', page=page, order_by='arrival_time', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
                     </th>
@@ -73,7 +72,7 @@
                             {% endfor %}
                         </ul>
                         </th>
-                    <th scope="col">More Info</th>
+                    <th scope="col" style="width: 6.5%">More Info</th>
 
                 </tr>
             </thead>
