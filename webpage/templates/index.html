@@ -7,7 +7,8 @@
     <style>
         /* Set background image and dark overlay */
         body {
-            background-image: url('https://www.mercierzeng.com/image/top-destinations/guilin-photography-tour.jpg'); /* Replace 'background-image.jpg' with your image path */
+            {#background-image: url('https://www.mercierzeng.com/image/top-destinations/guilin-photography-tour.jpg'); /* Replace 'background-image.jpg' with your image path */#}
+            background-image: url('https://www.scenicsuitcase.com/wp-content/uploads/2021/10/Greece-1.png');
             height: 90vh; /* Ensure full screen height */
             background-repeat: no-repeat;
             background-size: cover;
@@ -29,7 +30,8 @@
             {#font-style: italic; #}
             font-size: 100px;
             {#font-weight:bold;#}
-            color: black;
+            color: white;
+            text-shadow: black 3px 3px;
             position: relative;
             display: inline-block; /* Make the title container inline-block */
             padding: 20px; /* Add some padding */
@@ -43,7 +45,7 @@
             left: -10px;
             right: -10px;
             bottom: -10px;
-            background-color: rgb(255, 255, 255, 0.5); /* Semi-transparent black */
+            background-color: rgb(255, 255, 255, 0.0); /* Semi-transparent black */
             border-radius: 100px; /* Rounded corners */
             {#-webkit-backdrop-filter: blur(1px);#}
             {#box-shadow: 0px 0px 200px 1px rgb(255, 255, 255, 0.5);#}
@@ -52,15 +54,16 @@
         }
 
         .square {
-            background-color: #8C6A5D !important;
-            outline: none !important;
+            {#background-color: #8C6A5D !important;#}
+            background-color: white !important;
             width: 130px;
             height: 50px;
             margin: 10px;
-            border-radius: 10rem; /* Rounded corners */
+            border-radius: 20rem; /* Rounded corners */
             font-family: 'Pacifico', monospace;
-            font-weight:bold;
-            color: white; /* White text color */
+            font-weight: bold;
+            color: black; /* Black text color */
+            outline: none; /* Remove outline */
         }
 
         /* google-like search bar */
@@ -97,6 +100,9 @@
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="search anything related to travel to get you started">
             </div>
         </form>
+
+
+
 
     </div>
 
