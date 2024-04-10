@@ -121,6 +121,8 @@ def activity(activity_id):
 def activities(page, order_by, desc, attr, value, search):
     if request.method == 'POST':
         search = request.form['search']
+        if search == '':
+            search = '00'
     activity_list = select_dict(Activity, page_limit=12, page=page, order_by=getattr(Activity, order_by), desc=desc, attr=getattr(Activity, attr), value=value, search=search)
     count = len(select_dict(Activity, attr=getattr(Activity, attr), value=value, search=search))
     curr_list = select_distinct(Activity.price_currencyCode)
