@@ -84,7 +84,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-inline">
-                    <form class="row" action="{{url_for('activities', page=page, order_by=order_by, desc=desc, attr=attr, value=value, search=search)}}" method="post">
+                    <form class="row" action="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr=attr, value=value, search=search)}}" method="post">
                         <div class="col-md-10"><input type="text" class="form-control" name="search" placeholder="search anything related to travel to get you started"></div>
                         <div class="col-md-2"><button type="submit" class="btn btn-primary">Search</button></div>
                     </form>
