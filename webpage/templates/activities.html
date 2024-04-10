@@ -44,33 +44,36 @@
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sort By</button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='name', desc=desc, attr=attr, value=value)}}">Name</a></li>
-                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='iataCode', desc=desc, attr=attr, value=value)}}">City</a></li>
-                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='rating', desc=desc, attr=attr, value=value)}}">Rating</a></li>
-                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='price_amount', desc=desc, attr=attr, value=value)}}">Price</a></li>
+                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='name', desc=desc, attr=attr, value=value, search=search)}}">Name</a></li>
+                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='iataCode', desc=desc, attr=attr, value=value, search=search)}}">City</a></li>
+                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='rating', desc=desc, attr=attr, value=value, search=search)}}">Rating</a></li>
+                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='price_amount', desc=desc, attr=attr, value=value, search=search)}}">Price</a></li>
             </ul>
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Order By</button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=order_by, desc=False, attr=attr, value=value)}}">Ascending</a></li>
-                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=order_by, desc=True, attr=attr, value=value)}}">Descending</a></li>
+                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=order_by, desc=False, attr=attr, value=value, search=search)}}">Ascending</a></li>
+                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=order_by, desc=True, attr=attr, value=value, search=search)}}">Descending</a></li>
             </ul>
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter By</button>
             <ul class="dropdown-menu filter-menu">
                 <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">City</a>
                     <ul class="dropdown-menu filter-menu">
                         {% for i in city_list %}
-                        <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='iataCode', value=i)}}">{{city_list[i].name}}</a></li>
+                        <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='iataCode', value=i, search=search)}}">{{city_list[i].name}}</a></li>
                         {% endfor %}
                     </ul>
                 </li>
                 <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Currency</a>
                     <ul class="dropdown-menu filter-menu">
                         {% for i in curr_list %}
-                        <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='price_currencyCode', value=i)}}">{{i}}</a></li>
+                        <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='price_currencyCode', value=i, search=search)}}">{{i}}</a></li>
                         {% endfor %}
                     </ul>
                 </li>
             </ul>
+        <form action="{{url_for('activities', page=page, order_by=order_by, desc=desc, attr=attr, value=value, search=search)}}" method="post">
+                <input type="text" class="form-control" name="search" placeholder="search anything related to travel to get you started">
+        </form>
         </div><br>
         <div class="row g-0">
             {% for i in activity_list %}
@@ -99,13 +102,13 @@
         </div>
     <nav aria-label="Page navigation example">
         <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr=attr, value=value)}}">&laquo</a></li>
-            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=[page-1, 1]|max, order_by=order_by, desc=desc, attr=attr, value=value)}}">&lt</a></li>
+            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr=attr, value=value, search=search)}}">&laquo</a></li>
+            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=[page-1, 1]|max, order_by=order_by, desc=desc, attr=attr, value=value, search=search)}}">&lt</a></li>
             {% for i in range([page-5, 1]|max, [page+6, (count-1)//12+2]|min) %}
-            <li class="page-item {% if i==page %}active{% endif %}"><a class="page-link" href="{{url_for('activities', page=i, order_by=order_by, desc=desc, attr=attr, value=value)}}">{{i}}</a></li>
+            <li class="page-item {% if i==page %}active{% endif %}"><a class="page-link" href="{{url_for('activities', page=i, order_by=order_by, desc=desc, attr=attr, value=value, search=search)}}">{{i}}</a></li>
             {% endfor %}
-            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=[page+1, (count-1)//12+1]|min, order_by=order_by, desc=desc, attr=attr, value=value)}}">&gt</a></li>
-            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=(count-1)//12+1, order_by=order_by, desc=desc, attr=attr, value=value)}}">&raquo</a></li>
+            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=[page+1, (count-1)//12+1]|min, order_by=order_by, desc=desc, attr=attr, value=value, search=search)}}">&gt</a></li>
+            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=(count-1)//12+1, order_by=order_by, desc=desc, attr=attr, value=value, search=search)}}">&raquo</a></li>
         </ul>
     </nav>
     </div>

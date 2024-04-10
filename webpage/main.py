@@ -40,7 +40,7 @@ def select(model):
     return res
 
 
-def select_dict(model, attr=None, value=None, page_limit=None, page=1, order_by=None, desc=False):
+def select_dict(model, attr=None, value=None, page_limit=None, page=1, order_by=None, desc=False, search=None):
     stmt = db.select(model)
     # Filter
     if attr and value != "0":
@@ -56,6 +56,11 @@ def select_dict(model, attr=None, value=None, page_limit=None, page=1, order_by=
             stmt = stmt.order_by(order_by.desc())
         else:
             stmt = stmt.order_by(order_by)
+
+    # Search
+    if search != '00' and search:
+        for i in search.split():
+            stmt = stmt.filter(model.name.ilike(f'%{i}%'))
 
     # Convert SQLAlchemy object to a dictionary
     res = {}
@@ -112,12 +117,14 @@ def activity(activity_id):
     return render_template('activity.html', activity=activity_list[str(activity_id)])
 
 
-@app.route('/activities/page=<int:page>&order_by=<order_by>&desc=<int:desc>&attr=<attr>&value=<value>')
-def activities(page, order_by, desc, attr, value):
-    activity_list = select_dict(Activity, page_limit=12, page=page, order_by=getattr(Activity, order_by), desc=desc, attr=getattr(Activity, attr), value=value)
-    count = len(select_dict(Activity, attr=getattr(Activity, attr), value=value))
+@app.route('/activities/page=<int:page>&order_by=<order_by>&desc=<int:desc>&attr=<attr>&value=<value>&search=<search>', methods=['GET', 'POST'])
+def activities(page, order_by, desc, attr, value, search):
+    if request.method == 'POST':
+        search = request.form['search']
+    activity_list = select_dict(Activity, page_limit=12, page=page, order_by=getattr(Activity, order_by), desc=desc, attr=getattr(Activity, attr), value=value, search=search)
+    count = len(select_dict(Activity, attr=getattr(Activity, attr), value=value, search=search))
     curr_list = select_distinct(Activity.price_currencyCode)
-    return render_template('activities.html', city_list=city_list, activity_list=activity_list, curr_list=curr_list, count=count, page=page, order_by=order_by, desc=desc, attr=attr, value=value)
+    return render_template('activities.html', city_list=city_list, activity_list=activity_list, curr_list=curr_list, count=count, page=page, order_by=order_by, desc=desc, attr=attr, value=value, search=search)
 
 
 @app.route('/flights/<string:flight_id>')
