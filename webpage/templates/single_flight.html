@@ -74,14 +74,14 @@
         <tr>
             <td><div class="attribute"><span>Find Things to do / Activities:</span></div></td>
             <td>
-                <div class="info"><a href="{{url_for('activities', page=1, order_by='id', desc=False, attr='iataCode', value=flight.arrival_city)}}">Activities</a></div>
+                <div class="info"><a href="{{url_for('activities', page=1, order_by='id', desc=False, attr='iataCode', value=flight.arrival_city, search='00')}}">Activities</a></div>
             </td>
         </tr>
 
         <tr>
             <td><div class="attribute"><span>Find Somewhere to Stay:</span></div></td>
             <td>
-                <div class="info"><a href="{{url_for('hotels', page=1, order_by='id', desc=False, attr='iataCode', value=flight.arrival_city)}}">Hotels</a></div>
+                <div class="info"><a href="{{url_for('hotels', page=1, order_by='id', desc=False, attr='iataCode', value=flight.arrival_city, search='00')}}">Hotels</a></div>
             </td>
         </tr>
 
