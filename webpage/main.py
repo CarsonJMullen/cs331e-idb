@@ -48,7 +48,7 @@ def select_dict(model, attr=None, value=None, page_limit=None, page=1, order_by=
 
     # Page limit
     if page_limit:
-        stmt = stmt.limit(page_limit).offset((page-1)*10)
+        stmt = stmt.limit(page_limit).offset((page-1)*12)
 
     # Sort
     if order_by:
@@ -114,7 +114,7 @@ def activity(activity_id):
 
 @app.route('/activities/page=<int:page>&order_by=<order_by>&desc=<int:desc>&attr=<attr>&value=<value>')
 def activities(page, order_by, desc, attr, value):
-    activity_list = select_dict(Activity, page_limit=10, page=page, order_by=getattr(Activity, order_by), desc=desc, attr=getattr(Activity, attr), value=value)
+    activity_list = select_dict(Activity, page_limit=12, page=page, order_by=getattr(Activity, order_by), desc=desc, attr=getattr(Activity, attr), value=value)
     count = len(select_dict(Activity, attr=getattr(Activity, attr), value=value))
     curr_list = select_distinct(Activity.price_currencyCode)
     return render_template('activities.html', city_list=city_list, activity_list=activity_list, curr_list=curr_list, count=count, page=page, order_by=order_by, desc=desc, attr=attr, value=value)
