@@ -3,9 +3,24 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
+    <!-- Start: Javascript google map API Code -->
+    <script>
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+        key: "AIzaSyA683Ej_xTDN1_uL-_-oIHko5wMUqTxly4",
+        v: "weekly",
+        // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+        // Add other bootstrap parameters as needed, using camel case.
+        });
+    </script>
+    <!-- End: Javascript google map API Code -->
     <style>
         #name{
         	text-align: center
+        }
+        #map{
+            text-align: center;
+            height: 400px;
+            width: 700px;
         }
         .info{
             text-align: center
@@ -30,43 +45,41 @@
         </tr>
         <tr>
             <td colspan="3">
-                {% if hotel.iataCode == 'BER' %}
-                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=12PsPpVgGHzeOmJqsnXDv0NLI-9KbLts&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
-        
-                {% elif hotel.iataCode == 'NYC' %}
-                    <div class="info"><iframe src="https://www.google.com/maps/d/embed?mid=1p5V9-HnIHkEsSwUIAohcAZWTZVnekLM&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-                
-                {% elif hotel.iataCode == 'MAD' %}
-                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1i32QMbNVx0rK0VCxCHul8-wkY89dBJo&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                <!-- Start: Javascript google map API Code -->
+                <div id="map"></div>
+                <script>
+                    // turn dictionary from jinja to json file we can access in javascript 
+                    this_hotel_json = {{ hotel | tojson }};
+                    // print out latitude and longitude in console to make sure it is working properly 
+                    console.log( parseFloat(this_hotel_json.longitude) );
+                    console.log( parseFloat(this_hotel_json.latitude) );
+                    async function initMap() {
+                         // convert jinja var into js 
+                         var longitudeVal = parseFloat(this_hotel_json.longitude);
+                         var latitudeVal = parseFloat(this_hotel_json.latitude);
+                         position = { lat: latitudeVal, lng: longitudeVal};
+                         // create map 
+                         const { Map } = await google.maps.importLibrary("maps");
+                         map = new Map(document.getElementById("map"), {
+                             center: position,
+                             zoom: 14,
+                             mapId: "CUR_MAP_ID",
+                         });
+                         // create marker where hotel is located 
+                         const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+                         marker = new AdvancedMarkerElement({
+                             map: map,
+                             position: position,
+                             title: "Hotel",
+                         });
+                    }
+                    initMap();
+                </script>
+                <!-- End: Javascript google map API Code -->
 
-                {% elif hotel.iataCode == 'FCO' %}
-                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1CTNjRqfGwdSj-uOLnGg5JvJ08jdzdUY&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
-
-                {% elif hotel.iataCode == 'CPT' %}
-                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1jU6ev-qalJnIUBoz3mzHOt0jVFk5f58&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
-
-                {% elif hotel.iataCode == 'SYD' %}
-                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=17QM967n-EzfYby7ZuFMD9xqLhmJrmls&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
-
-                {% elif hotel.iataCode == 'AMS' %}
-                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=10Zz2P1KSgdMeHRj-4Dki0q2nKte4jT4&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
-
-                {% elif hotel.iataCode == 'PAR' %}
-                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=179-Vz1zi-1lZuPk5ix6EaN8xfSkOBeE&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
-
-                {% elif hotel.iataCode == 'LON' %}
-                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=12biJKJnJsDtnYPBYVcgYoR2xQlZ5k1s&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
-
-                {% elif hotel.iataCode == 'BCN' %}
-                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Z0csGAh1H89vP3B6niXo7hQOmoV9B0s&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
-
-                {% elif hotel.iataCode == 'MEX' %}
-                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1zmigHpPeDKdCINJwaczUMP0vHl06WwA&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
-
-                {% else %}
-                    <div class="info"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1tR6pDKEpQ5LR9BUH0xTP9UtvsojW4Ig&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
-                
-                {% endif %}
+                <!--
+                <div class="info"><iframe src="https://www.google.com/maps/d/embed?mid=1p5V9-HnIHkEsSwUIAohcAZWTZVnekLM&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                -->
             </td>
         </tr>
 
