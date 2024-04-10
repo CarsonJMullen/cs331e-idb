@@ -143,7 +143,7 @@ def this_hotel(hotel_id):
 
 @app.route('/hotels/page=<int:page>&order_by=<order_by>&desc=<int:desc>&attr=<attr>&value=<value>')
 def hotels(page, order_by, desc, attr, value):
-    hotel_list_filtered = select_dict(Hotel, page_limit=10, page=page, order_by=getattr(Hotel, order_by), desc=desc, attr=getattr(Hotel, attr), value=value)
+    hotel_list_filtered = select_dict(Hotel, page_limit=12, page=page, order_by=getattr(Hotel, order_by), desc=desc, attr=getattr(Hotel, attr), value=value)
     count = len(select_dict(Hotel, attr=getattr(Hotel, attr), value=value))
     return render_template('hotels.html', city_list=city_list ,hotel_list=hotel_list_filtered, count=count, page=page, order_by=order_by, desc=desc, attr=attr, value=value)
 

@@ -46,7 +46,7 @@
         <tr>
             <td colspan="3">
                 <!-- Start: Javascript google map API Code -->
-                <div id="map"></div>
+                <div id="map">
                 <script>
                     // turn dictionary from jinja to json file we can access in javascript 
                     this_hotel_json = {{ hotel | tojson }};
@@ -76,7 +76,7 @@
                     initMap();
                 </script>
                 <!-- End: Javascript google map API Code -->
-
+</div>
                 <!--
                 <div class="info"><iframe src="https://www.google.com/maps/d/embed?mid=1p5V9-HnIHkEsSwUIAohcAZWTZVnekLM&ehbc=2E312F" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
                 -->

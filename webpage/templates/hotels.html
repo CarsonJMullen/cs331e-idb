@@ -3,54 +3,105 @@
 <head>
     <style>
         .main{
-            margin:2%
+            margin:1%
+        }
+        .dropdown-toggle{
+            text-decoration:none;
+            color:inherit;
+        }
+        img{
+            width: 100%;
+            height: 75px;
+            object-fit: cover;
+        }
+        .card-header{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        p{
+            text-align:center;
+        }
+        .sub-menu:hover .filter-menu {
+          display: block;
         }
     </style>
     <meta charset="UTF-8">
     <title>Hotels</title>
+    <script>
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+        key: "AIzaSyA683Ej_xTDN1_uL-_-oIHko5wMUqTxly4",
+        v: "weekly",
+        // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+        // Add other bootstrap parameters as needed, using camel case.
+        });
+    </script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
+
 <body>
     {% extends 'navbar.html' %}
     {% block content %}
     <div class="main">
-    <h1>Hotels</h1>
-        <table class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                <th scope="col">Name of Hotel
-                    <a href="{{url_for('hotels', page=page, order_by='name', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
-                    <a href="{{url_for('hotels', page=page, order_by='name', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
-                </th>
-                <th scope="col">
-                    <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">City</a>
-                    <ul class="dropdown-menu">
+        <h1>Hotels</h1>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sort By</button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{url_for('hotels', page=page, order_by='name', desc=desc, attr=attr, value=value)}}">Name</a></li>
+                <li><a class="dropdown-item" href="{{url_for('hotels', page=page, order_by='iataCode', desc=desc, attr=attr, value=value)}}">City</a></li>
+                <li><a class="dropdown-item" href="{{url_for('hotels', page=page, order_by='rating', desc=desc, attr=attr, value=value)}}">Rating</a></li>
+            </ul>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Order By</button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{url_for('hotels', page=page, order_by=order_by, desc=False, attr=attr, value=value)}}">Ascending</a></li>
+                <li><a class="dropdown-item" href="{{url_for('hotels', page=page, order_by=order_by, desc=True, attr=attr, value=value)}}">Descending</a></li>
+            </ul>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter By</button>
+            <ul class="dropdown-menu filter-menu">
+                <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">City</a>
+                    <ul class="dropdown-menu filter-menu">
                         {% for i in city_list %}
                         <li><a class="dropdown-item" href="{{url_for('hotels', page=1, order_by=order_by, desc=desc, attr='iataCode', value=i)}}">{{city_list[i].name}}</a></li>
                         {% endfor %}
                     </ul>
-                    <a href="{{url_for('hotels', page=page, order_by='iataCode', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
-                    <a href="{{url_for('hotels', page=page, order_by='iataCode', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
-                </th>
-                <th scope="col">Rating
-                    <a href="{{url_for('hotels', page=page, order_by='rating', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
-                    <a href="{{url_for('hotels', page=page, order_by='rating', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
-                </th>
-                </tr>
-            </thead>
+                </li>
+                <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Rating</a>
+                    <ul class="dropdown-menu filter-menu">
+                        {% for i in range(3,6) %}
+                        <li><a class="dropdown-item" href="{{url_for('hotels', page=1, order_by=order_by, desc=desc, attr='rating', value=i)}}">{{i}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </div><br>
+        <div class="row g-0">
             {% for i in hotel_list %}
-                <tr>
-                    <td class="w-75"><div>
-                        <a href="{{url_for('this_hotel', hotel_id=i)}}">{{hotel_list[i].name}}</a><br>
-                    </div></td>
-                    <td><div>
-                        <a href="{{url_for('city', iataCode=hotel_list[i].iataCode)}}">{{hotel_list[i].iataCode}}</a><br>
-                    </div></td>
-                    <td><div>
-                        <span>{{hotel_list[i].rating}} / 5</span><br>
-                    </div></td>
-                </tr>
-            {% endfor %}   
-        </table>
+                <div class="card col-md-4 mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            <a href="{{url_for('this_hotel', hotel_id=i)}}"><img src="{{city_list[hotel_list[i].iataCode].pictures[0]}}" class=" rounded-start" alt="..."></a>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card-header"><a href="{{url_for('this_hotel', hotel_id=i)}}">{{hotel_list[i].name}}</a></div>
+                            <div class="row g-0">
+                                <div class="col-md-6">
+                                    <p class="card-text">City: {{hotel_list[i].iataCode}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="card-text">Rating: {{hotel_list[i].rating}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             <li class="page-item"><a class="page-link" href="{{url_for('hotels', page=1, order_by='name', desc=False, attr=attr, value=value)}}">&laquo</a></li>

@@ -55,7 +55,7 @@
                 <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=order_by, desc=True, attr=attr, value=value)}}">Descending</a></li>
             </ul>
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter By</button>
-            <ul class="dropdown-menu games-menu">
+            <ul class="dropdown-menu filter-menu">
                 <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">City</a>
                     <ul class="dropdown-menu filter-menu">
                         {% for i in city_list %}
