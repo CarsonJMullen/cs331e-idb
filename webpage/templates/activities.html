@@ -26,6 +26,11 @@
         .sub-menu:hover .filter-menu {
           display: block;
         }
+        form {
+          display: flex;
+          flex-flow: row wrap;
+          align-items: center;
+        }
     </style>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -41,40 +46,53 @@
     {% block content %}
     <div class="main">
         <h1>Activities</h1>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sort By</button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='name', desc=desc, attr=attr, value=value, search=search)}}">Name</a></li>
-                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='iataCode', desc=desc, attr=attr, value=value, search=search)}}">City</a></li>
-                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='rating', desc=desc, attr=attr, value=value, search=search)}}">Rating</a></li>
-                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='price_amount', desc=desc, attr=attr, value=value, search=search)}}">Price</a></li>
-            </ul>
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Order By</button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=order_by, desc=False, attr=attr, value=value, search=search)}}">Ascending</a></li>
-                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=order_by, desc=True, attr=attr, value=value, search=search)}}">Descending</a></li>
-            </ul>
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter By</button>
-            <ul class="dropdown-menu filter-menu">
-                <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">City</a>
-                    <ul class="dropdown-menu filter-menu">
-                        {% for i in city_list %}
-                        <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='iataCode', value=i, search=search)}}">{{city_list[i].name}}</a></li>
-                        {% endfor %}
-                    </ul>
-                </li>
-                <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Currency</a>
-                    <ul class="dropdown-menu filter-menu">
-                        {% for i in curr_list %}
-                        <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='price_currencyCode', value=i, search=search)}}">{{i}}</a></li>
-                        {% endfor %}
-                    </ul>
-                </li>
-            </ul>
-        <form action="{{url_for('activities', page=page, order_by=order_by, desc=desc, attr=attr, value=value, search=search)}}" method="post">
-                <input type="text" class="form-control" name="search" placeholder="search anything related to travel to get you started">
-        </form>
-        </div><br>
+        <div class="row">
+            <div class="dropdown col-md-1">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sort By</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='name', desc=desc, attr=attr, value=value, search=search)}}">Name</a></li>
+                    <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='iataCode', desc=desc, attr=attr, value=value, search=search)}}">City</a></li>
+                    <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='rating', desc=desc, attr=attr, value=value, search=search)}}">Rating</a></li>
+                    <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='price_amount', desc=desc, attr=attr, value=value, search=search)}}">Price</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown col-md-1">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Order By</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=order_by, desc=False, attr=attr, value=value, search=search)}}">Ascending</a></li>
+                    <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=order_by, desc=True, attr=attr, value=value, search=search)}}">Descending</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown col-md-1">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter By</button>
+                <ul class="dropdown-menu filter-menu">
+                    <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">City</a>
+                        <ul class="dropdown-menu filter-menu">
+                            {% for i in city_list %}
+                            <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='iataCode', value=i, search=search)}}">{{city_list[i].name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Currency</a>
+                        <ul class="dropdown-menu filter-menu">
+                            {% for i in curr_list %}
+                            <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='price_currencyCode', value=i, search=search)}}">{{i}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="form-inline">
+                    <form action="{{url_for('activities', page=page, order_by=order_by, desc=desc, attr=attr, value=value, search=search)}}" method="post">
+                        <input type="text" class="form-control" name="search" placeholder="search anything related to travel to get you started">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
         <div class="row g-0">
             {% for i in activity_list %}
                 <div class="card col-md-4 mb-3">
