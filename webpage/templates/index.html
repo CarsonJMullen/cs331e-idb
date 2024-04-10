@@ -10,8 +10,9 @@
             background-image: url('https://www.mercierzeng.com/image/top-destinations/guilin-photography-tour.jpg'); /* Replace 'background-image.jpg' with your image path */
             height: 90vh; /* Ensure full screen height */
             background-repeat: no-repeat;
+            background-size: cover;
             background-attachment: fixed;
-            background-position: center;
+            {#background-position: center;#}
         }
         /* Center title and buttons */
         .container {
@@ -24,7 +25,8 @@
 
         .title {
             display: -webkit-flex;
-            font-family: 'Garamond', cursive;
+            font-family: cursive !important;
+            {#font-style: italic; #}
             font-size: 100px;
             {#font-weight:bold;#}
             color: black;
