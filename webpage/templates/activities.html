@@ -10,72 +10,102 @@
             text-decoration:none;
             color:inherit;
         }
+        img{
+            width: 100%;
+            height: 75px;
+            object-fit: cover;
+        }
+        .card-header{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        p{
+            text-align:center;
+        }
+        .sub-menu:hover .filter-menu {
+          display: block;
+        }
     </style>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <title>Activities</title>
 </head>
 <body>
     {% extends 'navbar.html' %}
     {% block content %}
     <div class="main">
-    <h1>Activities</h1>
-        <table class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Name
-                        <a href="{{url_for('activities', page=page, order_by='name', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
-                        <a href="{{url_for('activities', page=page, order_by='name', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
-                    </th>
-                    <th scope="col">
-                        <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">City</a>
-                        <ul class="dropdown-menu">
-                            {% for i in city_list %}
-                                <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='iataCode', value=i)}}">{{city_list[i].name}}</a></li>
-                            {% endfor %}
-                        </ul>
-                        <a href="{{url_for('activities', page=page, order_by='iataCode', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
-                        <a href="{{url_for('activities', page=page, order_by='iataCode', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
-                    </th>
-                    <th scope="col">Rating
-                        <a href="{{url_for('activities', page=page, order_by='rating', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
-                        <a href="{{url_for('activities', page=page, order_by='rating', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
-                    <th scope="col">
-                        <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Price</a>
-                        <ul class="dropdown-menu">
-                            {% for i in curr_list %}
-                            <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='price_currencyCode', value=i)}}">{{i}}</a></li>
-                            {% endfor %}
-                        </ul>
-                        <a href="{{url_for('activities', page=page, order_by='price_amount', desc=False, attr=attr, value=value)}}"><i class="bi bi-arrow-up"></i></a>
-                        <a href="{{url_for('activities', page=page, order_by='price_amount', desc=True, attr=attr, value=value)}}"><i class="bi bi-arrow-down"></i></a>
-                    </th>
-                </tr>
-            </thead>
+        <h1>Activities</h1>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sort By</button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='name', desc=desc, attr=attr, value=value)}}">Name</a></li>
+                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='iataCode', desc=desc, attr=attr, value=value)}}">City</a></li>
+                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='rating', desc=desc, attr=attr, value=value)}}">Rating</a></li>
+                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by='price_amount', desc=desc, attr=attr, value=value)}}">Price</a></li>
+            </ul>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Order By</button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=order_by, desc=False, attr=attr, value=value)}}">Ascending</a></li>
+                <li><a class="dropdown-item" href="{{url_for('activities', page=page, order_by=order_by, desc=True, attr=attr, value=value)}}">Descending</a></li>
+            </ul>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter By</button>
+            <ul class="dropdown-menu games-menu">
+                <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">City</a>
+                    <ul class="dropdown-menu filter-menu">
+                        {% for i in city_list %}
+                        <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='iataCode', value=i)}}">{{city_list[i].name}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Currency</a>
+                    <ul class="dropdown-menu filter-menu">
+                        {% for i in curr_list %}
+                        <li><a class="dropdown-item" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr='price_currencyCode', value=i)}}">{{i}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </div><br>
+        <div class="row g-0">
             {% for i in activity_list %}
-                <tr>
-                    <td class="w-75"><div>
-                        <a href="{{url_for('activity', activity_id=i)}}">{{activity_list[i].name}}</a><br>
-                    </div></td>
-                    <td><div>
-                        <a href="{{url_for('city', iataCode=activity_list[i].iataCode)}}">{{activity_list[i].iataCode}}</a><br>
-                    </div></td>
-                    <td><div>
-                        <span>{{activity_list[i].rating}}</span><br>
-                    </div></td>
-                    <td><div>
-                        <span>{{activity_list[i].price_amount}}</span>&nbsp<span>{{activity_list[i].price_currencyCode}}</span><br>
-                    </div></td>
-                </tr>
+                <div class="card col-md-4 mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            <a href="{{url_for('activity', activity_id=i)}}"><img src="{{activity_list[i].pictures[0]}}" class=" rounded-start" alt="..."></a>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card-header"><a href="{{url_for('activity', activity_id=i)}}">{{activity_list[i].name}}</a></div>
+                            <div class="row g-0">
+                                <div class="col-md-3">
+                                    <p class="card-text">City: {{activity_list[i].iataCode}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <p class="card-text">Rating: {{activity_list[i].rating}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="card-text">Price: {{activity_list[i].price_amount}}&nbsp{{activity_list[i].price_currencyCode}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
-        </table>
+        </div>
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             <li class="page-item"><a class="page-link" href="{{url_for('activities', page=1, order_by=order_by, desc=desc, attr=attr, value=value)}}">&laquo</a></li>
             <li class="page-item"><a class="page-link" href="{{url_for('activities', page=[page-1, 1]|max, order_by=order_by, desc=desc, attr=attr, value=value)}}">&lt</a></li>
-            {% for i in range([page-5, 1]|max, [page+6, (count-1)//10+2]|min) %}
+            {% for i in range([page-5, 1]|max, [page+6, (count-1)//12+2]|min) %}
             <li class="page-item {% if i==page %}active{% endif %}"><a class="page-link" href="{{url_for('activities', page=i, order_by=order_by, desc=desc, attr=attr, value=value)}}">{{i}}</a></li>
             {% endfor %}
-            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=[page+1, (count-1)//10+1]|min, order_by=order_by, desc=desc, attr=attr, value=value)}}">&gt</a></li>
-            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=(count-1)//10+1, order_by=order_by, desc=desc, attr=attr, value=value)}}">&raquo</a></li>
+            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=[page+1, (count-1)//12+1]|min, order_by=order_by, desc=desc, attr=attr, value=value)}}">&gt</a></li>
+            <li class="page-item"><a class="page-link" href="{{url_for('activities', page=(count-1)//12+1, order_by=order_by, desc=desc, attr=attr, value=value)}}">&raquo</a></li>
         </ul>
     </nav>
     </div>

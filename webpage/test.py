@@ -24,7 +24,7 @@ class DBTestCases(unittest.TestCase):
 
 
     def test_city_insert(self):
-        s = City(name='Beijing', iataCode='BZJ')
+        s = City(name='Beijing', id='BZJ')
         db.session.add(s)
         db.session.commit()
 
@@ -36,7 +36,7 @@ class DBTestCases(unittest.TestCase):
 
 
     def test_city_delete(self):
-        s = City(name='Beijing', iataCode='BZJ')
+        s = City(name='Beijing', id='BZJ')
         db.session.add(s)
         db.session.commit()
 
@@ -50,17 +50,17 @@ class DBTestCases(unittest.TestCase):
         
 
     def test_city_update(self):
-        s = City(name = 'Beijing', iataCode='BZJ')
+        s = City(name = 'Beijing', id='BZJ')
         db.session.add(s)
         db.session.commit()
 
-        db.session.query(City).filter_by(iataCode='BZJ').update({City.population: 21500000})
+        db.session.query(City).filter_by(id='BZJ').update({City.population: 21500000})
         db.session.commit()
         
-        r = db.session.query(City).filter_by(iataCode='BZJ').one()
+        r = db.session.query(City).filter_by(id='BZJ').one()
         self.assertEqual(r.population, 21500000)
 
-        db.session.query(City).filter_by(iataCode='BZJ').delete()
+        db.session.query(City).filter_by(id='BZJ').delete()
         db.session.commit()
 
 
@@ -97,11 +97,11 @@ class DBTestCases(unittest.TestCase):
         db.session.add(s)
         db.session.commit()
 
-        db.session.query(Flight).filter_by(airline='BOEING MURDER').update({Flight.price: '100000'})
+        db.session.query(Flight).filter_by(airline='BOEING MURDER').update({Flight.price: '100000.00'})
         db.session.commit()
         
         r = db.session.query(Flight).filter_by(airline='BOEING MURDER').one()
-        self.assertEqual(str(r.price), '100000')
+        self.assertEqual(str(r.price), '100000.00')
 
         db.session.query(Flight).filter_by(airline='BOEING MURDER').delete()
         db.session.commit()

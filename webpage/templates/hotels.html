@@ -55,11 +55,11 @@
         <ul class="pagination">
             <li class="page-item"><a class="page-link" href="{{url_for('hotels', page=1, order_by='name', desc=False, attr=attr, value=value)}}">&laquo</a></li>
             <li class="page-item"><a class="page-link" href="{{url_for('hotels', page=[page-1, 1]|max, order_by=order_by, desc=desc, attr=attr, value=value)}}">&lt</a></li>
-            {% for i in range([page-5, 1]|max, [page+6, (count-1)//10+2]|min) %}
+            {% for i in range([page-5, 1]|max, [page+6, (count-1)//12+2]|min) %}
             <li class="page-item {% if i==page %}active{% endif %}"><a class="page-link" href="{{url_for('hotels', page=i, order_by=order_by, desc=desc, attr=attr, value=value)}}">{{i}}</a></li>
             {% endfor %}
-            <li class="page-item"><a class="page-link" href="{{url_for('hotels', page=[page+1, (count-1)//10+1]|min, order_by=order_by, desc=desc, attr=attr, value=value)}}">&gt</a></li>
-            <li class="page-item"><a class="page-link" href="{{url_for('hotels', page=(count-1)//10+1, order_by=order_by, desc=desc, attr=attr, value=value)}}">&raquo</a></li>
+            <li class="page-item"><a class="page-link" href="{{url_for('hotels', page=[page+1, (count-1)//12+1]|min, order_by=order_by, desc=desc, attr=attr, value=value)}}">&gt</a></li>
+            <li class="page-item"><a class="page-link" href="{{url_for('hotels', page=(count-1)//12+1, order_by=order_by, desc=desc, attr=attr, value=value)}}">&raquo</a></li>
         </ul>
     </nav>
     </div>

@@ -13,7 +13,7 @@ variables:
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: postgres
   POSTGRES_HOST_AUTH_METHOD: trust
-  DB_STRING: "postgresql://$POSTGRES_USER@postgres:5432/$POSTGRES_DB"
+  DB_STRING: "postgresql+psycopg2://postgres:postgres@/toptraveldb?host=/cloudsql/cs331e-idb-415104:us-central1:toptravel"
 
 before_script:
     - date
