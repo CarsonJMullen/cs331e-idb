@@ -10,7 +10,7 @@ with open(os.path.join(app.static_folder, 'data', 'cities', 'cities.json')) as f
 f.close()
 
 # activities
-with open(os.path.join(app.static_folder, 'data', 'activities', 'activities_multiple_cities.json')) as f:
+with open(os.path.join(app.static_folder, 'data', 'activities', 'activity_list.json')) as f:
     activity_list = json.load(f)['data']
 f.close()
 
