@@ -76,7 +76,7 @@ for i in cities: #[0:1]:
 
 print(total)
 
-file_path = 'webpage/static/data/activities/activities_multiple_cities.json'
+file_path = 'static/data/activities/activities_multiple_cities.json'
 
 # Write the JSON data to the file
 with open(file_path, 'w') as file:

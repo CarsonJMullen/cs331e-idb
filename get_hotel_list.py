@@ -95,7 +95,7 @@ for i in cities: #[0:1]:
     print(i['iataCode'], 'done')
 
 
-file_path = 'webpage/static/data/hotels/hotel_list.json'
+file_path = 'static/data/hotels/hotel_list.json'
 
 # Write the JSON data to the file
 with open(file_path, 'w') as file:

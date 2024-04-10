@@ -47,7 +47,10 @@ def select(model, attr=None, value=None, page_limit=None, page=1, order_by=None,
     # Search
     if search != '00' and search:
         for i in search.split():
-            stmt = stmt.filter(model.name.ilike(f'%{i}%'))
+            if model == Activity:
+                stmt = stmt.filter(model.name.ilike(f'%{i}%') | model.description.ilike(f'%{i}%'))
+            elif model == Hotel:
+                stmt = stmt.filter(model.name.ilike(f'%{i}%'))
 
     # Convert SQLAlchemy object to a dictionary
     res = {}

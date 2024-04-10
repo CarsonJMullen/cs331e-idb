@@ -2,7 +2,7 @@ import gitlab
 import sys
 import json
 from datetime import datetime
-sys.path.insert(0, '..')
+sys.path.insert(0, '')
 from static.constants import names
 
 def is_updated(url, private_token, project_name, last_updated_date):
