@@ -41,14 +41,14 @@
             {% for i in city_list %}
                 <div class="col-sm-4 mb-4">
                     <div class="card border-0 shadow rounded">
-                      <img class="card-img-top" src="{{city_list[i].pictures[0]}}" alt="Picture of {{city_list[i].name}}" style="object-fit: cover;">
-                      <div class="card-body">
-                        <h5 class="card-title"><a href="{{url_for('city', iataCode=i)}}">{{city_list[i].name}}</a></h5>
-                      </div>
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Population: {{"{:,.0f}".format(city_list[i].population)}}</li>
-                        <li class="list-group-item">{{"Country: " + city_list[i].location}}</li>
-                      </ul>
+                        <img class="card-img-top" src="{{city_list[i].pictures[0]}}" alt="Picture of {{city_list[i].name}}" style="object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{{url_for('city', iataCode=i)}}">{{city_list[i].name}}</a></h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Population: {{"{:,.0f}".format(city_list[i].population)}}</li>
+                            <li class="list-group-item">{{"Country: " + city_list[i].location}}</li>
+                        </ul>
                     </div>
                 </div>
             {% endfor %}

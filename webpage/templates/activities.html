@@ -84,19 +84,20 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-9">
                 <div class="form-inline">
-                    <form action="{{url_for('activities', page=page, order_by=order_by, desc=desc, attr=attr, value=value, search=search)}}" method="post">
-                        <input type="text" class="form-control" name="search" placeholder="search anything related to travel to get you started">
+                    <form class="row" action="{{url_for('activities', page=page, order_by=order_by, desc=desc, attr=attr, value=value, search=search)}}" method="post">
+                        <div class="col-md-10"><input type="text" class="form-control" name="search" placeholder="search anything related to travel to get you started"></div>
+                        <div class="col-md-2"><button type="submit" class="btn btn-primary">Search</button></div>
                     </form>
                 </div>
             </div>
         </div>
         <br>
-        <div class="row g-0">
+        <div class="row">
             {% for i in activity_list %}
-                <div class="card col-md-4 mb-3">
-                    <div class="row g-0">
+                <div class="card col-md-4 mb-3 border-0">
+                    <div class="row g-0 shadow rounded border">
                         <div class="col-md-3">
                             <a href="{{url_for('activity', activity_id=i)}}"><img src="{{activity_list[i].pictures[0]}}" class=" rounded-start" alt="..."></a>
                         </div>
@@ -104,7 +105,7 @@
                             <div class="card-header"><a href="{{url_for('activity', activity_id=i)}}">{{activity_list[i].name}}</a></div>
                             <div class="row g-0">
                                 <div class="col-md-3">
-                                    <p class="card-text">City: {{activity_list[i].iataCode}}</p>
+                                    <p class="card-text">City: <a href="{{url_for('city', iataCode=activity_list[i].iataCode)}}">{{activity_list[i].iataCode}}</a></p>
                                 </div>
                                 <div class="col-md-3">
                                     <p class="card-text">Rating: {{activity_list[i].rating}}</p>

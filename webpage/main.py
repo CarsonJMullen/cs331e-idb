@@ -150,11 +150,15 @@ def this_hotel(hotel_id):
     return render_template('this_hotel.html', hotel=hotel_list[str(hotel_id)], activity_list=activity_list)
 
 
-@app.route('/hotels/page=<int:page>&order_by=<order_by>&desc=<int:desc>&attr=<attr>&value=<value>')
-def hotels(page, order_by, desc, attr, value):
-    hotel_list_filtered = select_dict(Hotel, page_limit=12, page=page, order_by=getattr(Hotel, order_by), desc=desc, attr=getattr(Hotel, attr), value=value)
-    count = len(select_dict(Hotel, attr=getattr(Hotel, attr), value=value))
-    return render_template('hotels.html', city_list=city_list ,hotel_list=hotel_list_filtered, count=count, page=page, order_by=order_by, desc=desc, attr=attr, value=value)
+@app.route('/hotels/page=<int:page>&order_by=<order_by>&desc=<int:desc>&attr=<attr>&value=<value>&search=<search>', methods=['GET', 'POST'])
+def hotels(page, order_by, desc, attr, value, search):
+    if request.method == 'POST':
+        search = request.form['search']
+        if search == '':
+            search = '00'
+    hotel_list_filtered = select_dict(Hotel, page_limit=12, page=page, order_by=getattr(Hotel, order_by), desc=desc, attr=getattr(Hotel, attr), value=value, search=search)
+    count = len(select_dict(Hotel, attr=getattr(Hotel, attr), value=value, search=search))
+    return render_template('hotels.html', city_list=city_list ,hotel_list=hotel_list_filtered, count=count, page=page, order_by=order_by, desc=desc, attr=attr, value=value, search=search)
 
 
 # Define API Endpoints
