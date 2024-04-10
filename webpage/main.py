@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 import json
 import os
-from user_info import get_gitlab_info, user_all_info, group_gitlab_info
+from user_info import for_about_page
 from static.constants import data_source, tools, postman_api
 from models import City, Activity, Flight, Hotel, FlightDetails
 from flask_sqlalchemy import SQLAlchemy
@@ -191,9 +191,7 @@ def get_cities():
 
 @app.route('/about/')
 def about():
-    all_stats = get_gitlab_info()
-    member_stats = user_all_info(all_stats)
-    group_stats = group_gitlab_info(all_stats)
+    member_stats, group_stats = for_about_page()
 
     return render_template('about.html', group_stats=group_stats, member_stats=member_stats, data_source=data_source,
                            tools=tools, postman_api=postman_api)

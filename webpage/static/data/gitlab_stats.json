@@ -1,0 +1,44 @@
+{
+    "url": "https://gitlab.com",
+    "private_token": "glpat-VsA7WN3PUsaSS5h9FCBr",
+    "project_name": "kkx2402GL/cs331e-idb",
+    "last_updated_date": "2024-4-9",
+    "members": {
+        "Carson Mullen": {
+            "image": "../static/images/people/CarsonImage.jpg",
+            "bio": "I am a third-year Business Analytics student at UT and am pursuing a career in Data Science.",
+            "responsibilities": "front-end, Amadeus API",
+            "unittests": 0,
+            "commits": 37,
+            "issues": 12
+        },
+        "Anjie Liu": {
+            "image": "../static/images/people/AnjieImage.jpeg",
+            "bio": "I am a sophomore Statistics and Data Science student at the University of Texas at Austin. I enjoy reading and exploring different things.",
+            "responsibilities": "front-end, GitLab API",
+            "unittests": 0,
+            "commits": 47,
+            "issues": 4
+        },
+        "Kenny Tian": {
+            "image": "../static/images/people/KennyImage.jpg",
+            "bio": "I am a senior biomedical engineering student at The University of Texas at Austin focusing on computiational biomedical engineering.",
+            "responsibilities": "front-end, Amadeus API",
+            "unittests": 0,
+            "commits": 45,
+            "issues": 9
+        },
+        "Kibam Kang": {
+            "image": "../static/images/people/KibamImage.jpeg",
+            "bio": "I am senior student at The University of Texas at Austin. I am a Mathmatician.",
+            "responsibilities": "team leader, front-end, Amadeus API",
+            "unittests": 15,
+            "commits": 36,
+            "issues": 14
+        }
+    },
+    "group": {
+        "commits": 164,
+        "issues": 39
+    }
+}
