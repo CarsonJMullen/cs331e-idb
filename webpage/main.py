@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for, jsonify, make_response, abort
 import json
 import os
 from user_info import get_gitlab_info, user_all_info, group_gitlab_info
@@ -26,6 +26,7 @@ db = SQLAlchemy(app)
 ########################################################################################################################
 #                                           load data                                                                  #
 ########################################################################################################################
+
 def select(model):
     stmt = db.select(model)
     res = []
@@ -152,41 +153,231 @@ def hotels(page, order_by, desc, attr, value):
 @app.route('/activities/get/', methods=['GET'])
 def get_activities():
     city_filter = request.args.get('city')
+    id_filter = request.args.get('id')
+    rating_filter = request.args.get('rating')
+    price_filter = request.args.get('price')
+    currency_filter = request.args.get('currency')
+
+    activities = db.session.query(Activity)
     if city_filter:
-        filtered_activities = [activity for activity in activity_list if activity['iataCode'] == city_filter]
-        return jsonify(filtered_activities)
-    else:
-        return jsonify(activity_list)
+        activities = activities.filter_by(iataCode = city_filter)
+    if id_filter:
+        activities = activities.filter_by(id = id_filter)
+    if rating_filter:
+        activities = activities.filter(Activity.rating >= rating_filter)
+    if price_filter:
+        activities = activities.filter(Activity.price_amount <= price_filter)
+    if currency_filter:
+        activities = activities.filter_by(price_currencyCode = currency_filter)
+        
+    response = []
+    for activity in activities:
+        response.append({
+            'id': activity.id, 
+            'name': activity.name,
+            'description': activity.description,
+            'rating': activity.rating,
+            'price_amount': activity.price_amount,
+            'price_currencyCode': activity.price_currencyCode,
+            'pictures': activity.pictures,
+            'bookingLink': activity.bookingLink,
+            'iataCode': activity.iataCode
+        })
+    return make_response({'activities':response}, 200)
+
+
+@app.route('/activities/get/<int:a_id>/', methods=['GET'])
+def get_one_activity(a_id):
+    activity = db.session.query(Activity).filter_by(id = str(a_id)).first()
+    response = {
+        'id': activity.id, 
+        'name': activity.name,
+        'description': activity.description,
+        'rating': activity.rating,
+        'price_amount': activity.price_amount,
+        'price_currencyCode': activity.price_currencyCode,
+        'pictures': activity.pictures,
+        'bookingLink': activity.bookingLink,
+        'iataCode': activity.iataCode
+    }
+    return make_response(response, 200)
 
 
 @app.route('/hotels/get/', methods=['GET'])
 def get_hotels():
+
+    hotels = db.session.query(Hotel)
+    
     city_filter = request.args.get('city')
+    id_filter = request.args.get('id')
+    rating_filter = request.args.get('rating')
+
     if city_filter:
-        filtered_hotels = [h for h in hotel_list if h['iataCode'] == city_filter]
-        return jsonify(filtered_hotels)
-    else:
-        return jsonify(hotel_list)
+        hotels = hotels.filter_by(iataCode = city_filter)
+    if id_filter:
+        hotels = hotels.filter_by(id = id_filter)
+    if rating_filter:
+        hotels = hotels.filter(Hotel.rating >= rating_filter)
+        
+    response = []
+    for hotel in hotels:
+        response.append({
+            'id': hotel.id, 
+            'name': hotel.name,
+            'latitude': hotel.latitude,
+            'longitude': hotel.longitude,
+            'amenities': hotel.amenities,
+            'rating': hotel.rating,
+            'iataCode': hotel.iataCode
+        })
+    return make_response({'hotels':response}, 200)
+
+
+@app.route('/hotels/get/<string:h_id>/', methods=['GET'])
+def get_one_hotel(h_id):
+    hotel = db.session.query(Hotel).filter_by(id = h_id).first_or_404()
+    response = {
+            'id': hotel.id, 
+            'name': hotel.name,
+            'latitude': hotel.latitude,
+            'longitude': hotel.longitude,
+            'amenities': hotel.amenities,
+            'rating': hotel.rating,
+            'iataCode': hotel.iataCode
+    }
+    return make_response(response, 200)
 
 
 @app.route('/flights/get/', methods=['GET'])
 def get_flights():
+    flights = db.session.query(Flight)
+    
     city_filter = request.args.get('city')
+    id_filter = request.args.get('id')
+    airline_filter = request.args.get('airline')
+
     if city_filter:
-        filtered_flights = [f for f in flights_list if f['arrival_city'] == city_filter]
-        return jsonify(filtered_flights)
-    else:
-        return jsonify(flights_list)
+        flights = flights.filter_by(arrival_city = city_filter)
+    if id_filter:
+        flights = flights.filter_by(id = id_filter)
+    if airline_filter:
+        flights = flights.filter_by(airline=airline_filter)
+    
+    response = []
+    for flight in flights:
+        response.append({
+            'id': flight.id, 
+            'departure_airport': flight.departure_airport,
+            'arrival_airport': flight.arrival_airport,
+            'arrival_city': flight.arrival_city,
+            'price': flight.price,
+            'seats_left': flight.seats_left,
+            'duration': flight.duration,
+            'num_legs': flight.num_legs,
+            'departure_time': flight.departure_time,
+            'arrival_time': flight.arrival_time,
+            'airline': flight.airline
+        })
+    return make_response({'flights':response}, 200)
+
+
+@app.route('/flights/get/<int:f_id>/', methods=['GET'])
+def get_one_flight(f_id):
+    flight = db.session.query(Flight).filter_by(id = str(f_id)).first_or_404()
+    response = {
+            'id': flight.id, 
+            'departure_airport': flight.departure_airport,
+            'arrival_airport': flight.arrival_airport,
+            'arrival_city': flight.arrival_city,
+            'price': flight.price,
+            'seats_left': flight.seats_left,
+            'duration': flight.duration,
+            'num_legs': flight.num_legs,
+            'departure_time': flight.departure_time,
+            'arrival_time': flight.arrival_time,
+            'airline': flight.airline
+    }
+    return make_response(response, 200)
 
 
 @app.route('/flight_details/get/', methods=['GET'])
 def get_flightdetails():
-    return jsonify(flight_details)
+    flight_details = db.session.query(FlightDetails)
+    
+    id_filter = request.args.get('id')
+    group_filter = request.args.get('group')
+    airline_filter = request.args.get('airline')
+
+    if id_filter:
+        flight_details = flight_details.filter_by(id = id_filter)
+    if airline_filter:
+        flight_details = flight_details.filter_by(airline = airline_filter)
+    if group_filter:
+        flight_details = flight_details.filter_by(flight_group = group_filter)
+    
+    response = []
+    for flight_detail in flight_details:
+        response.append({
+            'id': flight_detail.id, 
+            'flight_group': flight_detail.flight_group,
+            'flight_number': flight_detail.flight_number,
+            'departure_airport': flight_detail.departure_airport,
+            'departure_time': flight_detail.departure_time,
+            'arrival_airport': flight_detail.arrival_airport,
+            'arrival_time': flight_detail.arrival_time,
+            'arrival_terminal': flight_detail.arrival_terminal,
+            'flight_duration': flight_detail.flight_duration,
+            'airline': flight_detail.airline
+        })
+    return make_response({'flight_details':response}, 200)
+
+@app.route('/flight_details/get/<int:fd_id>/', methods=['GET'])
+def get_one_flight_detail(fd_id):
+    flight_detail = db.session.query(FlightDetails).filter_by(id = str(fd_id)).first_or_404()
+    response = {
+            'id': flight_detail.id, 
+            'flight_group': flight_detail.flight_group,
+            'flight_number': flight_detail.flight_number,
+            'departure_airport': flight_detail.departure_airport,
+            'departure_time': flight_detail.departure_time,
+            'arrival_airport': flight_detail.arrival_airport,
+            'arrival_time': flight_detail.arrival_time,
+            'arrival_terminal': flight_detail.arrival_terminal,
+            'flight_duration': flight_detail.flight_duration,
+            'airline': flight_detail.airline
+    }
+    return make_response(response, 200)
 
 
 @app.route('/cities/get/', methods=['GET'])
 def get_cities():
-    return jsonify(city_list)
+    cities = db.session.query(City)
+    
+    response = []
+    for city in cities:
+        response.append({
+            'id': city.id, 
+            'name': city.name,
+            'population': city.population,
+            'location': city.location,
+            'pictures': city.pictures,
+        })
+    return make_response({'cities':response}, 200)
+
+
+@app.route('/cities/get/<string:c_id>/', methods=['GET'])
+def get_one_city(c_id):
+    city = db.session.query(City).filter_by(id = c_id).first_or_404()
+    
+    response = {
+            'id': city.id, 
+            'name': city.name,
+            'population': city.population,
+            'location': city.location,
+            'pictures': city.pictures,
+    }
+
+    return make_response({'hotels':response}, 200)
 
 
 @app.route('/about/')
