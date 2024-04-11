@@ -53,6 +53,8 @@ def select(model, attr=None, value=None, page_limit=None, page=1, order_by=None,
                 stmt = stmt.filter(model.name.ilike(f'%{i}%') | model.location.ilike(f'%{i}%'))
             elif model == Hotel:
                 stmt = stmt.filter(model.name.ilike(f'%{i}%'))
+            elif model == Flight:
+                stmt = stmt.filter(model.airline.ilike(f'%{i}%'))
 
     # Convert SQLAlchemy object to a dictionary
     res = {}
@@ -130,12 +132,16 @@ def single_flight(flight_id):
     flight_details = select(FlightDetails, attr=FlightDetails.flight_group, value=flight_id)
     return render_template('single_flight.html', flight=flights_list[flight_id], fd=flight_details.values())
 
-@app.route('/flights/page=<int:page>&order_by=<order_by>&desc=<int:desc>&attr=<attr>&value=<value>')
-def flights(page, order_by, desc, attr, value):
-    flight_list_limit = select(Flight, page_limit=10, page=page, order_by=getattr(Flight, order_by), desc=desc, attr=getattr(Flight, attr), value=value)
-    count = len(select(Flight, attr=getattr(Flight, attr), value=value))
+@app.route('/flights/page=<int:page>&order_by=<order_by>&desc=<int:desc>&attr=<attr>&value=<value>&search=<search>', methods=['GET', 'POST'])
+def flights(page, order_by, desc, attr, value, search):
+    if request.method == 'POST':
+        search = request.form['search']
+        if search == '':
+            search = ' '
+    flight_list_limit = select(Flight, page_limit=10, page=page, order_by=getattr(Flight, order_by), desc=desc, attr=getattr(Flight, attr), value=value, search=search)
+    count = len(select(Flight, attr=getattr(Flight, attr), value=value, search=search))
     airline_list = select_distinct(Flight.airline)
-    return render_template('flights.html', city_list=city_list, flight_list = flight_list_limit.values(), airline_list=airline_list, count=count, page=page, order_by=order_by, desc=desc, attr=attr, value=value)
+    return render_template('flights.html', city_list=city_list, flight_list = flight_list_limit.values(), airline_list=airline_list, count=count, page=page, order_by=order_by, desc=desc, attr=attr, value=value, search=search)
 
 @app.route('/hotels/id=<string:hotel_id>')
 def this_hotel(hotel_id):
