@@ -54,7 +54,7 @@ def select(model, attr=None, value=None, page_limit=None, page=1, order_by=None,
             elif model == Hotel:
                 stmt = stmt.filter(model.name.ilike(f'%{i}%'))
             elif model == Flight:
-                stmt = stmt.filter(model.airline.ilike(f'%{i}%'))
+                stmt = stmt.filter(model.airline.ilike(f'%{i}%') | model.arrival_city.ilike(f'%{i}%'))
 
     # Convert SQLAlchemy object to a dictionary
     res = {}
