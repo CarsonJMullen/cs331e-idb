@@ -9,7 +9,7 @@
             "bio": "I am a third-year Business Analytics student at UT and am pursuing a career in Data Science.",
             "responsibilities": "front-end, back=end, Amadeus API",
             "unittests": 0,
-            "commits": 39,
+            "commits": 42,
             "issues": 12
         },
         "Anjie Liu": {
@@ -20,14 +20,6 @@
             "commits": 52,
             "issues": 4
         },
-        "Kenny Tian": {
-            "image": "../static/images/people/KennyImage.jpg",
-            "bio": "I am a senior biomedical engineering student at The University of Texas at Austin focusing on computiational biomedical engineering.",
-            "responsibilities": "front-end, back-end, Amadeus API",
-            "unittests": 0,
-            "commits": 58,
-            "issues": 10
-        },
         "Kibam Kang": {
             "image": "../static/images/people/KibamImage.jpeg",
             "bio": "I am a senior Math Major at The University of Texas at Austin.",
@@ -35,10 +27,18 @@
             "unittests": 15,
             "commits": 38,
             "issues": 15
+        },
+        "Kenny Tian": {
+            "image": "../static/images/people/KennyImage.jpg",
+            "bio": "I am a senior biomedical engineering student at The University of Texas at Austin focusing on computiational biomedical engineering.",
+            "responsibilities": "front-end, back-end, Amadeus API",
+            "unittests": 0,
+            "commits": 62,
+            "issues": 10
         }
     },
     "group": {
-        "commits": 186,
+        "commits": 194,
         "issues": 41
     }
 }

@@ -215,15 +215,15 @@
             {% endfor %}
         </div>
 
+        <h1 id="subtitle" class="text-white display-1">Presentation</h1>
+        <div class="text-center">
+            <a class="btn btn-secondary" href="https://speakerdeck.com/tianken/toptravel" role="button">Presentation</a>
+        </div>
+
         <h1 id="subtitle" class="text-white display-1">Unit Tests</h1>
-
-        <button class="button btn-circle" onclick="redirectToNextPage()">Click Me!</button>
-
-        <script>
-            function redirectToNextPage() {
-                window.location.href = "{{ url_for('unittest') }}"; // Use Flask's url_for to generate the URL
-            }
-        </script>
+        <div class="text-center">
+            <a class="btn btn-secondary" href="{{url_for('unittest')}}" role="button">unittests</a>
+        </div>
 
     </div>
     {% endblock %}
