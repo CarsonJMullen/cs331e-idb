@@ -49,6 +49,8 @@ def select(model, attr=None, value=None, page_limit=None, page=1, order_by=None,
         for i in search.split():
             if model == Activity:
                 stmt = stmt.filter(model.name.ilike(f'%{i}%') | model.description.ilike(f'%{i}%'))
+            elif model == City:
+                stmt = stmt.filter(model.name.ilike(f'%{i}%') | model.location.ilike(f'%{i}%'))
             elif model == Hotel:
                 stmt = stmt.filter(model.name.ilike(f'%{i}%'))
 
@@ -95,10 +97,15 @@ def city(iataCode):
     return render_template('city.html', city=city_list[iataCode], activity_list=activity_list, hotel_list=hotel_list)
 
 
-@app.route('/cities/order_by=<order_by>&desc=<int:desc>')
-def cities(order_by, desc):
-    city_list = select(City, order_by=getattr(City, order_by), desc=desc)
-    return render_template('cities.html', city_list=city_list, order_by=order_by, desc=desc)
+@app.route('/cities/order_by=<order_by>&desc=<int:desc>&attr=<attr>&value=<value>&search=<search>', methods=['GET', 'POST'])
+def cities(order_by, desc, attr, value, search):
+    if request.method == 'POST':
+        search = request.form['search']
+        if search == '':
+            search = ' '
+    city_list = select(City, order_by=getattr(City, order_by), desc=desc, attr=getattr(City, attr), value=value, search=search)
+    cont_list = select_distinct(City.location)
+    return render_template('cities.html', city_list=city_list, cont_list=cont_list, order_by=order_by, desc=desc, attr=attr, value=value, search=search)
 
 
 @app.route('/activities/id=<int:activity_id>')
@@ -112,7 +119,7 @@ def activities(page, order_by, desc, attr, value, search):
     if request.method == 'POST':
         search = request.form['search']
         if search == '':
-            search = '00'
+            search = ' '
     activity_list = select(Activity, page_limit=12, page=page, order_by=getattr(Activity, order_by), desc=desc, attr=getattr(Activity, attr), value=value, search=search)
     count = len(select(Activity, attr=getattr(Activity, attr), value=value, search=search))
     curr_list = select_distinct(Activity.price_currencyCode)

@@ -22,8 +22,15 @@
         p{
             text-align:center;
         }
+        .card-h{
+            text-decoration: none;
+            color: inherit;
+        }
         .sub-menu:hover .filter-menu {
           display: block;
+        }
+        h1{
+            top-margin:0%;
         }
     </style>
     <meta charset="UTF-8">
@@ -43,9 +50,9 @@
     <div class="main">
         <h1>Hotels</h1>
         <div class="row">
-            <div class="dropdown col-md-2">
+            <div class="dropdown col-auto">
                 {% set order = {'name': 'Name', 'iataCode': 'City', 'rating': 'Rating', 'id': 'None'} %}
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sort By: {{order[order_by]}}</button>
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sort By: {{order[order_by]}}</button>
                 <ul class="dropdown-menu">
                     {% for i in order %}
                     <li><a class="dropdown-item" href="{{url_for('hotels', page=1, order_by=i, desc=desc, attr=attr, value=value, search=search)}}">{{order[i]}}</a></li>
@@ -53,17 +60,17 @@
                 </ul>
             </div>
 
-            <div class="dropdown col-md-2">
+            <div class="dropdown col-auto">
                 {% set asc = {0: 'Ascending', 1: 'Descending'} %}
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Order By: {{asc[desc]}}</button>
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Order By: {{asc[desc]}}</button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{{url_for('hotels', page=page, order_by=order_by, desc=False, attr=attr, value=value, search=search)}}">Ascending</a></li>
                     <li><a class="dropdown-item" href="{{url_for('hotels', page=page, order_by=order_by, desc=True, attr=attr, value=value, search=search)}}">Descending</a></li>
                 </ul>
             </div>
 
-            <div class="dropdown col-md-2">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter By: {{order[attr]}} {{value}}</button>
+            <div class="dropdown col-auto">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter By: {{order[attr]}} {{value}}</button>
                 <ul class="dropdown-menu filter-menu">
                     <li class="sub-menu"><a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">City</a>
                         <ul class="dropdown-menu filter-menu">
@@ -82,11 +89,11 @@
                     <li><a class="dropdown-item" href="{{url_for('hotels', page=page, order_by=order_by, desc=False, attr='id', value=' ', search=search)}}">None</a></li>
                 </ul>
             </div>
-            <div class="col-md-6">
+            <div class="col-auto">
                 <div class="form-inline">
                     <form class="row" action="{{url_for('hotels', page=page, order_by=order_by, desc=desc, attr=attr, value=value, search=search)}}" method="post">
-                        <div class="col-md-10"><input type="text" class="form-control" name="search" placeholder="search anything related to travel to get you started"></div>
-                        <div class="col-md-2"><button type="submit" class="btn btn-primary">Search</button></div>
+                        <div class="col-md-10"><input type="text" class="form-control" name="search" placeholder="{{search}}"></div>
+                        <div class="col-md-2"><button type="submit" class="btn btn-secondary">Search</button></div>
                     </form>
                 </div>
             </div>
@@ -100,7 +107,7 @@
                             <a href="{{url_for('this_hotel', hotel_id=i)}}"><img src="{{city_list[hotel_list[i].iataCode].pictures[0]}}" class=" rounded-start" alt="..."></a>
                         </div>
                         <div class="col-md-9">
-                            <div class="card-header"><a href="{{url_for('this_hotel', hotel_id=i)}}">{{hotel_list[i].name}}</a></div>
+                            <div class="card-header"><a href="{{url_for('this_hotel', hotel_id=i)}}" class="card-h">{{hotel_list[i].name}}</a></div>
                             <div class="row g-0">
                                 <div class="col-md-3">
                                     <p class="card-text">City: <a href="{{url_for('city', iataCode=hotel_list[i].iataCode)}}">{{hotel_list[i].iataCode}}</a></p>

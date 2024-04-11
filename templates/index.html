@@ -85,28 +85,20 @@
     <div class="container">
         <h1 class="mb-4 title">Top Travel&nbsp;</h1>
 
-
         <div class="row">
-            {% for i, j in [("Cities", "cities/order_by=name&desc=0"), ("Activities", "activities/page=1&order_by=id&desc=0&attr=id&value=%20&search=%20"), ("Flights", "flights/page=1&order_by=id&desc=0&attr=id&value=%20"), ("Hotels", "hotels/page=1&order_by=id&desc=0&attr=id&value=%20&search=%20"), ("About", "about")] %}
+            {% for i, j in [("Cities", "cities/order_by=name&desc=0&attr=id&value=%20&search=%20"), ("Activities", "activities/page=1&order_by=id&desc=0&attr=id&value=%20&search=%20"), ("Flights", "flights/page=1&order_by=id&desc=0&attr=id&value=%20"), ("Hotels", "hotels/page=1&order_by=id&desc=0&attr=id&value=%20&search=%20"), ("About", "about")] %}
             <div class="col">
                 <a href={{j}} class="text-decoration-none"><button type="button" class="square"> {{ i }}</button></a>
             </div>
             {% endfor %}
         </div>
 
-
         <form id="searchForm">
             <div class="form-group row">
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="search anything related to travel to get you started">
             </div>
         </form>
-
-
-
-
     </div>
-
-
     {% endblock %}
 </body>
 </html>

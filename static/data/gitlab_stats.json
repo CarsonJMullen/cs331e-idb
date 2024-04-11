@@ -25,7 +25,7 @@
             "bio": "I am a senior biomedical engineering student at The University of Texas at Austin focusing on computiational biomedical engineering.",
             "responsibilities": "front-end, back-end, Amadeus API",
             "unittests": 0,
-            "commits": 52,
+            "commits": 58,
             "issues": 10
         },
         "Kibam Kang": {
@@ -38,7 +38,7 @@
         }
     },
     "group": {
-        "commits": 181,
+        "commits": 186,
         "issues": 41
     }
 }
