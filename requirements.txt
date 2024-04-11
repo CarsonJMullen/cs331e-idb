@@ -9,3 +9,4 @@ requests==2.25.0
 SQLAlchemy==1.4.52
 gunicorn==19.7.1
 coverage==4.2
+python==3.11.4
