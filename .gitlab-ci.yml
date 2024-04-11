@@ -13,7 +13,7 @@ variables:
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: postgres
   POSTGRES_HOST_AUTH_METHOD: trust
-  DB_STRING: "postgresql+psycopg2://postgres:postgres@/toptraveldb?host=/cloudsql/cs331e-idb-415104:us-central1:toptravel"
+  DB_STRING: "postgresql+psycopg2://postgres:postgres@/toptraveldb?host=/cloudsql/cs331e-proj:us-central1:cs331e"
 
 before_script:
     - date
@@ -25,4 +25,4 @@ before_script:
 test:
   script:
     - ls
-#  - python3 test.py
+    - python3 test.py

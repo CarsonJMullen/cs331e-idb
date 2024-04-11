@@ -1,0 +1,1178 @@
+commit 5d974158559cf379a5c76f43d8acd5d43f3e720e
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Apr 10 20:40:17 2024 -0500
+
+    changed link to find more flights and hotels
+
+commit 4b6253e6a1d201f8d748b862918a35eb496dd37f
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Apr 10 20:34:12 2024 -0500
+
+    added flight search thru arrival cities
+
+commit 27b222c147ba1803faa89b34f3c3a37c1c265afc
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Apr 10 20:05:38 2024 -0500
+
+    Removed search bar on home
+
+commit 220b663dc70a43957b04dec1323e21b137d55afc
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Apr 10 20:02:08 2024 -0500
+
+    Added search to flights
+
+commit 76a344a18f54633f6055c0837bd87b2463e0f26f
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Apr 10 19:50:08 2024 -0500
+
+    Added commas to population
+
+commit 6f56c207a8bc0ae38a81ec4e0b66dc2c2f659d58
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Apr 10 19:44:06 2024 -0500
+
+    Fized many formatting
+
+commit 2a654e7cb9ee93ec9b2dbba685d544d7052aafcc
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Apr 10 13:59:58 2024 -0500
+
+    Added amenity icons
+
+commit c1e1b6ca5f79b91352b7f70f18f2500560ded7a2
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Apr 10 13:34:21 2024 -0500
+
+    Move to page 1 after search
+
+commit 5c818e7a790523516eab6af2deb385ac46a3d59e
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Apr 10 13:31:15 2024 -0500
+
+    Improved formatting on model pages
+
+commit 9e6d8ed80283418804c7a8c56fc394a177861457
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Apr 10 11:38:37 2024 -0500
+
+    Fix pipeline
+
+commit b8a7076d206e8170c4b8f12aa683e18a85c74b44
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Apr 10 11:36:32 2024 -0500
+
+    Remove unused files and renamed existing files
+
+commit eb527f18eca46aaf57c9666792d422df2ef5b9a0
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Apr 10 11:26:52 2024 -0500
+
+    Removed webpage folder
+
+commit ad8b9effd64c49c26dcfda327e8cc2bfa9e3b078
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Apr 10 02:59:10 2024 -0500
+
+    Made flight pages work link to activities and hotels correctly
+
+commit dcba5eb79b480e298f2922133c3712fc5f6a0acb
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Apr 10 01:36:03 2024 -0500
+
+    Fixed formatting of activities and added search to hotels
+
+commit a21fc03ccdb0a6582fa75a27f49603cdd4b68da2
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Tue Apr 9 23:53:04 2024 -0500
+
+    Changed formatting of search bar
+
+commit f940aadea4a8c8731f4d1daedd2923a38d8617a1
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Tue Apr 9 23:35:15 2024 -0500
+
+    Fixed empty search bug
+
+commit 235d40bc533c42eefcecf1b675b12b9bdcd8aaf6
+Merge: 2168cfe d768a1a
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Tue Apr 9 23:33:42 2024 -0500
+
+    Merge branch 'main' of https://gitlab.com/kkx2402GL/cs331e-idb
+
+commit d768a1ac24f24e2b79f4b7cc88d55d4ab74e1a1c
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Tue Apr 9 23:32:57 2024 -0500
+
+    updated about page
+
+commit 2168cfeed5732955bf460737c01e2a6c13e7aa81
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Tue Apr 9 23:21:24 2024 -0500
+
+    Added search bar to Activities
+
+commit e8d9de1d1d791829c0a07fa6cd032c7afff23825
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Tue Apr 9 22:34:04 2024 -0500
+
+    Updated hotels formatting
+
+commit c7481992c4a5b44a70d95258eeff6cab29a5f074
+Author: Anjie Liu <anjieliu@wireless-10-154-60-215.public.utexas.edu>
+Date:   Tue Apr 9 22:25:59 2024 -0500
+
+    fix gitlab stats json
+
+commit f40c4d372a1ce69aa84433cf3c86a334e21b3e8c
+Merge: 5ddbe75 6777621
+Author: Anjie Liu <anjieliu@wireless-10-154-60-215.public.utexas.edu>
+Date:   Tue Apr 9 22:22:40 2024 -0500
+
+    can't push
+
+commit 5ddbe75dd1afd5d2e0fc231d381c059304bb8c71
+Author: Anjie Liu <anjieliu@wireless-10-154-60-215.public.utexas.edu>
+Date:   Tue Apr 9 22:19:40 2024 -0500
+
+    index page: dark to light image
+
+commit 67776213b1dbbda278075ce53a17c61e27b25620
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Tue Apr 9 22:03:35 2024 -0500
+
+    Updated format for activities
+
+commit b347acc262db6624288563a6bcd14959a5489abf
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Tue Apr 9 22:01:05 2024 -0500
+
+    created dynamic js google map
+
+commit ca5bf4ad1af1ad62af233728e4111fdd0d3a28f0
+Merge: 065d5a8 303275c
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Tue Apr 9 21:55:36 2024 -0500
+
+    Merge branch 'main' of https://gitlab.com/kkx2402GL/cs331e-idb
+
+commit 065d5a8745d4d1cb1d6a7dcf35f9c500467c871a
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Tue Apr 9 21:55:04 2024 -0500
+
+    implements 10 APIs: get one and get all for all 5 models"
+
+commit 303275ce4323d0288b06b8d973b7e49014ae5e35
+Author: Anjie Liu <anjieliu@wireless-10-154-60-215.public.utexas.edu>
+Date:   Tue Apr 9 20:56:21 2024 -0500
+
+    about page: font for windows; font shadow
+
+commit 36b1cb17a22e3e456ca05b4763f25bac951379d5
+Author: Anjie Liu <anjieliu@wireless-10-154-60-215.public.utexas.edu>
+Date:   Tue Apr 9 20:48:42 2024 -0500
+
+    about page: improve the overall structure for a faster loading time when there's no new commits
+
+commit 72a5776013bb13cd3a4af7e8ea5b9a0eec3fc47a
+Author: Anjie Liu <anjieliu@wireless-10-154-60-215.public.utexas.edu>
+Date:   Tue Apr 9 19:41:21 2024 -0500
+
+    index page: full image cover regardless of screen dimension; cursive font for windows
+
+commit c4d7ba53be46655d6f0501d6761124a80279884c
+Author: kibam kang <kkx2402@gmail.com>
+Date:   Wed Apr 10 00:02:06 2024 +0000
+
+    Update .gitlab-ci.yml
+
+commit 9f420c09d82732019fd52e911f20966ac75cdfc5
+Author: Anjie Liu <anjieliu@wireless-10-148-87-112.public.utexas.edu>
+Date:   Sun Apr 7 22:15:29 2024 -0500
+
+    font in windows
+
+commit 4a4e95ba7163d12d67c1f6f7bfcc047a704d8b46
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sun Apr 7 16:27:45 2024 -0500
+
+    Fixed hotel link on flight pages
+
+commit fa945f6ba7f9dfaadf9cdb94fd6ac59369e72dd2
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Sun Apr 7 16:24:25 2024 -0500
+
+    fixed hotel pages error
+
+commit fef49602a8c509c528cb23d87f1e85772cfd7a84
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Sun Apr 7 16:20:54 2024 -0500
+
+    added filtering and sorting to flights, added two more days of flight data, changed price type to numeric in models.py
+
+commit e3e8487234916b4a750d345716e1ca37a3371e83
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Sun Apr 7 15:50:56 2024 -0500
+
+    fixed nav and city page for hotel links
+
+commit 290a3f2bc0bb031824939b06ef0b3500142965f5
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Sun Apr 7 15:43:33 2024 -0500
+
+    added filter & sort for hotel page
+
+commit 40f5e05e275b2bc3cdc82cf383f62d0cc56bfded
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sun Apr 7 15:27:27 2024 -0500
+
+    Fixed home page
+
+commit 0cf02f8263973d7767b8c303b55f9bddb4c37a50
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sun Apr 7 15:25:02 2024 -0500
+
+    Added sorting to Cities
+
+commit 77beaf0301daab5c02bfd00ed5c5be3ab89592a9
+Author: Anjie Liu <anjieliu@wireless-10-148-87-112.public.utexas.edu>
+Date:   Sun Apr 7 15:01:08 2024 -0500
+
+    added google-like search bar
+
+commit 8cfbeef8a24b9a55ae5d45f5608cf5011ace4f09
+Author: Anjie Liu <anjieliu@wireless-10-148-87-112.public.utexas.edu>
+Date:   Sun Apr 7 14:24:45 2024 -0500
+
+    index page: shift link from text to button
+
+commit 09853662c3ad8172f8af3d00ac43f03f428ea3f0
+Author: Anjie Liu <anjieliu@wireless-10-148-87-112.public.utexas.edu>
+Date:   Sun Apr 7 14:15:47 2024 -0500
+
+    fixed the title differences in safari and google chrome
+
+commit b30f9a222339bc3c5b2b6a553ea4e80fd9fe4f0a
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sun Apr 7 14:06:49 2024 -0500
+
+    Made filter option more obvious
+
+commit 12a70a21603ef75dcce6d8e2911bd675689a3069
+Author: Anjie Liu <anjieliu@wireless-10-148-87-112.public.utexas.edu>
+Date:   Sun Apr 7 13:47:12 2024 -0500
+
+    create_db
+
+commit 716aa91fd8d012c5dab56c2e81891051944a7bba
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sun Apr 7 13:31:53 2024 -0500
+
+    Added option to filter activities by currency code and updated links on flights to match
+
+commit 22af03ca5767c75a0e985ec7de8219387e7adc80
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Apr 6 21:46:40 2024 -0500
+
+    Reformatted select_dict for readability
+
+commit a2c446291293cfb5781e71c096c43ce2d754944c
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Apr 6 21:29:12 2024 -0500
+
+    Added the option to filter activity by city
+
+commit 082ceee33a91c80dac472131a6219d4847411703
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Apr 6 20:27:40 2024 -0500
+
+    Sorting on all Activity attributes
+
+commit bc2469c63eccbbef86374d48d471d90b3ad8bada
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Apr 6 20:06:23 2024 -0500
+
+    Added sorting by name to Activities
+
+commit 207ac78492c741610d7d9c40fc930833e44f5510
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Apr 3 11:25:33 2024 -0500
+
+    Create new select function that returns a dictionary. Changed city and activity to use this new function
+
+commit e7f1223451d2a6f4b21c8878a82826a9c2681bad
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Mar 27 23:48:15 2024 -0500
+
+    update app.yml
+
+commit 0ba62db6afe4f4e7779936ca8db46ccc3cbf91bc
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Mar 27 23:32:01 2024 -0500
+
+    fixed requirements.txt?
+
+commit 753cbac1878f3f972d2c3a21fdbabbc6ca877f68
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Mar 27 23:28:47 2024 -0500
+
+    update requirements.txt
+
+commit b453b0132b4a19eaf4f1fb5d8bbb65e82351f84b
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Mar 27 23:23:59 2024 -0500
+
+    fixed yml pt4
+
+commit 0eb83ade0f59feec6b8a63a1d4d6c464624c54cf
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Mar 27 23:23:11 2024 -0500
+
+    fixed yml pt3
+
+commit 75fa1081c604d7669be40880c8f401bdab333b66
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Mar 27 23:20:08 2024 -0500
+
+    fixed yml error pt 2
+
+commit ac29616f53f8f79b4a91d8de81d502f306a83f16
+Merge: 6fe3992 f492843
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Mar 27 23:18:26 2024 -0500
+
+    Merge branch 'main' of https://gitlab.com/kkx2402GL/cs331e-idb
+
+commit 6fe3992c086a209d92b7dbbbe43f676bd8d75f46
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Mar 27 23:18:02 2024 -0500
+
+    fix yml
+
+commit f492843b799c1eb9c0158490960493435e834025
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Mar 27 23:13:47 2024 -0500
+
+    updated requests version
+
+commit f7e6a4ceaaaadbf3dabfc8b65ff69d395cdebef3
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Mar 27 23:09:51 2024 -0500
+
+    added requirements.txt to base folder
+
+commit df521c823c8f3915e4391c465e9da321579df93f
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Mar 27 23:05:33 2024 -0500
+
+    added IDB2.log
+
+commit 165f87da264ce8046d8236bb58d370c52d9993f9
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Mar 27 23:01:06 2024 -0500
+
+    yml file added
+
+commit 3b3e9c1e9ff7b3f21dee8d18f0ced6064cae6924
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Mar 27 22:59:50 2024 -0500
+
+    updated requirement.txt
+
+commit 71f8f12dc67472fd12d61581463d9128597def08
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Mar 27 22:57:33 2024 -0500
+
+    updated makefile added new log
+
+commit e15d17d388b6368f2dabb5c2e9e844f13afc3c7c
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Mar 27 22:48:29 2024 -0500
+
+    Added page for unittest screenshot
+
+commit 8dffb68d267692ec9119f4345ea52c7fca570f05
+Author: Anjie Liu <anjieliu@wireless-10-154-138-65.public.utexas.edu>
+Date:   Wed Mar 27 22:46:52 2024 -0500
+
+    postman api collections
+
+commit ff23d5d03d535bb2711f634f7a7e2c503db43721
+Merge: 7be890e 9186f47
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Mar 27 22:45:00 2024 -0500
+
+    merged
+
+commit 7be890e4cf7ebb79dd34c07091c0cc81ddf1eba6
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Mar 27 22:43:12 2024 -0500
+
+    added intial api endpoints
+
+commit 9186f473381cff7aed9e6530d2524cdff1c321f6
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Mar 27 22:41:13 2024 -0500
+
+    screenshot
+
+commit 01e62767cd78235854c14b5b8fcbf64cc52d8662
+Author: Anjie Liu <anjieliu@wireless-10-154-138-65.public.utexas.edu>
+Date:   Wed Mar 27 22:33:32 2024 -0500
+
+    button for unittest
+
+commit e1538ba698c28de1dcd942084d3aaa28862af8e4
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Mar 27 21:57:38 2024 -0500
+
+    finish unittest and add gitlab-ci.yml
+
+commit 1be99a4d0481defd5e04e2dac51bbab167a592fb
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Mar 27 21:47:08 2024 -0500
+
+    added unittest flight and activity
+
+commit 4268d20ccf732846dac40c8ef5e2658bab868a45
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Mar 27 21:28:11 2024 -0500
+
+    insert,delete,update city unittest
+
+commit ad1bf33e0161a970a96bda0db076e2977c307501
+Author: Anjie Liu <anjieliu@wireless-10-154-138-65.public.utexas.edu>
+Date:   Wed Mar 27 20:26:06 2024 -0500
+
+    updated the link to flights on index page
+
+commit 48f5e173ccd29001929413a6c0e5bd062a0cd585
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Mar 27 20:23:57 2024 -0500
+
+    Fixed cities and formatting
+
+commit 0da1add715991c449aa8223eea8b6f9d4f326599
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Mar 27 20:17:25 2024 -0500
+
+    unittest for city finished
+
+commit a552d9961fc6b43ff33f775dac716b13c1a7b6cd
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Mar 27 20:08:52 2024 -0500
+
+    Removed bad entries from activities
+
+commit da960c416bd18646072431bbdcb7181116a72d8c
+Author: Anjie Liu <anjieliu@wireless-10-154-138-65.public.utexas.edu>
+Date:   Wed Mar 27 19:54:12 2024 -0500
+
+    commits count
+
+commit 9a4607985052d697fba6ac2183989e1f8689a31b
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Mar 27 19:37:19 2024 -0500
+
+    add flight schedule and implemented db to single_flight.html
+
+commit 1e06359a1b56111003d769cf3c3beed8b6d2fe56
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Mar 27 18:28:54 2024 -0500
+
+    connect flight.html to toptraveldb and added pagination
+
+commit 986d16f87ace87ea562b2b7a498d30663283665d
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Mar 27 12:35:50 2024 -0500
+
+    added flight_details table
+
+commit 2da0e54b9a3a0ba06d1948b00af0863c1729d494
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Tue Mar 26 23:21:09 2024 -0500
+
+    Changed FCO to ROM
+
+commit 7de8bb59e3ab727f9cf4a05dce76c6b095114e97
+Merge: e5b343e 9c0e7a3
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Tue Mar 26 23:06:36 2024 -0500
+
+    Merge branch 'main' of https://gitlab.com/kkx2402GL/cs331e-idb
+
+commit e5b343e054e8233ec09c5370377a8bccff01d646
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Tue Mar 26 23:06:22 2024 -0500
+
+    updated jsons, changed FCO to ROM, updated create_db.py, and added flight_functions.py
+
+commit 9c0e7a3c2076a71e2da47ac26563e80cad95f25d
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Tue Mar 26 23:01:56 2024 -0500
+
+    updated hotel db
+
+commit 716410fe956bcd7ca8e11f98f8c9c1f0da99ce10
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Tue Mar 26 22:52:13 2024 -0500
+
+    create_db.py deletes tables before adding
+
+commit 96a4028fddcf1b8dd0caca386484c7264892a3a7
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Tue Mar 26 22:14:09 2024 -0500
+
+     Added select function to get data from GCP
+
+commit 0d3caa17a7153380039e77d063aef754e4bd13dc
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Tue Mar 26 22:02:27 2024 -0500
+
+    fixed get json hotel list
+
+commit 36b9af13386ef9fadc548019df8f622b16319206
+Merge: 9db4ed1 b8daa0e
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Tue Mar 26 21:41:53 2024 -0500
+
+    fixmaps
+
+commit b8daa0e6bfa00ef483fc9bb94c970af4b4dae9d6
+Author: Anjie Liu <anjieliu@wireless-10-148-23-74.public.utexas.edu>
+Date:   Tue Mar 26 21:39:06 2024 -0500
+
+    updated navbar and index page
+
+commit 9db4ed1421d2c27b1a58dc1c60743994355a0d35
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Tue Mar 26 21:37:41 2024 -0500
+
+    updated maps for hotel
+
+commit cc5afe3867e42529f0e1bc6ba152d3b5235d862f
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Tue Mar 26 20:46:51 2024 -0500
+
+    fixed typo
+
+commit e0f65d8c6c6b922b2d06f03b6d120a3081ff8ecb
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Tue Mar 26 20:46:20 2024 -0500
+
+    load flight jsons into create_db.py
+
+commit bdc917eb7a76b3c8e4e562e7bc1a9de58ce14754
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Tue Mar 26 20:45:47 2024 -0500
+
+    load flight jsons into create_db.py
+
+commit 0a3f260f3f8674e208ea565f3cb29ad005a7cfcf
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Tue Mar 26 20:39:36 2024 -0500
+
+    pull flights data
+
+commit 456f59a3e55c99158e3f5325dc41ad0d6df90f9f
+Author: Anjie Liu <anjieliu@wireless-10-148-23-74.public.utexas.edu>
+Date:   Tue Mar 26 20:11:38 2024 -0500
+
+    set up unittest file
+
+commit 87329ba5cd2d7ab645a569619c3c266da7e5b627
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Tue Mar 26 19:50:30 2024 -0500
+
+    added models Flights and Flight_details
+
+commit 49ed1a62f2d88800b5e68bc4e59da7bbc4ef7217
+Merge: 58a2f2d 82db333
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Tue Mar 26 19:43:26 2024 -0500
+
+    Merge branch 'main' of https://gitlab.com/kkx2402GL/cs331e-idb
+
+commit 58a2f2d7d2e08145deb16dab84533d4e2b11e0ee
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Tue Mar 26 19:41:43 2024 -0500
+
+    fixed link to hotels and activites on single_flight.html
+
+commit 82db3334c4c40f29b81f3a5f87fa6e71ff1dd7c2
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Tue Mar 26 18:52:54 2024 -0500
+
+    Removed unnecessary lines from html files
+
+commit 7d9ac7c0f2c618875da924dc8cd5dcdaf6e271a2
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Tue Mar 26 17:40:06 2024 -0500
+
+    Fized activity descriptions to display the tags
+
+commit 7bd8e33e7e39333a54a38b86dbb56d3a3aeb6054
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Mon Mar 25 10:38:01 2024 -0500
+
+    Optimized data types for models
+
+commit 77f9bfe089fbf373b79c7fb80493ea69f3cf1ff5
+Author: Anjie Liu <anjieliu@wireless-10-148-66-210.public.utexas.edu>
+Date:   Sun Mar 24 16:47:32 2024 -0500
+
+    fixed the index page bug
+
+commit 88c0ab5b1e252ac3074eca961085c30688bd4d65
+Author: Anjie Liu <anjieliu@wireless-10-148-66-210.public.utexas.edu>
+Date:   Sun Mar 24 16:39:28 2024 -0500
+
+    aesthetic in about.html
+
+commit 435b4657cd4157e97fac67f55e2155462eee6fad
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sun Mar 24 16:25:56 2024 -0500
+
+    Added create_db.py to at entries to the database
+
+commit 4f726e5e68df6d669ffdcc299b9441c9e9738917
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sun Mar 24 14:34:43 2024 -0500
+
+    Changed Athens to Marseille
+
+commit 356eb426094b6ba5993a016a89a89b7014791169
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Sun Mar 24 14:27:20 2024 -0500
+
+    fixed hotel json
+
+commit 06f8c4b8e43482427aad00c019df89b7e50a1879
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sun Mar 24 13:52:57 2024 -0500
+
+    Added models.py to to create database models
+
+commit f945a878269bcc924e31a8e4942262368d1755ae
+Author: Anjie Liu <anjieliu@wireless-10-148-66-210.public.utexas.edu>
+Date:   Sun Mar 24 13:03:41 2024 -0500
+
+    update app.yaml
+
+commit 7237337bd570a413116875954959421859f45173
+Author: Anjie Liu <anjieliu@wireless-10-148-66-210.public.utexas.edu>
+Date:   Sun Mar 24 12:59:24 2024 -0500
+
+    update postgres instance on app.yaml
+
+commit 6f4e28341a1604b01a390fb64ff0bc7d2e7cc818
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Mar 23 16:57:30 2024 -0500
+
+    Pagination bar indicates current page and added one additional element to center it
+
+commit d3ae329287ecb2e5835ba2edd1466b8589222fd1
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Mar 23 16:42:49 2024 -0500
+
+    Actually started page at 1
+
+commit 8c07571cb7ee95935862cb654426c58ca45d63f4
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Mar 23 16:41:06 2024 -0500
+
+    Activity pages start with 1
+
+commit 38e862809475cce4eb94ec18bc59c902c2fda8dc
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Mar 23 16:31:43 2024 -0500
+
+    Added pagination to activities
+
+commit 082521e980272729a6987bb751491d218c304037
+Author: Anjie Liu <anjieliu@wireless-10-148-34-18.public.utexas.edu>
+Date:   Mon Mar 18 21:09:48 2024 -0500
+
+    fixed navbar issue when screen is small
+
+commit 6a04cc0ad844a33f5a188d07c3e1648ff136b1b3
+Author: Anjie Liu <anjieliu@wireless-10-148-34-18.public.utexas.edu>
+Date:   Mon Mar 18 17:42:13 2024 -0500
+
+    adjust card visuals in cities.html
+
+commit 9542d371c11427d36603cc0ef34244d7b41d6196
+Author: Anjie Liu <anjieliu@wireless-10-148-34-18.public.utexas.edu>
+Date:   Mon Mar 18 15:54:36 2024 -0500
+
+    updated city images
+
+commit 9ef21acd6100e2f0edb9252e7264bd82b750c8a8
+Author: Anjie Liu <anjieliu@wireless-10-148-34-18.public.utexas.edu>
+Date:   Mon Mar 18 14:56:48 2024 -0500
+
+    added cities.json
+
+commit 8ac887e5758f6e74ff5ae1615f2ae1ad44981667
+Author: Anjie Liu <anjieliu@wireless-10-148-34-18.public.utexas.edu>
+Date:   Mon Mar 18 14:54:08 2024 -0500
+
+    deleted unused files
+
+commit e934a0608fa3dd1291e471b4f2d728daa17cfdf8
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Feb 24 15:25:58 2024 -0600
+
+    Added more cities cards
+
+commit 906bfa06d9cf25af2706f1fe635d75aa5d24adfa
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Feb 24 14:43:39 2024 -0600
+
+    Added more cities to activities
+
+commit 82927e518024494a9c261d90fca8dbc3ca10e301
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Sat Feb 24 14:32:30 2024 -0600
+
+    implemented loading json from api
+
+commit 4d5f5286f4cf76cdd8f45239101f68c12e7d8e7f
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Sat Feb 24 13:54:01 2024 -0600
+
+    added pull_flight_data.py and hid api keys via .env
+
+commit e925df8194d89e665d8657196500fb86481d75b2
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 22:49:38 2024 -0600
+
+    why
+
+commit 2e5efddc663136fcd9bc362de027543d0181948f
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 22:44:06 2024 -0600
+
+    refactor requirements
+
+commit 6d0993105d639fb0ba8d07c1fe207f8b3a097110
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 22:38:14 2024 -0600
+
+    refactor app.yaml
+
+commit 901820c95e10478340ce8b026d4c36c820bd9430
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 22:34:21 2024 -0600
+
+    app.yaml
+
+commit ed13150720907b4189aed3956f8c2f5fe2032157
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 22:23:44 2024 -0600
+
+    gunicorn
+
+commit c44ee235afcd3a70097b5432183bae7ef1d2a43b
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Feb 21 21:59:06 2024 -0600
+
+    fixed requirements bug #3
+
+commit bdcd0130e0f1615b5b0abfc98ea3c84b28c67e63
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Feb 21 21:55:19 2024 -0600
+
+    fixed requirements 2nd Bug
+
+commit ea9c73f54cfb276119fe66582fcd08e5c89f6a24
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Feb 21 21:51:00 2024 -0600
+
+    fixed requirements.txt
+
+commit ca6faf83312fe2de76b692a790c178c4b3573f0e
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Feb 21 21:43:18 2024 -0600
+
+    app.yaml
+
+commit 747ccfb45e97c00d07a874aac26336ce7a494e8f
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Feb 21 21:12:51 2024 -0600
+
+    added make file with git log
+
+commit 91fdef68ae3e9243163e2891cb4d46ef36268001
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 20:43:07 2024 -0600
+
+    about page done (finalized data source)
+
+commit bc9231cac3fe08936a0fccd0f933182b233b28ac
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Feb 21 20:40:30 2024 -0600
+
+    updated amadeus data source
+
+commit 3b19d9cd7ab44415194319ad0eaa4604e682c507
+Merge: c860b03 caadbb6
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Feb 21 20:31:25 2024 -0600
+
+    Merge branch 'main' of https://gitlab.com/kkx2402GL/cs331e-idb
+    The maps were added to hotels page.
+
+commit c860b039235060651c5f788115c544c62dae5591
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Feb 21 20:31:21 2024 -0600
+
+    updated maps for hotels
+
+commit caadbb6c993d17b5e38311e539ba53bd0d36409c
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 20:26:40 2024 -0600
+
+    responsibility, data source, tools update
+
+commit 794ba7cbc62e009807807d9e93fdd4f9ab64b6cb
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 20:21:31 2024 -0600
+
+    group name top travelers
+
+commit b074bf3b2f0b4e320acb2ee5a8e9e553aa392567
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Feb 21 20:11:57 2024 -0600
+
+    added data source
+
+commit fc0d7e3ca065732778c75373eb669c2a5ffc4b75
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Feb 21 20:02:25 2024 -0600
+
+    added flight schedule in more information
+
+commit 7f05f477352528399869d73e45a8475abdaba74a
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 19:15:27 2024 -0600
+
+    main page done
+
+commit fb3ca92f31152cc81af3a2a253cfa537109ddb1c
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Feb 21 19:09:28 2024 -0600
+
+    fixed Amenities and added links to activites and hotels
+
+commit 3a43f41a7d9ffa2f43808ce45681f227f427db25
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Feb 21 17:31:37 2024 -0600
+
+    created single_flight.html and created function to convert airport iata to city iata
+
+commit acbbe4ca015fd4220d9974bc296cee92bf46eb9f
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Feb 21 16:07:03 2024 -0600
+
+    removed list comprehension and flight preprocessing in main.py
+
+commit 1f1f81656055bb4bdd7619fef827a513d68f8675
+Merge: 91055b4 a39e490
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Feb 21 16:01:32 2024 -0600
+
+    Merge branch 'main' of https://gitlab.com/kkx2402GL/cs331e-idb
+
+commit a39e4902832b5b55e5e846f4def0482ca8af33b4
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Feb 21 16:00:18 2024 -0600
+
+    finished bio by kibam kang
+
+commit 91055b4a0ec068dccfe7de78ce535bec176b2b0a
+Merge: 8308f2c 8f92f29
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Feb 21 15:59:35 2024 -0600
+
+    Merge branch 'main' of https://gitlab.com/kkx2402GL/cs331e-idb
+
+commit 8308f2c26680a122890e214ab75d385db599f02e
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Feb 21 15:59:29 2024 -0600
+
+    rewrote flights.html to add city relation
+
+commit 8f92f29c73fd3f57e99e5496065ea05157ddf934
+Merge: 7512f0e ce2cb9f
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Feb 21 15:48:02 2024 -0600
+
+    Merge branch 'main' of https://gitlab.com/kkx2402GL/cs331e-idb
+
+commit 7512f0e47cf7eae57bf3cb5ff1ea85de8bbaab24
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Wed Feb 21 15:47:31 2024 -0600
+
+    hotel pages finished without maps
+
+commit ce2cb9f0413b1db65b194e932719a86f72b72ea7
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Feb 21 12:07:46 2024 -0600
+
+    use bootstrap5 instead of 4
+
+commit 41b4e66cdc0cb0e6e387d6787eebd06bcbdef694
+Merge: 96d0e3f 2578c37
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Feb 21 11:21:32 2024 -0600
+
+    added picture and bio
+
+commit 96d0e3f4382b2ed938a9d34880ee88aa24699b33
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Feb 21 11:14:50 2024 -0600
+
+    added picture and bio
+
+commit 2578c3708f87235deda21347cb879daf851badca
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 11:10:02 2024 -0600
+
+    about page set up done
+
+commit 9d365d5e90ad6824533604ba5372ef3647e4e0e0
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 10:58:54 2024 -0600
+
+    about page update tools (done, for now)
+
+commit 56c2286d026fd0b09ea561d4075936d34b1d49ec
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 10:23:08 2024 -0600
+
+    about page card width
+
+commit de920aa82fb21bfa83f3e7e8ee17f0132abebae0
+Merge: 8b7e698 a7e0215
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 10:07:10 2024 -0600
+
+    merge conflict
+
+commit 8b7e6989b67781f1ea67b61f0dfda0abb9a4d075
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 10:03:27 2024 -0600
+
+    import constatns issue fixed
+
+commit a7e02153f38dc5dc56ea6d123079389eef2c8d70
+Merge: debf56b 83c2bf6
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Feb 21 09:48:43 2024 -0600
+
+    Merge branch 'main' of https://gitlab.com/kkx2402GL/cs331e-idb
+
+commit debf56ba988ea0ffefa9ae06e71e0e9fc489d96a
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Feb 21 09:48:02 2024 -0600
+
+    created basic layout for hotel pages
+
+commit 83c2bf641aaf0a8833dda5a84f88337e81f7d8bc
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 09:47:34 2024 -0600
+
+    fixed about page navbar margin issue
+
+commit 14b560b90335b2caa22811a502ea6fca68b1aa90
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Wed Feb 21 09:28:10 2024 -0600
+
+    update about page with data and tools sections
+
+commit 9f3585cecc4577a3358e6ee7ba1f1b59e7f30dc9
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Tue Feb 20 14:28:28 2024 -0600
+
+    fixed hotel links and added info to about page
+
+commit 62888b0d6b2d52a2564b82b16a5f3763b1653eda
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Mon Feb 19 11:49:56 2024 -0600
+
+    used Bootstrap tables for individual activity and city pages
+
+commit 2c791ea78e6d2c75d336fe08e4b4c4258306c6f2
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Mon Feb 19 10:04:19 2024 -0600
+
+    changed cities page to use cards
+
+commit 124b83130479556f8225ad231ecd47f3b19ae770
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Sun Feb 18 12:56:04 2024 -0600
+
+    about sort cards
+
+commit fb21bc6a3c008ca872f39387bd3c8616121e4d08
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Sat Feb 17 23:45:28 2024 -0600
+
+    about page set up stage half done
+
+commit 55ca4fc8d2f9bf725ca97fc78624f651f21f9f12
+Merge: d987eaf 85d16d1
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Sat Feb 17 21:13:05 2024 -0600
+
+    about merge conflict
+
+commit d987eaf42fa87825b705996bb3e625e6e6e5b18d
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Sat Feb 17 21:08:50 2024 -0600
+
+    about manual input
+
+commit 85d16d1d6054d26725021546798d3ba169d430dc
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Feb 17 16:32:26 2024 -0600
+
+    change city to use iataCodes
+
+commit 6e66de5cbbbe3752bf77d6cf4798cf47d50f4c44
+Merge: 54aaaee 2fb77a0
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Sat Feb 17 15:35:42 2024 -0600
+
+    merged main.py from divergent branches
+
+commit 54aaaee33acbf3450596e8377ba432a1ea2ddf16
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Sat Feb 17 15:33:10 2024 -0600
+
+    add static folder and flights table webpage
+
+commit 2fb77a004b982cd74800ee60815eee528fb109ab
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Sat Feb 17 15:30:15 2024 -0600
+
+    about update in main
+
+commit 2b567eff3b851e74955760da639661c443f536c8
+Merge: 4b4b3bc cb5eb3f
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Sat Feb 17 15:29:26 2024 -0600
+
+    about
+
+commit 4b4b3bc5b36abd9b0f497692ce6d7d8fbd3cbe80
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Sat Feb 17 15:26:05 2024 -0600
+
+    about
+
+commit cb5eb3f39771a4234ae6bb9f11f7158720b7b83f
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Feb 17 15:21:58 2024 -0600
+
+    integrated hotels with city
+
+commit b4d1045fc6cf2ac3340d9ed34d927f155de39f68
+Merge: f7e057b 96326ad
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Sat Feb 17 15:18:18 2024 -0600
+
+    Merge branch 'main' of https://gitlab.com/kkx2402GL/cs331e-idb
+
+commit f7e057b0626c561e0c32feb11abd689744906e3b
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Sat Feb 17 15:17:50 2024 -0600
+
+    hotel basic structure complete
+
+commit 96326adc9bc8fe58c16e9edf4c1cb14f31fd73b3
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Feb 17 15:12:06 2024 -0600
+
+    completed cities page
+
+commit f1e1211530e59f04907b5fffe8787865e4688a4b
+Merge: 8d65515 e7ed82a
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Sat Feb 17 14:25:47 2024 -0600
+
+    Merge branch 'main' of https://gitlab.com/kkx2402GL/cs331e-idb
+
+commit 8d6551587be8cee81f6beac30ebb0a5a7bd6c04e
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Sat Feb 17 14:24:43 2024 -0600
+
+    main.py fix comments
+
+commit e7ed82a2cc737e73b81ce7d60d150d7505023b0a
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Feb 17 14:16:10 2024 -0600
+
+    individual activity page
+
+commit 593de66ba3c8b322985b4f46f29970cc443121f8
+Author: Kibam Kang <kkx2402@gmail.com>
+Date:   Sat Feb 17 13:55:45 2024 -0600
+
+    hotel list data manually recieved from api
+
+commit a7934b7ce7138e03216e7217b83f6f0de3d5984d
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Sat Feb 17 13:11:33 2024 -0600
+
+    added flight data for BER NYC and PAR
+
+commit 7f91e4da39cc4e4d9b7f636c9064c98dabb3e0b8
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Feb 17 13:02:19 2024 -0600
+
+    hotel.html
+
+commit b9e86823ab72aad732fe8e61b5f501812d275049
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Sat Feb 17 12:54:28 2024 -0600
+
+    about page set up
+
+commit 5ae2daa4ac7a9583633999bba9e9b151bc92d9ad
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Sat Feb 17 12:39:22 2024 -0600
+
+    template for website
+
+commit e684e3275579791f3a0629e2638b2b78788f5823
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Sat Feb 17 12:17:06 2024 -0600
+
+    update multiple cities for tours and activities
+
+commit 6e87aba867b5f2f8ee01b6f5f82ebb8c7a1401b8
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Fri Feb 16 17:06:58 2024 -0600
+
+    JSON result from 'activities_multiple_cities.py'
+
+commit 729780f0c91404a7453a43cfe735ca3583cb8390
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Fri Feb 16 17:04:52 2024 -0600
+
+    tours and activities API with multiple cities
+
+commit b5711e5aa20532ef938235ddcebeaf25320f3e42
+Author: Anjie Liu <anjieliu@cs.utexas.edu>
+Date:   Fri Feb 16 13:45:38 2024 -0600
+
+    tours and activities
+
+commit a2af4837185d0f95bb9723f5b6f0c7ccbd4e15fb
+Author: kibam kang <kkx2402@gmail.com>
+Date:   Fri Feb 16 18:32:28 2024 +0000
+
+    Initial commit
