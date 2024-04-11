@@ -9,8 +9,8 @@ from flask_sqlalchemy import SQLAlchemy
 # Google Cloud SQL (change this accordingly)
 USER = "postgres"
 PASSWORD = "postgres"
-PUBLIC_IP_ADDRESS = "34.72.239.112"
-# PUBLIC_IP_ADDRESS = "localhost"
+# PUBLIC_IP_ADDRESS = "34.72.239.112"
+PUBLIC_IP_ADDRESS = "localhost"
 DBNAME = "toptraveldb"
 
 app = Flask(__name__)
@@ -146,7 +146,10 @@ def flights(page, order_by, desc, attr, value, search):
 @app.route('/hotels/id=<string:hotel_id>')
 def this_hotel(hotel_id):
     activity_list = select(Activity, Activity.iataCode, hotel_list[str(hotel_id)]['iataCode'], page_limit=10, order_by=Activity.rating, desc=True)
-    return render_template('this_hotel.html', hotel=hotel_list[str(hotel_id)], activity_list=activity_list)
+    hotel = hotel_list[str(hotel_id)]
+    hotel['latitude'] = float(hotel['latitude'])
+    hotel['longitude'] = float(hotel['longitude'])
+    return render_template('this_hotel.html', hotel=hotel, activity_list=activity_list)
 
 
 @app.route('/hotels/page=<int:page>&order_by=<order_by>&desc=<int:desc>&attr=<attr>&value=<value>&search=<search>', methods=['GET', 'POST'])
