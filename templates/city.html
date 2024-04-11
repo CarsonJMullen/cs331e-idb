@@ -31,7 +31,7 @@
                 <tr><td colspan="3"><img src="{{city.pictures[0]}}"></td></tr>
                 <tr>
                     <td class="w-25"><div class="attribute"><span>Population</span></div></td>
-                    <td><div class="info"><span>{{city.population}}</span></div></td>
+                    <td><div class="info"><span>{{"{:,.0f}".format(city.population)}}</span></div></td>
                 </tr>
                 <tr>
                     <td><div class="attribute"><span>Country</span></div></td>
