@@ -1,3 +1,57 @@
+commit 39be5db13fb07dc2c5cc7985e360054e92961c6f
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Thu Apr 11 01:19:25 2024 -0500
+
+    Use GCP database
+
+commit ea12a400fe6f344878fcde506f29c4a4a2940644
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Thu Apr 11 01:18:16 2024 -0500
+
+    lat long to float
+
+commit 1fc367f6c330488b5a6d8fb351925849282c16d1
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Thu Apr 11 00:21:00 2024 -0500
+
+    changed numeric types to floats to be able to converted to jsons
+
+commit 85c1cb0cf60175218ebfc7e7b33b0782308ff653
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Thu Apr 11 00:01:56 2024 -0500
+
+    trying this
+
+commit 8e427bc6b79eed478c392716d1d91228a872fe59
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Thu Apr 11 00:00:05 2024 -0500
+
+    fixed app.yaml typo
+
+commit e4c233b0653696d3b3385891cd554b5ef6a4bc70
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Apr 10 23:56:57 2024 -0500
+
+    restored requirements.txt and changed app.yaml to require higher version of python
+
+commit 024e277f7c0e2e46e2e4339232372c1d0cf1ab9e
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Apr 10 23:48:09 2024 -0500
+
+    added python requirement to requirement.txt
+
+commit abc8e912b0d6317b2019c478c2582488888f2907
+Author: Kenny Tian <tianken1347@utexas.edu>
+Date:   Wed Apr 10 21:37:02 2024 -0500
+
+    Added presentation to about
+
+commit 7896aa16ee50f3124d897fd26c89ff6c06cb95bc
+Author: Carson Mullen <carson.mullen.107@gmail.com>
+Date:   Wed Apr 10 21:27:24 2024 -0500
+
+    changed files to deploy to GCP
+
 commit 5d974158559cf379a5c76f43d8acd5d43f3e720e
 Author: Carson Mullen <carson.mullen.107@gmail.com>
 Date:   Wed Apr 10 20:40:17 2024 -0500
